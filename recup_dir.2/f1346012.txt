@@ -1,0 +1,16 @@
+ép	*|calc	537
+*|símbolo del sistema	*|cmd	1
+*|task scheduler	*|schedule task	6216
+*|task scheduler	*|tasksch	6209
+*|taskbar icon	*|robo	1
+*|team foundation server administration console	*|tfs	604
+*|teamspeak 3 client	*|team,	7973
+*|teamspeak 3 client	*|tea,	6460
+*|teamspeak 3 client	*|ts3	4848
+*|teamviewer 10	*|team viewer	7533
+*|teamviewer 10	*|tea,	6373
+*|teamviewer 11	*|team viewer	6770
+*|teamviewer 11	*|tea,	6393
+*|techpowerup gpu-z	*|gpu z	3867
+*|techpowerup gpu-z	*|gpuz	2309
+*|telegram	*|

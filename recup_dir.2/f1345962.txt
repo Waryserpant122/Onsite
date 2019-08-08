@@ -1,0 +1,177 @@
+*|netflix	*|neet	8493
+*|netflix	*|nert	8920
+*|netflix	*|net'	8478
+*|netflix	*|net]	9316
+*|netflix	*|netd	9406
+*|netflix	*|nety	9284
+*|netflix	*|next	9423
+*|netflix	*|nnet	9103
+*|news	*|newa	4869
+*|nexus mod manager	*|nmm	5798
+*|nightly	*|firefox	2664
+*|node.js command prompt	*|cmd	714
+*|nomachine	*|nx	2689
+*|notepad	*|where is notepad	10127
+*|notepad	*|open notepad	7755
+*|notepad	*|notepad.exe	8195
+*|notepad	*|text editor	8950
+*|notepad	*|note book	9558
+*|notepad	*|note pade	10247
+*|notepad	*|nnotepad	9233
+*|notepad	*|nootepad	9289
+*|notepad	*|textedit	9974
+*|notepad	*|notedpad	8679
+*|notepad	*|noteepad	9001
+*|notepad	*|notenote	9737
+*|notepad	*|noteopad	9781
+*|notepad	*|notep[ad	9241
+*|notepad	*|notepaad	8967
+*|notepad	*|notepad'	9252
+*|notepad	*|notepoad	9415
+*|notepad	*|notepad4	9913
+*|notepad	*|notepada	10239
+*|notepad	*|notepadd	8232
+*|notepad	*|notepade	7644
+*|notepad	*|notepadf	8774
+*|notepad	*|notepado	9585
+*|notepad	*|notepads	8878
+*|notepad	*|notepafd	9998
+*|notepad	*|notepaid	10148
+*|notepad	*|noptepad	9353
+*|notepad	*|note[pad	9967
+*|notepad	*|notepasd	8713
+*|notepad	*|noteppad	9768
+*|notepad	*|noterpad	9922
+*|notepad	*|notespad	10237
+*|notepad	*|noteapad	8793
+*|notepad	*|notrepad	10009
+*|notepad	*|rnotepad	10186
+*|notepad	*|noitepad	9939
+*|notepad	*|text pad	9873
+*|notepad	*|notebook	6395
+*|notepad	*|nitepad	9659
+*|notepad	*|note[ad	7662
+*|notepad	*|botepad	9697
+*|notepad	*|notepsd	10136
+*|notepad	*|motepad	9317
+*|notepad	*|noteoad	8712
+*|notepad	*|notepag	9351
+*|notepad	*|notepda	8832
+*|notepad	*|textpad	7916
+*|notepad	*|notepat	9325
+*|notepad	*|not pad	9234
+*|notepad	*|noteapd	7159
+*|notepad	*|notapad	9726
+*|notepad	*|notpead	8568
+*|notepad	*|nodepad	9628
+*|notepad	*|notepar	10086
+*|notepad	*|notwpad	10072
+*|notepad	*|noyepad	10188
+*|notepad	*|notebad	9196
+*|notepad	*|noetpad	8558
+*|notepad	*|nptepad	10116
+*|notepad	*|notrpad	9885
+*|notepad	*|ntoepad	8055
+*|notepad	*|norepad	9398
+*|notepad	*|notote	9659
+*|notepad	*|notete	8703
+*|notepad	*|notead	7570
+*|notepad	*|noepad	7985
+*|notepad	*|ntepad	8634
+*|notepad	*|notpad	6075
+*|notepad	*|notepe	10165
+*|notepad	*|nopad	10229
+*|notepad	*|note]	9981
+*|notepad	*|notwe	8584
+*|notepad	*|note'	9394
+*|notepad	*|notye	9250
+*|notepad	*|nbote	10086
+*|notepad	*|bloco	8815
+*|notepad	*|n ote	9604
+*|notepad	*|notas	9415
+*|notepad	*|niote	9335
+*|notepad	*|notew	8237
+*|notepad	*|notte	8348
+*|notepad	*|nope	8473
+*|notepad	*|noyr	9163
+*|notepad	*|klad	8513
+*|notepad	*|memo	7421
+*|notepad	*|noyt	9500
+*|notepad	*|mpte	9691
+*|notepad	*|npo	9508
+*|notepad	*|nog	10032
+*|notepad	*|txt	8213
+*|notepad++	*|notepad ++	6610
+*|notepad++	*|note++	7946
+*|notepad++	*|note[	7498
+*|notisblokk	*|notepad	738
+*|odbc data sources (32-bit)	*|odbcad32	3967
+*|on-screen keyboard	*|on screen keyboard	5873
+*|on-screen keyboard	*|onscreen keyboard	7091
+*|on-screen keyboard	*|virtual keyboard	6429
+*|on-screen keyboard	*|key board	7268
+*|on-screen keyboard	*|keybord	6827
+*|on-screen keyboard	*|teclado	7480
+*|on-screen keyboard	*|osk	3439
+*|onedrive	*|microsoft one drive	6941
+*|onedrive	*|microsoft onedrive	6545
+*|onedrive	*|microsoft cloud	7413
+*|onedrive	*|one drive	2316
+*|onedrive	*|sky drive	7317
+*|onedrive	*|the cloud	7808
+*|onedrive	*|onedirve	7196
+*|onedrive	*|skydrive	5748
+*|onedrive	*|onedrie	7504
+*|onedrive	*|cloud	4031
+*|onedrive	*|onede	7358
+*|onedrive for business	*|one drive for business	5097
+*|onedrive for business	*|groove	5240
+*|onedrive for business 2013	*|one drive for business	4574
+*|onenote	*|one note	4390
+*|onenote 2013	*|open onenote	7278
+*|onenote 2013	*|one note	2575
+*|onenote 2013	*|ontenote	7561
+*|onenote 2013	*|onentoe	7590
+*|onenote 2013	*|onenoe	7063
+*|onenote 2013	*|onnote	7478
+*|onenote 2016	*|one note	2905
+*|onenote 2016	*|ontenote	7199
+*|onenote 2016	*|onenoe	6990
+*|onenote 2016	*|onnote	7351
+*|opdrachtprompt	*|cmd	1
+*|open broadcaster software (32bit)	*|obs	410
+*|open broadcaster software (64bit)	*|obs	428
+*|openoffice	*|open office	4199
+*|openoffice writer	*|open office	4502
+*|oracle vm virtualbox	*|virtual box	6691
+*|origin	*|orgin	5977
+*|outlook 2013	*|microsoft outlook	6733
+*|outlook 2013	*|microsoft office	7016
+*|outlook 2013	*|open outlook	7369
+*|outlook 2013	*|outlook2013	8670
+*|outlook 2013	*|ms office	9028
+*|outlook 2013	*|outlook'	8860
+*|outlook 2013	*|outllook	8424
+*|outlook 2013	*|outloook	7560
+*|outlook 2013	*|calendar	7737
+*|outlook 2013	*|outlook.	8565
+*|outlook 2013	*|out look	8852
+*|outlook 2013	*|outlokk	8070
+*|outlook 2013	*|outlool	7989
+*|outlook 2013	*|outllok	7203
+*|outlook 2013	*|outook	7739
+*|outlook 2013	*|office	5946
+*|outlook 2013	*|oulook	7466
+*|outlook 2013	*|email	5367
+*|outlook 2013	*|outut	8027
+*|outlook 2013	*|out'	8690
+*|outlook 2013	*|ou't	8502
+*|outlook 2013	*|ouit	8294
+*|outlook 2013	*|oout	8167
+*|outlook 2013	*|oiut	8588
+*|outlook 2013	*|mail	5094
+*|outlook 2013	*|outt	8175
+*|outlook 2013	*|outy	8216
+*|outlook 2013	*|ouut	8566
+*|outlook 2013	*|ouyt	8460
+*|outlook 2013	*

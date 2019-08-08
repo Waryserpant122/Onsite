@@ -1,0 +1,6 @@
+nformation on how the Replica is being maintained. Values are: 
+2 - 'Full Copy': This indicates that a full copy of the source object is (or will be) generated . 
+3 - 'Before Delta': This indicates that the source object will be maintained as a delta data from the replica. 
+4 - 'After Delta': This indicates that the replica will be maintained as delta data from the source object. 
+5 - 'Log': This indicates that the replica object is being maintained as a log of changes to the source. 
+0 - 'Not Specified': The method of maintaining the copy is not specified.

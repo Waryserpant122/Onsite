@@ -1,0 +1,11 @@
+l
+last-modified: Fri, 21 Jun 2019 22:05:05 GMT
+vary: Accept-Encoding
+expires: Thu, 31 Dec 2037 23:55:55 GMT
+cache-control: max-age=315360000
+access-control-allow-origin: *
+content-encoding: gzip
+content-length: 976
+date: Mon, 24 Jun 2019 09:57:26 GMT
+strict-transport-security: max-age=15768000 ; preload
+X-Firefox-Spdy: h2

@@ -1,0 +1,7 @@
+tive Failure': indicates that the storage pool is functioning nominally but predicting a failure in the near future. 
+11 - 'In Service': describes a storage pool being configured, maintained, or otherwise administered. 
+12 - 'No Contact': indicates that the storage provider has knowledge of this storage pool, but has never been able to establish communications with it. 
+13 - 'Lost Communication': indicates that the storage pool is known to exist and has been contacted successfully in the past, but is currently unreachable. 
+10 - 'Stopped' and 14 - 'Aborted' are similar, although the former implies a clean and orderly stop, while the latter implies an abrupt stop where the state and configuration of the storage pool might need to be updated. 
+15 - 'Dormant': indicates that the storage pool is inactive. 
+16 - 'Supporting Entity in Error': indicates that this storage pool might be OK, but that another element, on which it is dependent, is in error. 

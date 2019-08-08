@@ -1,0 +1,3 @@
+ of 6 "IPv4 Link Local" shall indicate the values were assigned using the IPv4 Link Local protocol. See RFC 3927.
+A value of 7 "DHCPv6" shall indicate the values were assigned using DHCPv6. See RFC 3315. 
+A value of 8 "IPv6 AutoConfig" shall indicate the values were assinged using the IPv6 AutoConfig Protocol. See RFC 4862.

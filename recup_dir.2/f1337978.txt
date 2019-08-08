@@ -1,0 +1,4 @@
+" AsciiCode="89">
+<Point Point_X="0.842969" Point_Y="0.170833" Delay="300" IsMutex="1" MutexVal="1"/>
+<Point Point_X="0.808594" Point_Y="0.170833" Delay="300" IsMutex="1" MutexVal="0"/>
+<SwitchOperation Description="

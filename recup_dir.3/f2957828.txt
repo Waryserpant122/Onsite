@@ -1,0 +1,5 @@
+ is available but some MAY be degraded. 
+"Degraded/Warning" (10) - The element is in working order and all functionality is provided. However, the element is not working to the best of its abilities. For example, the element may not be operating at optimal performance or it may be reporting recoverable errors. 
+"OK" (5) - The element is fully functional and is operating within normal operational parameters and without error. 
+"Unknown" (0) - The implementation can not report on HealthState at this time. 
+DMTF has reserved the unused portion of the continuum for additional HealthStates in the future.

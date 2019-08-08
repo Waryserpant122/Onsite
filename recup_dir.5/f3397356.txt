@@ -1,0 +1,14 @@
+anges: bytes
+content-type: image/jpeg
+access-control-allow-origin: *
+content-length: 1238
+date: Fri, 21 Jun 2019 00:42:28 GMT
+expires: Sat, 20 Jun 2020 00:42:28 GMT
+last-modified: Fri, 01 Dec 2017 08:34:52 GMT
+x-content-type-options: nosniff
+server: sffe
+x-xss-protection: 0
+cache-control: public, max-age=31536000
+age: 288526
+alt-svc: quic=":443"; ma=2592000; v="46,44,43,39"
+X-Firefox-Spdy: h2

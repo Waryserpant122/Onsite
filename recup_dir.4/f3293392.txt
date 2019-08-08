@@ -1,0 +1,11 @@
+strict-transport-security: max-age=31536000
+content-disposition: attachment; filename="f.txt"
+content-encoding: br
+date: Mon, 24 Jun 2019 08:36:53 GMT
+server: gws
+content-length: 1899
+x-xss-protection: 0
+x-frame-options: SAMEORIGIN
+alt-svc: quic=":443"; ma=2592000; v="46,44,43,39"
+expires: Mon, 24 Jun 2019 08:36:53 GMT
+X-Firefox-Spdy: h2

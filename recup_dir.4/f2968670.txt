@@ -1,0 +1,2 @@
+riod. A value of 0 or a null parameter indicates that the client has no time requirements for the transition. 
+If this property does not contain 0 or null and the implementation does not support this parameter, a return code of \'Use Of Timeout Parameter Not Supported\' must be returned.

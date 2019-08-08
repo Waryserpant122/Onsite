@@ -1,0 +1,2 @@
+track the operation, this method will return 4096 - 'Method Parameters Checked - Job Started'. Note, even if RunAsJob is TRUE, the method can still return a result if it has finished in sufficient time. 
+If FALSE or NULL, this method will follow default WMI asynchronous behavior as determined by the client's method for invocation (i.e. synchronous unless requested otherwise).

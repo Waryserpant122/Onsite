@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EnergyReport xmlns="http://schemas.microsoft.com/energy/2007">
+  <ReportInformation>
+    <ReportGuid>9cc12c27-5311-46c5-ab1c-97920c39da39</ReportGuid>
+    <ReportVersion>1.0</ReportVersion>
+    <ScanTime>2019-06-24T03:02:05Z</ScanTime>
+    <ScanDuration>PT60S</ScanDuration>
+  </ReportInformation>
+  <Troubleshooter guid="c78b52e3-9cd7-4802-979c-57ca1283dafa">
+    <Name>System Information</Name>
+    <AnalysisLog>
+      <LogEntry guid="3d053cee-9926-4ac0-a4e1-63ab80c63af0">
+        <Name>System Information</Name>
+        <Severity>Informational</Severity>
+        <Description>System Information Details</Description>
+        <Details>
+          <Detail guid="300b5d9f-434e-45b0-80d2-4bd55b168ef3">
+            <Name>Computer Name</Name>
+            <Value>YASH-PC</Value>
+          </Detail>
+          <Detail guid="a49d84bf-a8c7-4c26-8f54-eefccac2f084">
+            <Name>System Manufacturer</Name>
+            <Value>Acer</Value>
+          </Detail>

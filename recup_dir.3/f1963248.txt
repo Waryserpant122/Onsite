@@ -1,0 +1,2584 @@
+al:2};
+u.ScriptCompilationType={Host:0,
+Eval:1,
+JSON:2};
+u.ScriptBreakPointType={ScriptId:0,
+ScriptName:1,
+ScriptRegExp:2};
+u.BreakPositionAlignment={
+Statement:0,
+BreakPosition:1
+};
+function ScriptTypeFlag(w){
+return(1<<w);
+}
+var x=0;
+var y=1;
+var z=[];
+var A=[];
+var B={
+breakPointsActive:{
+value:true,
+getValue:function(){return this.value;},
+setValue:function(C){
+this.value=!!C;
+%SetBreakPointsActive(this.value);
+}
+},
+breakOnCaughtException:{
+getValue:function(){return u.isBreakOnException();},
+setValue:function(C){
+if(C){
+u.setBreakOnException();
+}else{
+u.clearBreakOnException();
+}
+}
+},
+breakOnUncaughtException:{
+getValue:function(){return u.isBreakOnUncaughtException();},
+setValue:function(C){
+if(C){
+u.setBreakOnUncaughtException();
+}else{
+u.clearBreakOnUncaughtException();
+}
+}
+},
+};
+function MakeBreakPoint(D,E){
+var F=new BreakPoint(D,E);
+z.push(F);
+return F;
+}
+function BreakPoint(D,E){
+this.source_position_=D;
+if(E){
+this.script_break_point_=E;
+}else{
+this.number_=y++;
+}
+this.active_=true;
+this.condition_=null;
+}
+BreakPoint.prototype.number=function(){
+return this.number_;
+};
+BreakPoint.prototype.func=function(){
+return this.func_;
+};
+BreakPoint.prototype.source_position=function(){
+return this.source_position_;
+};
+BreakPoint.prototype.active=function(){
+if(this.script_break_point()){
+return this.script_break_point().active();
+}
+return this.active_;
+};
+BreakPoint.prototype.condition=function(){
+if(this.script_break_point()&&this.script_break_point().condition()){
+return this.script_break_point().condition();
+}
+return this.condition_;
+};
+BreakPoint.prototype.script_break_point=function(){
+return this.script_break_point_;
+};
+BreakPoint.prototype.enable=function(){
+this.active_=true;
+};
+BreakPoint.prototype.disable=function(){
+this.active_=false;
+};
+BreakPoint.prototype.setCondition=function(G){
+this.condition_=G;
+};
+BreakPoint.prototype.isTriggered=function(H){
+if(!this.active())return false;
+if(this.condition()){
+try{
+var I=H.frame(0).evaluate(this.condition());
+if(!(I instanceof r)||!I.value_){
+return false;
+}
+}catch(e){
+return false;
+}
+}
+return true;
+};
+function IsBreakPointTriggered(J,F){
+return F.isTriggered(MakeExecutionState(J));
+}
+function ScriptBreakPoint(w,script_id_or_name,opt_line,opt_column,
+opt_groupId,opt_position_alignment){
+this.type_=w;
+if(w==u.ScriptBreakPointType.ScriptId){
+this.script_id_=script_id_or_name;
+}else if(w==u.ScriptBreakPointType.ScriptName){
+this.script_name_=script_id_or_name;
+}else if(w==u.ScriptBreakPointType.ScriptRegExp){
+this.script_regexp_object_=new e(script_id_or_name);
+}else{
+throw j(2,"Unexpected breakpoint type "+w);
+}
+this.line_=opt_line||0;
+this.column_=opt_column;
+this.groupId_=opt_groupId;
+this.position_alignment_=(opt_position_alignment===(void 0))
+?u.BreakPositionAlignment.Statement:opt_position_alignment;
+this.active_=true;
+this.condition_=null;
+this.break_points_=[];
+}
+ScriptBreakPoint.prototype.cloneForOtherScript=function(K){
+var L=new ScriptBreakPoint(u.ScriptBreakPointType.ScriptId,
+K.id,this.line_,this.column_,this.groupId_,
+this.position_alignment_);
+L.number_=y++;
+A.push(L);
+L.active_=this.active_;
+L.condition_=this.condition_;
+return L;
+};
+ScriptBreakPoint.prototype.number=function(){
+return this.number_;
+};
+ScriptBreakPoint.prototype.groupId=function(){
+return this.groupId_;
+};
+ScriptBreakPoint.prototype.type=function(){
+return this.type_;
+};
+ScriptBreakPoint.prototype.script_id=function(){
+return this.script_id_;
+};
+ScriptBreakPoint.prototype.script_name=function(){
+return this.script_name_;
+};
+ScriptBreakPoint.prototype.script_regexp_object=function(){
+return this.script_regexp_object_;
+};
+ScriptBreakPoint.prototype.line=function(){
+return this.line_;
+};
+ScriptBreakPoint.prototype.column=function(){
+return this.column_;
+};
+ScriptBreakPoint.prototype.actual_locations=function(){
+var M=[];
+for(var N=0;N<this.break_points_.length;N++){
+M.push(this.break_points_[N].actual_location);
+}
+return M;
+};
+ScriptBreakPoint.prototype.update_positions=function(O,P){
+this.line_=O;
+this.column_=P;
+};
+ScriptBreakPoint.prototype.active=function(){
+return this.active_;
+};
+ScriptBreakPoint.prototype.condition=function(){
+return this.condition_;
+};
+ScriptBreakPoint.prototype.enable=function(){
+this.active_=true;
+};
+ScriptBreakPoint.prototype.disable=function(){
+this.active_=false;
+};
+ScriptBreakPoint.prototype.setCondition=function(G){
+this.condition_=G;
+};
+ScriptBreakPoint.prototype.matchesScript=function(Q){
+if(this.type_==u.ScriptBreakPointType.ScriptId){
+return this.script_id_==Q.id;
+}else{
+if(!(Q.line_offset<=this.line_&&
+this.line_<Q.line_offset+Q.lineCount())){
+return false;
+}
+if(this.type_==u.ScriptBreakPointType.ScriptName){
+return this.script_name_==Q.nameOrSourceURL();
+}else if(this.type_==u.ScriptBreakPointType.ScriptRegExp){
+return this.script_regexp_object_.test(Q.nameOrSourceURL());
+}else{
+throw j(2,"Unexpected breakpoint type "+this.type_);
+}
+}
+};
+ScriptBreakPoint.prototype.set=function(Q){
+var P=this.column();
+var O=this.line();
+if((P===(void 0))){
+var R=Q.sourceLine(this.line());
+if(!Q.sourceColumnStart_){
+Q.sourceColumnStart_=new d(Q.lineCount());
+}
+if((Q.sourceColumnStart_[O]===(void 0))){
+Q.sourceColumnStart_[O]=
+R.match(v)[0].length;
+}
+P=Q.sourceColumnStart_[O];
+}
+var S=u.findScriptSourcePosition(Q,this.line(),P);
+if((S===null))return;
+var F=MakeBreakPoint(S,this);
+var T=%SetScriptBreakPoint(Q,S,
+this.position_alignment_,
+F);
+if((T===(void 0))){
+T=S;
+}
+var U=Q.locationFromPosition(T,true);
+F.actual_location={line:U.line,
+column:U.column,
+script_id:Q.id};
+this.break_points_.push(F);
+return F;
+};
+ScriptBreakPoint.prototype.clear=function(){
+var V=[];
+for(var N=0;N<z.length;N++){
+if(z[N].script_break_point()&&
+z[N].script_break_point()===this){
+%ClearBreakPoint(z[N]);
+}else{
+V.push(z[N]);
+}
+}
+z=V;
+this.break_points_=[];
+};
+function UpdateScriptBreakPoints(Q){
+for(var N=0;N<A.length;N++){
+var F=A[N];
+if((F.type()==u.ScriptBreakPointType.ScriptName||
+F.type()==u.ScriptBreakPointType.ScriptRegExp)&&
+F.matchesScript(Q)){
+F.set(Q);
+}
+}
+}
+function GetScriptBreakPoints(Q){
+var W=[];
+for(var N=0;N<A.length;N++){
+if(A[N].matchesScript(Q)){
+W.push(A[N]);
+}
+}
+return W;
+}
+u.setListener=function(X,Y){
+if(!(%IsFunction(X))&&!(X===(void 0))&&!(X===null)){
+throw k(34);
+}
+%SetDebugEventListener(X,Y);
+};
+u.breakLocations=function(Z,aa){
+if(!(%IsFunction(Z)))throw k(34);
+var ab=(aa===(void 0))
+?u.BreakPositionAlignment.Statement:aa;
+return %GetBreakLocations(Z,ab);
+};
+u.findScript=function(ac){
+if((%IsFunction(ac))){
+return %FunctionGetScript(ac);
+}else if((%_IsRegExp(ac))){
+var ad=u.scripts();
+var ae=null;
+var af=0;
+for(var N in ad){
+var Q=ad[N];
+if(ac.test(Q.name)){
+ae=Q;
+af++;
+}
+}
+if(af==1){
+return ae;
+}else{
+return(void 0);
+}
+}else{
+return %GetScript(ac);
+}
+};
+u.scriptSource=function(ac){
+return this.findScript(ac).source;
+};
+u.source=function(Z){
+if(!(%IsFunction(Z)))throw k(34);
+return %FunctionGetSourceCode(Z);
+};
+u.sourcePosition=function(Z){
+if(!(%IsFunction(Z)))throw k(34);
+return %FunctionGetScriptSourcePosition(Z);
+};
+u.findFunctionSourceLocation=function(ag,ah,ai){
+var Q=%FunctionGetScript(ag);
+var aj=%FunctionGetScriptSourcePosition(ag);
+return Q.locationFromLine(ah,ai,aj);
+};
+u.findScriptSourcePosition=function(Q,ah,ai){
+var ak=Q.locationFromLine(ah,ai);
+return ak?ak.position:null;
+};
+u.findBreakPoint=function(al,am){
+var F;
+for(var N=0;N<z.length;N++){
+if(z[N].number()==al){
+F=z[N];
+if(am){
+z.splice(N,1);
+}
+break;
+}
+}
+if(F){
+return F;
+}else{
+return this.findScriptBreakPoint(al,am);
+}
+};
+u.findBreakPointActualLocations=function(al){
+for(var N=0;N<A.length;N++){
+if(A[N].number()==al){
+return A[N].actual_locations();
+}
+}
+for(var N=0;N<z.length;N++){
+if(z[N].number()==al){
+return[z[N].actual_location];
+}
+}
+return[];
+};
+u.setBreakPoint=function(ag,ah,ai,an){
+if(!(%IsFunction(ag)))throw k(34);
+if(%FunctionIsAPIFunction(ag)){
+throw j(2,'Cannot set break point in native code.');
+}
+var ao=
+this.findFunctionSourceLocation(ag,ah,ai).position;
+var D=ao-this.sourcePosition(ag);
+var Q=%FunctionGetScript(ag);
+if(Q.type==u.ScriptType.Native){
+throw j(2,'Cannot set break point in native code.');
+}
+if(Q&&Q.id){
+D+=%FunctionGetScriptSourcePosition(ag);
+var ak=Q.locationFromPosition(D,false);
+return this.setScriptBreakPointById(Q.id,
+ak.line,ak.column,
+an);
+}else{
+var F=MakeBreakPoint(D);
+var T=
+%SetFunctionBreakPoint(ag,D,F);
+T+=this.sourcePosition(ag);
+var U=Q.locationFromPosition(T,true);
+F.actual_location={line:U.line,
+column:U.column,
+script_id:Q.id};
+F.setCondition(an);
+return F.number();
+}
+};
+u.setBreakPointByScriptIdAndPosition=function(script_id,S,
+G,enabled,
+opt_position_alignment)
+{
+var F=MakeBreakPoint(S);
+F.setCondition(G);
+if(!enabled){
+F.disable();
+}
+var ad=this.scripts();
+var ap=(opt_position_alignment===(void 0))
+?u.BreakPositionAlignment.Statement:opt_position_alignment;
+for(var N=0;N<ad.length;N++){
+if(script_id==ad[N].id){
+F.actual_position=%SetScriptBreakPoint(ad[N],S,
+ap,F);
+break;
+}
+}
+return F;
+};
+u.enableBreakPoint=function(al){
+var F=this.findBreakPoint(al,false);
+if(F){
+F.enable();
+}
+};
+u.disableBreakPoint=function(al){
+var F=this.findBreakPoint(al,false);
+if(F){
+F.disable();
+}
+};
+u.changeBreakPointCondition=function(al,G){
+var F=this.findBreakPoint(al,false);
+F.setCondition(G);
+};
+u.clearBreakPoint=function(al){
+var F=this.findBreakPoint(al,true);
+if(F){
+return %ClearBreakPoint(F);
+}else{
+F=this.findScriptBreakPoint(al,true);
+if(!F)throw j(2,'Invalid breakpoint');
+}
+};
+u.clearAllBreakPoints=function(){
+for(var N=0;N<z.length;N++){
+var F=z[N];
+%ClearBreakPoint(F);
+}
+z=[];
+};
+u.disableAllBreakPoints=function(){
+for(var N=1;N<y;N++){
+u.disableBreakPoint(N);
+}
+%ChangeBreakOnException(u.ExceptionBreak.Caught,false);
+%ChangeBreakOnException(u.ExceptionBreak.Uncaught,false);
+};
+u.findScriptBreakPoint=function(al,am){
+var aq;
+for(var N=0;N<A.length;N++){
+if(A[N].number()==al){
+aq=A[N];
+if(am){
+aq.clear();
+A.splice(N,1);
+}
+break;
+}
+}
+return aq;
+};
+u.setScriptBreakPoint=function(w,script_id_or_name,
+ah,ai,an,
+opt_groupId,opt_position_alignment){
+var aq=
+new ScriptBreakPoint(w,script_id_or_name,ah,ai,
+opt_groupId,opt_position_alignment);
+aq.number_=y++;
+aq.setCondition(an);
+A.push(aq);
+var ad=this.scripts();
+for(var N=0;N<ad.length;N++){
+if(aq.matchesScript(ad[N])){
+aq.set(ad[N]);
+}
+}
+return aq.number();
+};
+u.setScriptBreakPointById=function(script_id,
+ah,ai,
+an,opt_groupId,
+opt_position_alignment){
+return this.setScriptBreakPoint(u.ScriptBreakPointType.ScriptId,
+script_id,ah,ai,
+an,opt_groupId,
+opt_position_alignment);
+};
+u.setScriptBreakPointByName=function(script_name,
+ah,ai,
+an,opt_groupId){
+return this.setScriptBreakPoint(u.ScriptBreakPointType.ScriptName,
+script_name,ah,ai,
+an,opt_groupId);
+};
+u.setScriptBreakPointByRegExp=function(script_regexp,
+ah,ai,
+an,opt_groupId){
+return this.setScriptBreakPoint(u.ScriptBreakPointType.ScriptRegExp,
+script_regexp,ah,ai,
+an,opt_groupId);
+};
+u.enableScriptBreakPoint=function(al){
+var aq=this.findScriptBreakPoint(al,false);
+aq.enable();
+};
+u.disableScriptBreakPoint=function(al){
+var aq=this.findScriptBreakPoint(al,false);
+aq.disable();
+};
+u.changeScriptBreakPointCondition=function(
+al,G){
+var aq=this.findScriptBreakPoint(al,false);
+aq.setCondition(G);
+};
+u.scriptBreakPoints=function(){
+return A;
+};
+u.clearStepping=function(){
+%ClearStepping();
+};
+u.setBreakOnException=function(){
+return %ChangeBreakOnException(u.ExceptionBreak.Caught,true);
+};
+u.clearBreakOnException=function(){
+return %ChangeBreakOnException(u.ExceptionBreak.Caught,false);
+};
+u.isBreakOnException=function(){
+return!!%IsBreakOnException(u.ExceptionBreak.Caught);
+};
+u.setBreakOnUncaughtException=function(){
+return %ChangeBreakOnException(u.ExceptionBreak.Uncaught,true);
+};
+u.clearBreakOnUncaughtException=function(){
+return %ChangeBreakOnException(u.ExceptionBreak.Uncaught,false);
+};
+u.isBreakOnUncaughtException=function(){
+return!!%IsBreakOnException(u.ExceptionBreak.Uncaught);
+};
+u.showBreakPoints=function(Z,ar,as){
+if(!(%IsFunction(Z)))throw j(34);
+var at=ar?this.scriptSource(Z):this.source(Z);
+var au=ar?this.sourcePosition(Z):0;
+var M=this.breakLocations(Z,as);
+if(!M)return at;
+M.sort(function(av,aw){return av-aw;});
+var W="";
+var ax=0;
+var ay;
+for(var N=0;N<M.length;N++){
+ay=M[N]-au;
+W+=at.slice(ax,ay);
+W+="[B"+N+"]";
+ax=ay;
+}
+ay=at.length;
+W+=at.substring(ax,ay);
+return W;
+};
+u.scripts=function(){
+return %DebugGetLoadedScripts();
+};
+u.debuggerFlags=function(){
+return B;
+};
+u.MakeMirror=l;
+function MakeExecutionState(J){
+return new ExecutionState(J);
+}
+function ExecutionState(J){
+this.break_id=J;
+this.selected_frame=0;
+}
+ExecutionState.prototype.prepareStep=function(az){
+if(az===u.StepAction.StepIn||
+az===u.StepAction.StepOut||
+az===u.StepAction.StepNext||
+az===u.StepAction.StepFrame){
+return %PrepareStep(this.break_id,az);
+}
+throw k(34);
+};
+ExecutionState.prototype.evaluateGlobal=function(at,disable_break,
+opt_additional_context){
+return l(%DebugEvaluateGlobal(this.break_id,at,
+(!!(disable_break)),
+opt_additional_context));
+};
+ExecutionState.prototype.frameCount=function(){
+return %GetFrameCount(this.break_id);
+};
+ExecutionState.prototype.threadCount=function(){
+return %GetThreadCount(this.break_id);
+};
+ExecutionState.prototype.frame=function(aA){
+if(aA==null)aA=this.selected_frame;
+if(aA<0||aA>=this.frameCount()){
+throw k(33);
+}
+return new c(this.break_id,aA);
+};
+ExecutionState.prototype.setSelectedFrame=function(aB){
+var N=(%_ToNumber(aB));
+if(N<0||N>=this.frameCount()){
+throw k(33);
+}
+this.selected_frame=N;
+};
+ExecutionState.prototype.selectedFrame=function(){
+return this.selected_frame;
+};
+ExecutionState.prototype.debugCommandProcessor=function(aC){
+return new DebugCommandProcessor(this,aC);
+};
+function MakeBreakEvent(J,aD){
+return new BreakEvent(J,aD);
+}
+function BreakEvent(J,aD){
+this.frame_=new c(J,0);
+this.break_points_hit_=aD;
+}
+BreakEvent.prototype.eventType=function(){
+return u.DebugEvent.Break;
+};
+BreakEvent.prototype.func=function(){
+return this.frame_.func();
+};
+BreakEvent.prototype.sourceLine=function(){
+return this.frame_.sourceLine();
+};
+BreakEvent.prototype.sourceColumn=function(){
+return this.frame_.sourceColumn();
+};
+BreakEvent.prototype.sourceLineText=function(){
+return this.frame_.sourceLineText();
+};
+BreakEvent.prototype.breakPointsHit=function(){
+return this.break_points_hit_;
+};
+BreakEvent.prototype.toJSONProtocol=function(){
+var aE={seq:x++,
+type:"event",
+event:"break",
+body:{invocationText:this.frame_.invocationText()}
+};
+var Q=this.func().script();
+if(Q){
+aE.body.sourceLine=this.sourceLine(),
+aE.body.sourceColumn=this.sourceColumn(),
+aE.body.sourceLineText=this.sourceLineText(),
+aE.body.script=MakeScriptObject_(Q,false);
+}
+if(this.breakPointsHit()){
+aE.body.breakpoints=[];
+for(var N=0;N<this.breakPointsHit().length;N++){
+var aF=this.breakPointsHit()[N];
+var aq=aF.script_break_point();
+var aG;
+if(aq){
+aG=aq.number();
+}else{
+aG=aF.number();
+}
+aE.body.breakpoints.push(aG);
+}
+}
+return h(ObjectToProtocolObject_(aE));
+};
+function MakeExceptionEvent(J,aH,aI,aJ){
+return new ExceptionEvent(J,aH,aI,aJ);
+}
+function ExceptionEvent(J,aH,aI,aJ){
+this.exec_state_=new ExecutionState(J);
+this.exception_=aH;
+this.uncaught_=aI;
+this.promise_=aJ;
+}
+ExceptionEvent.prototype.eventType=function(){
+return u.DebugEvent.Exception;
+};
+ExceptionEvent.prototype.exception=function(){
+return this.exception_;
+};
+ExceptionEvent.prototype.uncaught=function(){
+return this.uncaught_;
+};
+ExceptionEvent.prototype.promise=function(){
+return this.promise_;
+};
+ExceptionEvent.prototype.func=function(){
+return this.exec_state_.frame(0).func();
+};
+ExceptionEvent.prototype.sourceLine=function(){
+return this.exec_state_.frame(0).sourceLine();
+};
+ExceptionEvent.prototype.sourceColumn=function(){
+return this.exec_state_.frame(0).sourceColumn();
+};
+ExceptionEvent.prototype.sourceLineText=function(){
+return this.exec_state_.frame(0).sourceLineText();
+};
+ExceptionEvent.prototype.toJSONProtocol=function(){
+var aE=new ProtocolMessage();
+aE.event="exception";
+aE.body={uncaught:this.uncaught_,
+exception:l(this.exception_)
+};
+if(this.exec_state_.frameCount()>0){
+aE.body.sourceLine=this.sourceLine();
+aE.body.sourceColumn=this.sourceColumn();
+aE.body.sourceLineText=this.sourceLineText();
+var Q=this.func().script();
+if(Q){
+aE.body.script=MakeScriptObject_(Q,false);
+}
+}else{
+aE.body.sourceLine=-1;
+}
+return aE.toJSONProtocol();
+};
+function MakeCompileEvent(Q,w){
+return new CompileEvent(Q,w);
+}
+function CompileEvent(Q,w){
+this.script_=l(Q);
+this.type_=w;
+}
+CompileEvent.prototype.eventType=function(){
+return this.type_;
+};
+CompileEvent.prototype.script=function(){
+return this.script_;
+};
+CompileEvent.prototype.toJSONProtocol=function(){
+var aE=new ProtocolMessage();
+aE.running=true;
+switch(this.type_){
+case u.DebugEvent.BeforeCompile:
+aE.event="beforeCompile";
+break;
+case u.DebugEvent.AfterCompile:
+aE.event="afterCompile";
+break;
+case u.DebugEvent.CompileError:
+aE.event="compileError";
+break;
+}
+aE.body={};
+aE.body.script=this.script_;
+return aE.toJSONProtocol();
+};
+function MakeScriptObject_(Q,aK){
+var aE={id:Q.id(),
+name:Q.name(),
+lineOffset:Q.lineOffset(),
+columnOffset:Q.columnOffset(),
+lineCount:Q.lineCount(),
+};
+if(!(Q.data()===(void 0))){
+aE.data=Q.data();
+}
+if(aK){
+aE.source=Q.source();
+}
+return aE;
+}
+function MakeAsyncTaskEvent(aL){
+return new AsyncTaskEvent(aL);
+}
+function AsyncTaskEvent(aL){
+this.type_=aL.type;
+this.name_=aL.name;
+this.id_=aL.id;
+}
+AsyncTaskEvent.prototype.type=function(){
+return this.type_;
+}
+AsyncTaskEvent.prototype.name=function(){
+return this.name_;
+}
+AsyncTaskEvent.prototype.id=function(){
+return this.id_;
+}
+function DebugCommandProcessor(H,aC){
+this.exec_state_=H;
+this.running_=aC||false;
+}
+DebugCommandProcessor.prototype.processDebugRequest=function(aM){
+return this.processDebugJSONRequest(aM);
+};
+function ProtocolMessage(aM){
+this.seq=x++;
+if(aM){
+this.type='response';
+this.request_seq=aM.seq;
+this.command=aM.command;
+}else{
+this.type='event';
+}
+this.success=true;
+this.running=(void 0);
+}
+ProtocolMessage.prototype.setOption=function(aN,C){
+if(!this.options_){
+this.options_={};
+}
+this.options_[aN]=C;
+};
+ProtocolMessage.prototype.failed=function(aO,aP){
+this.success=false;
+this.message=aO;
+if((typeof(aP)==='object')){
+this.error_details=aP;
+}
+};
+ProtocolMessage.prototype.toJSONProtocol=function(){
+var aQ={};
+aQ.seq=this.seq;
+if(this.request_seq){
+aQ.request_seq=this.request_seq;
+}
+aQ.type=this.type;
+if(this.event){
+aQ.event=this.event;
+}
+if(this.command){
+aQ.command=this.command;
+}
+if(this.success){
+aQ.success=this.success;
+}else{
+aQ.success=false;
+}
+if(this.body){
+var aR;
+var aS=m(true,this.options_);
+if(this.body instanceof o){
+aR=aS.serializeValue(this.body);
+}else if(this.body instanceof d){
+aR=[];
+for(var N=0;N<this.body.length;N++){
+if(this.body[N]instanceof o){
+aR.push(aS.serializeValue(this.body[N]));
+}else{
+aR.push(ObjectToProtocolObject_(this.body[N],aS));
+}
+}
+}else{
+aR=ObjectToProtocolObject_(this.body,aS);
+}
+aQ.body=aR;
+aQ.refs=aS.serializeReferencedObjects();
+}
+if(this.message){
+aQ.message=this.message;
+}
+if(this.error_details){
+aQ.error_details=this.error_details;
+}
+aQ.running=this.running;
+return h(aQ);
+};
+DebugCommandProcessor.prototype.createResponse=function(aM){
+return new ProtocolMessage(aM);
+};
+DebugCommandProcessor.prototype.processDebugJSONRequest=function(
+json_request){
+var aM;
+var aT;
+try{
+try{
+aM=g(json_request);
+aT=this.createResponse(aM);
+if(!aM.type){
+throw j(2,'Type not specified');
+}
+if(aM.type!='request'){
+throw j(2,
+"Illegal type '"+aM.type+"' in request");
+}
+if(!aM.command){
+throw j(2,'Command not specified');
+}
+if(aM.arguments){
+var aU=aM.arguments;
+if(aU.inlineRefs||aU.compactFormat){
+aT.setOption('inlineRefs',true);
+}
+if(!(aU.maxStringLength===(void 0))){
+aT.setOption('maxStringLength',aU.maxStringLength);
+}
+}
+var aV=aM.command.toLowerCase();
+var aW=DebugCommandProcessor.prototype.dispatch_[aV];
+if((%IsFunction(aW))){
+%_Call(aW,this,aM,aT);
+}else{
+throw j(2,
+'Unknown command "'+aM.command+'" in request');
+}
+}catch(e){
+if(!aT){
+aT=this.createResponse();
+}
+aT.success=false;
+aT.message=(%_ToString(e));
+}
+try{
+if(!(aT.running===(void 0))){
+this.running_=aT.running;
+}
+aT.running=this.running_;
+return aT.toJSONProtocol();
+}catch(e){
+return'{"seq":'+aT.seq+','+
+'"request_seq":'+aM.seq+','+
+'"type":"response",'+
+'"success":false,'+
+'"message":"Internal error: '+(%_ToString(e))+'"}';
+}
+}catch(e){
+return'{"seq":0,"type":"response","success":false,"message":"Internal error"}';
+}
+};
+DebugCommandProcessor.prototype.continueRequest_=function(aM,aT){
+if(aM.arguments){
+var az=u.StepAction.StepIn;
+var aX=aM.arguments.stepaction;
+if(aX){
+if(aX=='in'){
+az=u.StepAction.StepIn;
+}else if(aX=='next'){
+az=u.StepAction.StepNext;
+}else if(aX=='out'){
+az=u.StepAction.StepOut;
+}else{
+throw j(2,
+'Invalid stepaction argument "'+aX+'".');
+}
+}
+this.exec_state_.prepareStep(az);
+}
+aT.running=true;
+};
+DebugCommandProcessor.prototype.breakRequest_=function(aM,aT){
+};
+DebugCommandProcessor.prototype.setBreakPointRequest_=
+function(aM,aT){
+if(!aM.arguments){
+aT.failed('Missing arguments');
+return;
+}
+var w=aM.arguments.type;
+var aY=aM.arguments.target;
+var O=aM.arguments.line;
+var P=aM.arguments.column;
+var aZ=(aM.arguments.enabled===(void 0))?
+true:aM.arguments.enabled;
+var G=aM.arguments.condition;
+var ba=aM.arguments.groupId;
+if(!w||(aY===(void 0))){
+aT.failed('Missing argument "type" or "target"');
+return;
+}
+var al;
+if(w=='function'){
+if(!(typeof(aY)==='string')){
+aT.failed('Argument "target" is not a string value');
+return;
+}
+var Z;
+try{
+Z=this.exec_state_.evaluateGlobal(aY).value();
+}catch(e){
+aT.failed('Error: "'+(%_ToString(e))+
+'" evaluating "'+aY+'"');
+return;
+}
+if(!(%IsFunction(Z))){
+aT.failed('"'+aY+'" does not evaluate to a function');
+return;
+}
+al=u.setBreakPoint(Z,O,P,G);
+}else if(w=='handle'){
+var bb=q(aY,10);
+var I=i(bb);
+if(!I){
+return aT.failed('Object #'+bb+'# not found');
+}
+if(!I.isFunction()){
+return aT.failed('Object #'+bb+'# is not a function');
+}
+al=u.setBreakPoint(I.value(),
+O,P,G);
+}else if(w=='script'){
+al=
+u.setScriptBreakPointByName(aY,O,P,G,
+ba);
+}else if(w=='scriptId'){
+al=
+u.setScriptBreakPointById(aY,O,P,G,ba);
+}else if(w=='scriptRegExp'){
+al=
+u.setScriptBreakPointByRegExp(aY,O,P,G,
+ba);
+}else{
+aT.failed('Illegal type "'+w+'"');
+return;
+}
+var F=u.findBreakPoint(al);
+if(!aZ){
+u.disableBreakPoint(al);
+}
+aT.body={type:w,
+breakpoint:al};
+if(F instanceof ScriptBreakPoint){
+if(F.type()==u.ScriptBreakPointType.ScriptId){
+aT.body.type='scriptId';
+aT.body.script_id=F.script_id();
+}else if(F.type()==u.ScriptBreakPointType.ScriptName){
+aT.body.type='scriptName';
+aT.body.script_name=F.script_name();
+}else if(F.type()==u.ScriptBreakPointType.ScriptRegExp){
+aT.body.type='scriptRegExp';
+aT.body.script_regexp=F.script_regexp_object().source;
+}else{
+throw j(2,
+"Unexpected breakpoint type: "+F.type());
+}
+aT.body.line=F.line();
+aT.body.column=F.column();
+aT.body.actual_locations=F.actual_locations();
+}else{
+aT.body.type='function';
+aT.body.actual_locations=[F.actual_location];
+}
+};
+DebugCommandProcessor.prototype.changeBreakPointRequest_=function(
+aM,aT){
+if(!aM.arguments){
+aT.failed('Missing arguments');
+return;
+}
+var F=(%_ToNumber(aM.arguments.breakpoint));
+var aZ=aM.arguments.enabled;
+var G=aM.arguments.condition;
+if(!F){
+aT.failed('Missing argument "breakpoint"');
+return;
+}
+if(!(aZ===(void 0))){
+if(aZ){
+u.enableBreakPoint(F);
+}else{
+u.disableBreakPoint(F);
+}
+}
+if(!(G===(void 0))){
+u.changeBreakPointCondition(F,G);
+}
+};
+DebugCommandProcessor.prototype.clearBreakPointGroupRequest_=function(
+aM,aT){
+if(!aM.arguments){
+aT.failed('Missing arguments');
+return;
+}
+var bc=aM.arguments.groupId;
+if(!bc){
+aT.failed('Missing argument "groupId"');
+return;
+}
+var bd=[];
+var be=[];
+for(var N=0;N<A.length;N++){
+var bf=A[N];
+if(bf.groupId()==bc){
+bd.push(bf.number());
+bf.clear();
+}else{
+be.push(bf);
+}
+}
+A=be;
+aT.body={breakpoints:bd};
+};
+DebugCommandProcessor.prototype.clearBreakPointRequest_=function(
+aM,aT){
+if(!aM.arguments){
+aT.failed('Missing arguments');
+return;
+}
+var F=(%_ToNumber(aM.arguments.breakpoint));
+if(!F){
+aT.failed('Missing argument "breakpoint"');
+return;
+}
+u.clearBreakPoint(F);
+aT.body={breakpoint:F};
+};
+DebugCommandProcessor.prototype.listBreakpointsRequest_=function(
+aM,aT){
+var bg=[];
+for(var N=0;N<A.length;N++){
+var F=A[N];
+var bh={
+number:F.number(),
+line:F.line(),
+column:F.column(),
+groupId:F.groupId(),
+active:F.active(),
+condition:F.condition(),
+actual_locations:F.actual_locations()
+};
+if(F.type()==u.ScriptBreakPointType.ScriptId){
+bh.type='scriptId';
+bh.script_id=F.script_id();
+}else if(F.type()==u.ScriptBreakPointType.ScriptName){
+bh.type='scriptName';
+bh.script_name=F.script_name();
+}else if(F.type()==u.ScriptBreakPointType.ScriptRegExp){
+bh.type='scriptRegExp';
+bh.script_regexp=F.script_regexp_object().source;
+}else{
+throw j(2,
+"Unexpected breakpoint type: "+F.type());
+}
+bg.push(bh);
+}
+aT.body={
+breakpoints:bg,
+breakOnExceptions:u.isBreakOnException(),
+breakOnUncaughtExceptions:u.isBreakOnUncaughtException()
+};
+};
+DebugCommandProcessor.prototype.disconnectRequest_=
+function(aM,aT){
+u.disableAllBreakPoints();
+this.continueRequest_(aM,aT);
+};
+DebugCommandProcessor.prototype.setExceptionBreakRequest_=
+function(aM,aT){
+if(!aM.arguments){
+aT.failed('Missing arguments');
+return;
+}
+var w=aM.arguments.type;
+if(!w){
+aT.failed('Missing argument "type"');
+return;
+}
+var aZ;
+if(w=='all'){
+aZ=!u.isBreakOnException();
+}else if(w=='uncaught'){
+aZ=!u.isBreakOnUncaughtException();
+}
+if(!(aM.arguments.enabled===(void 0))){
+aZ=aM.arguments.enabled;
+if((aZ!=true)&&(aZ!=false)){
+aT.failed('Illegal value for "enabled":"'+aZ+'"');
+}
+}
+if(w=='all'){
+%ChangeBreakOnException(u.ExceptionBreak.Caught,aZ);
+}else if(w=='uncaught'){
+%ChangeBreakOnException(u.ExceptionBreak.Uncaught,aZ);
+}else{
+aT.failed('Unknown "type":"'+w+'"');
+}
+aT.body={'type':w,'enabled':aZ};
+};
+DebugCommandProcessor.prototype.backtraceRequest_=function(
+aM,aT){
+var bi=this.exec_state_.frameCount();
+if(bi==0){
+aT.body={
+totalFrames:bi
+};
+return;
+}
+var bj=0;
+var bk=t;
+if(aM.arguments){
+if(aM.arguments.fromFrame){
+bj=aM.arguments.fromFrame;
+}
+if(aM.arguments.toFrame){
+bk=aM.arguments.toFrame;
+}
+if(aM.arguments.bottom){
+var bl=bi-bj;
+bj=bi-bk;
+bk=bl;
+}
+if(bj<0||bk<0){
+return aT.failed('Invalid frame number');
+}
+}
+bk=n(bi,bk);
+if(bk<=bj){
+var bm='Invalid frame range';
+return aT.failed(bm);
+}
+var bn=[];
+for(var N=bj;N<bk;N++){
+bn.push(this.exec_state_.frame(N));
+}
+aT.body={
+fromFrame:bj,
+toFrame:bk,
+totalFrames:bi,
+frames:bn
+};
+};
+DebugCommandProcessor.prototype.frameRequest_=function(aM,aT){
+if(this.exec_state_.frameCount()==0){
+return aT.failed('No frames');
+}
+if(aM.arguments){
+var aB=aM.arguments.number;
+if(aB<0||this.exec_state_.frameCount()<=aB){
+return aT.failed('Invalid frame number');
+}
+this.exec_state_.setSelectedFrame(aM.arguments.number);
+}
+aT.body=this.exec_state_.frame();
+};
+DebugCommandProcessor.prototype.resolveFrameFromScopeDescription_=
+function(bo){
+if(bo&&!(bo.frameNumber===(void 0))){
+var bp=bo.frameNumber;
+if(bp<0||this.exec_state_.frameCount()<=bp){
+throw k(33);
+}
+return this.exec_state_.frame(bp);
+}else{
+return this.exec_state_.frame();
+}
+};
+DebugCommandProcessor.prototype.resolveScopeHolder_=
+function(bo){
+if(bo&&"functionHandle"in bo){
+if(!(typeof(bo.functionHandle)==='number')){
+throw j(2,'Function handle must be a number');
+}
+var bq=i(bo.functionHandle);
+if(!bq){
+throw j(2,'Failed to find function object by handle');
+}
+if(!bq.isFunction()){
+throw j(2,
+'Value of non-function type is found by handle');
+}
+return bq;
+}else{
+if(this.exec_state_.frameCount()==0){
+throw j(2,'No scopes');
+}
+var br=this.resolveFrameFromScopeDescription_(bo);
+return br;
+}
+}
+DebugCommandProcessor.prototype.scopesRequest_=function(aM,aT){
+var bs=this.resolveScopeHolder_(aM.arguments);
+var bt=bs.scopeCount();
+var bu=[];
+for(var N=0;N<bt;N++){
+bu.push(bs.scope(N));
+}
+aT.body={
+fromScope:0,
+toScope:bt,
+totalScopes:bt,
+scopes:bu
+};
+};
+DebugCommandProcessor.prototype.scopeRequest_=function(aM,aT){
+var bs=this.resolveScopeHolder_(aM.arguments);
+var bv=0;
+if(aM.arguments&&!(aM.arguments.number===(void 0))){
+bv=(%_ToNumber(aM.arguments.number));
+if(bv<0||bs.scopeCount()<=bv){
+return aT.failed('Invalid scope number');
+}
+}
+aT.body=bs.scope(bv);
+};
+DebugCommandProcessor.resolveValue_=function(bw){
+if("handle"in bw){
+var bx=i(bw.handle);
+if(!bx){
+throw j(2,"Failed to resolve value by handle, ' #"+
+bw.handle+"# not found");
+}
+return bx.value();
+}else if("stringDescription"in bw){
+if(bw.type==p.BOOLEAN_TYPE){
+return(!!(bw.stringDescription));
+}else if(bw.type==p.NUMBER_TYPE){
+return(%_ToNumber(bw.stringDescription));
+}if(bw.type==p.STRING_TYPE){
+return(%_ToString(bw.stringDescription));
+}else{
+throw j(2,"Unknown type");
+}
+}else if("value"in bw){
+return bw.value;
+}else if(bw.type==p.UNDEFINED_TYPE){
+return(void 0);
+}else if(bw.type==p.NULL_TYPE){
+return null;
+}else{
+throw j(2,"Failed to parse value description");
+}
+};
+DebugCommandProcessor.prototype.setVariableValueRequest_=
+function(aM,aT){
+if(!aM.arguments){
+aT.failed('Missing arguments');
+return;
+}
+if((aM.arguments.name===(void 0))){
+aT.failed('Missing variable name');
+}
+var by=aM.arguments.name;
+var bo=aM.arguments.scope;
+var bs=this.resolveScopeHolder_(bo);
+if((bo.number===(void 0))){
+aT.failed('Missing scope number');
+}
+var bv=(%_ToNumber(bo.number));
+var bz=bs.scope(bv);
+var bA=
+DebugCommandProcessor.resolveValue_(aM.arguments.newValue);
+bz.setVariableValue(by,bA);
+var bB=l(bA);
+aT.body={
+newValue:bB
+};
+};
+DebugCommandProcessor.prototype.evaluateRequest_=function(aM,aT){
+if(!aM.arguments){
+return aT.failed('Missing arguments');
+}
+var bC=aM.arguments.expression;
+var br=aM.arguments.frame;
+var a=aM.arguments.global;
+var bD=aM.arguments.disable_break;
+var bE=aM.arguments.additional_context;
+try{
+bC=(%_ToString(bC));
+}catch(e){
+return aT.failed('Failed to convert expression argument to string');
+}
+if(!(br===(void 0))&&a){
+return aT.failed('Arguments "frame" and "global" are exclusive');
+}
+var bF;
+if(bE){
+bF={};
+for(var N=0;N<bE.length;N++){
+var bG=bE[N];
+if(!(typeof(bG.name)==='string')){
+return aT.failed("Context element #"+N+
+" doesn't contain name:string property");
+}
+var bH=DebugCommandProcessor.resolveValue_(bG);
+bF[bG.name]=bH;
+}
+}
+if(a){
+aT.body=this.exec_state_.evaluateGlobal(
+bC,(!!(bD)),bF);
+return;
+}
+if((bD===(void 0))){
+bD=true;
+}
+if(this.exec_state_.frameCount()==0){
+return aT.failed('No frames');
+}
+if(!(br===(void 0))){
+var bI=(%_ToNumber(br));
+if(bI<0||bI>=this.exec_state_.frameCount()){
+return aT.failed('Invalid frame "'+br+'"');
+}
+aT.body=this.exec_state_.frame(bI).evaluate(
+bC,(!!(bD)),bF);
+return;
+}else{
+aT.body=this.exec_state_.frame().evaluate(
+bC,(!!(bD)),bF);
+return;
+}
+};
+DebugCommandProcessor.prototype.lookupRequest_=function(aM,aT){
+if(!aM.arguments){
+return aT.failed('Missing arguments');
+}
+var bJ=aM.arguments.handles;
+if((bJ===(void 0))){
+return aT.failed('Argument "handles" missing');
+}
+if(!(aM.arguments.includeSource===(void 0))){
+var bK=(!!(aM.arguments.includeSource));
+aT.setOption('includeSource',bK);
+}
+var bL={};
+for(var N=0;N<bJ.length;N++){
+var bb=bJ[N];
+var I=i(bb);
+if(!I){
+return aT.failed('Object #'+bb+'# not found');
+}
+bL[bb]=I;
+}
+aT.body=bL;
+};
+DebugCommandProcessor.prototype.referencesRequest_=
+function(aM,aT){
+if(!aM.arguments){
+return aT.failed('Missing arguments');
+}
+var w=aM.arguments.type;
+var bb=aM.arguments.handle;
+if((w===(void 0))){
+return aT.failed('Argument "type" missing');
+}
+if((bb===(void 0))){
+return aT.failed('Argument "handle" missing');
+}
+if(w!='referencedBy'&&w!='constructedBy'){
+return aT.failed('Invalid type "'+w+'"');
+}
+var I=i(bb);
+if(I){
+if(w=='referencedBy'){
+aT.body=I.referencedBy();
+}else{
+aT.body=I.constructedBy();
+}
+}else{
+return aT.failed('Object #'+bb+'# not found');
+}
+};
+DebugCommandProcessor.prototype.sourceRequest_=function(aM,aT){
+if(this.exec_state_.frameCount()==0){
+return aT.failed('No source');
+}
+var bM;
+var bN;
+var br=this.exec_state_.frame();
+if(aM.arguments){
+bM=aM.arguments.fromLine;
+bN=aM.arguments.toLine;
+if(!(aM.arguments.frame===(void 0))){
+var bI=(%_ToNumber(aM.arguments.frame));
+if(bI<0||bI>=this.exec_state_.frameCount()){
+return aT.failed('Invalid frame "'+br+'"');
+}
+br=this.exec_state_.frame(bI);
+}
+}
+var Q=br.func().script();
+if(!Q){
+return aT.failed('No source');
+}
+var bO=Q.sourceSlice(bM,bN);
+if(!bO){
+return aT.failed('Invalid line interval');
+}
+aT.body={};
+aT.body.source=bO.sourceText();
+aT.body.fromLine=bO.from_line;
+aT.body.toLine=bO.to_line;
+aT.body.fromPosition=bO.from_position;
+aT.body.toPosition=bO.to_position;
+aT.body.totalLines=Q.lineCount();
+};
+DebugCommandProcessor.prototype.scriptsRequest_=function(aM,aT){
+var bP=ScriptTypeFlag(u.ScriptType.Normal);
+var bK=false;
+var bQ=null;
+if(aM.arguments){
+if(!(aM.arguments.types===(void 0))){
+bP=(%_ToNumber(aM.arguments.types));
+if(f(bP)||bP<0){
+return aT.failed('Invalid types "'+
+aM.arguments.types+'"');
+}
+}
+if(!(aM.arguments.includeSource===(void 0))){
+bK=(!!(aM.arguments.includeSource));
+aT.setOption('includeSource',bK);
+}
+if((%_IsArray(aM.arguments.ids))){
+bQ={};
+var bR=aM.arguments.ids;
+for(var N=0;N<bR.length;N++){
+bQ[bR[N]]=true;
+}
+}
+var bS=null;
+var bT=null;
+if(!(aM.arguments.filter===(void 0))){
+var bU=(%_ToNumber(aM.arguments.filter));
+if(!f(bU)){
+bT=bU;
+}
+bS=aM.arguments.filter;
+}
+}
+var ad=%DebugGetLoadedScripts();
+aT.body=[];
+for(var N=0;N<ad.length;N++){
+if(bQ&&!bQ[ad[N].id]){
+continue;
+}
+if(bS||bT){
+var Q=ad[N];
+var bV=false;
+if(bT&&!bV){
+if(Q.id&&Q.id===bT){
+bV=true;
+}
+}
+if(bS&&!bV){
+if(Q.name&&Q.name.indexOf(bS)>=0){
+bV=true;
+}
+}
+if(!bV)continue;
+}
+if(bP&ScriptTypeFlag(ad[N].type)){
+aT.body.push(l(ad[N]));
+}
+}
+};
+DebugCommandProcessor.prototype.threadsRequest_=function(aM,aT){
+var bW=this.exec_state_.threadCount();
+var bX=[];
+for(var N=0;N<bW;N++){
+var bY=%GetThreadDetails(this.exec_state_.break_id,N);
+var bZ={current:bY[0],
+id:bY[1]
+};
+bX.push(bZ);
+}
+aT.body={
+totalThreads:bW,
+threads:bX
+};
+};
+DebugCommandProcessor.prototype.suspendRequest_=function(aM,aT){
+aT.running=false;
+};
+DebugCommandProcessor.prototype.versionRequest_=function(aM,aT){
+aT.body={
+V8Version:%GetV8Version()
+};
+};
+DebugCommandProcessor.prototype.changeLiveRequest_=function(
+aM,aT){
+if(!aM.arguments){
+return aT.failed('Missing arguments');
+}
+var ca=aM.arguments.script_id;
+var cb=!!aM.arguments.preview_only;
+var ad=%DebugGetLoadedScripts();
+var cc=null;
+for(var N=0;N<ad.length;N++){
+if(ad[N].id==ca){
+cc=ad[N];
+}
+}
+if(!cc){
+aT.failed('Script not found');
+return;
+}
+var cd=new d();
+if(!(typeof(aM.arguments.new_source)==='string')){
+throw"new_source argument expected";
+}
+var ce=aM.arguments.new_source;
+var cf;
+try{
+cf=u.LiveEdit.SetScriptSource(cc,
+ce,cb,cd);
+}catch(e){
+if(e instanceof u.LiveEdit.Failure&&"details"in e){
+aT.failed(e.message,e.details);
+return;
+}
+throw e;
+}
+aT.body={change_log:cd,result:cf};
+if(!cb&&!this.running_&&cf.stack_modified){
+aT.body.stepin_recommended=true;
+}
+};
+DebugCommandProcessor.prototype.restartFrameRequest_=function(
+aM,aT){
+if(!aM.arguments){
+return aT.failed('Missing arguments');
+}
+var br=aM.arguments.frame;
+if(this.exec_state_.frameCount()==0){
+return aT.failed('No frames');
+}
+var cg;
+if(!(br===(void 0))){
+var bI=(%_ToNumber(br));
+if(bI<0||bI>=this.exec_state_.frameCount()){
+return aT.failed('Invalid frame "'+br+'"');
+}
+cg=this.exec_state_.frame(bI);
+}else{
+cg=this.exec_state_.frame();
+}
+var cf=cg.restart();
+aT.body={result:cf};
+};
+DebugCommandProcessor.prototype.debuggerFlagsRequest_=function(aM,
+aT){
+if(!aM.arguments){
+aT.failed('Missing arguments');
+return;
+}
+var ch=aM.arguments.flags;
+aT.body={flags:[]};
+if(!(ch===(void 0))){
+for(var N=0;N<ch.length;N++){
+var aN=ch[N].name;
+var ci=B[aN];
+if(!ci){
+continue;
+}
+if('value'in ch[N]){
+ci.setValue(ch[N].value);
+}
+aT.body.flags.push({name:aN,value:ci.getValue()});
+}
+}else{
+for(var aN in B){
+var C=B[aN].getValue();
+aT.body.flags.push({name:aN,value:C});
+}
+}
+};
+DebugCommandProcessor.prototype.v8FlagsRequest_=function(aM,aT){
+var ch=aM.arguments.flags;
+if(!ch)ch='';
+%SetFlags(ch);
+};
+DebugCommandProcessor.prototype.gcRequest_=function(aM,aT){
+var w=aM.arguments.type;
+if(!w)w='all';
+var cj=%GetHeapUsage();
+%CollectGarbage(w);
+var ck=%GetHeapUsage();
+aT.body={"before":cj,"after":ck};
+};
+DebugCommandProcessor.prototype.dispatch_=(function(){
+var cl=DebugCommandProcessor.prototype;
+return{
+"continue":cl.continueRequest_,
+"break":cl.breakRequest_,
+"setbreakpoint":cl.setBreakPointRequest_,
+"changebreakpoint":cl.changeBreakPointRequest_,
+"clearbreakpoint":cl.clearBreakPointRequest_,
+"clearbreakpointgroup":cl.clearBreakPointGroupRequest_,
+"disconnect":cl.disconnectRequest_,
+"setexceptionbreak":cl.setExceptionBreakRequest_,
+"listbreakpoints":cl.listBreakpointsRequest_,
+"backtrace":cl.backtraceRequest_,
+"frame":cl.frameRequest_,
+"scopes":cl.scopesRequest_,
+"scope":cl.scopeRequest_,
+"setvariablevalue":cl.setVariableValueRequest_,
+"evaluate":cl.evaluateRequest_,
+"lookup":cl.lookupRequest_,
+"references":cl.referencesRequest_,
+"source":cl.sourceRequest_,
+"scripts":cl.scriptsRequest_,
+"threads":cl.threadsRequest_,
+"suspend":cl.suspendRequest_,
+"version":cl.versionRequest_,
+"changelive":cl.changeLiveRequest_,
+"restartframe":cl.restartFrameRequest_,
+"flags":cl.debuggerFlagsRequest_,
+"v8flag":cl.v8FlagsRequest_,
+"gc":cl.gcRequest_,
+};
+})();
+DebugCommandProcessor.prototype.isRunning=function(){
+return this.running_;
+};
+DebugCommandProcessor.prototype.systemBreak=function(cm,aU){
+return %SystemBreak();
+};
+function ObjectToProtocolObject_(cn,co){
+var cp={};
+for(var aV in cn){
+if(typeof aV=='string'){
+var cq=ValueToProtocolValue_(cn[aV],
+co);
+if(!(cq===(void 0))){
+cp[aV]=cq;
+}
+}
+}
+return cp;
+}
+function ArrayToProtocolArray_(bg,co){
+var aQ=[];
+for(var N=0;N<bg.length;N++){
+aQ.push(ValueToProtocolValue_(bg[N],co));
+}
+return aQ;
+}
+function ValueToProtocolValue_(C,co){
+var aQ;
+switch(typeof C){
+case'object':
+if(C instanceof o){
+aQ=co.serializeValue(C);
+}else if((%_IsArray(C))){
+aQ=ArrayToProtocolArray_(C,co);
+}else{
+aQ=ObjectToProtocolObject_(C,co);
+}
+break;
+case'boolean':
+case'string':
+case'number':
+aQ=C;
+break;
+default:
+aQ=null;
+}
+return aQ;
+}
+b.InstallConstants(a,[
+"Debug",u,
+"DebugCommandProcessor",DebugCommandProcessor,
+"BreakEvent",BreakEvent,
+"CompileEvent",CompileEvent,
+"BreakPoint",BreakPoint,
+]);
+b.InstallFunctions(b,2,[
+"MakeExecutionState",MakeExecutionState,
+"MakeExceptionEvent",MakeExceptionEvent,
+"MakeBreakEvent",MakeBreakEvent,
+"MakeCompileEvent",MakeCompileEvent,
+"MakeAsyncTaskEvent",MakeAsyncTaskEvent,
+"IsBreakPointTriggered",IsBreakPointTriggered,
+"UpdateScriptBreakPoints",UpdateScriptBreakPoints,
+]);
+b.Export(function(cr){
+cr.GetScriptBreakPoints=GetScriptBreakPoints;
+});
+})
+
+ liveedit%ú
+(function(a,b){
+"use strict";
+var c=a.Debug.findScriptSourcePosition;
+var d;
+var e=a.Array;
+var f=a.Math.floor;
+var g=a.SyntaxError;
+b.Import(function(h){
+d=h.GetScriptBreakPoints;
+});
+var i;
+function ApplyPatchMultiChunk(script,diff_array,new_source,preview_only,
+change_log){
+var j=script.source;
+var k=GatherCompileInfo(j,script);
+var l=BuildCodeInfoTree(k);
+var m=new PosTranslator(diff_array);
+MarkChangedFunctions(l,m.GetChunks());
+FindLiveSharedInfos(l,script);
+var n;
+try{
+n=GatherCompileInfo(new_source,script);
+}catch(e){
+var o=
+new Failure("Failed to compile new version of script: "+e);
+if(e instanceof g){
+var p={
+type:"liveedit_compile_error",
+syntaxErrorMessage:e.message
+};
+CopyErrorPositionToDetails(e,p);
+o.details=p;
+}
+throw o;
+}
+var q=BuildCodeInfoTree(n);
+FindCorrespondingFunctions(l,q);
+var r=new e();
+var s=new e();
+var t=new e();
+var u=new e();
+function HarvestTodo(v){
+function CollectDamaged(w){
+s.push(w);
+for(var x=0;x<w.children.length;x++){
+CollectDamaged(w.children[x]);
+}
+}
+function CollectNew(y){
+for(var x=0;x<y.length;x++){
+t.push(y[x]);
+CollectNew(y[x].children);
+}
+}
+if(v.status==i.DAMAGED){
+CollectDamaged(v);
+return;
+}
+if(v.status==i.UNCHANGED){
+u.push(v);
+}else if(v.status==i.SOURCE_CHANGED){
+u.push(v);
+}else if(v.status==i.CHANGED){
+r.push(v);
+CollectNew(v.unmatched_new_nodes);
+}
+for(var x=0;x<v.children.length;x++){
+HarvestTodo(v.children[x]);
+}
+}
+var z={
+change_tree:DescribeChangeTree(l),
+textual_diff:{
+old_len:j.length,
+new_len:new_source.length,
+chunks:diff_array
+},
+updated:false
+};
+if(preview_only){
+return z;
+}
+HarvestTodo(l);
+var A=new e();
+var B=new e();
+for(var x=0;x<r.length;x++){
+var C=r[x].live_shared_function_infos;
+var D=
+r[x].corresponding_node.info.shared_function_info;
+if(C){
+for(var E=0;E<C.length;E++){
+A.push(C[E]);
+B.push(D);
+}
+}
+}
+var F=
+CheckStackActivations(A,
+B,
+change_log);
+z.stack_modified=F!=0;
+var G=TemporaryRemoveBreakPoints(script,change_log);
+var H;
+if(s.length==0){
+%LiveEditReplaceScript(script,new_source,null);
+H=(void 0);
+}else{
+var I=CreateNameForOldScript(script);
+H=%LiveEditReplaceScript(script,new_source,
+I);
+var J=new e();
+change_log.push({linked_to_old_script:J});
+for(var x=0;x<s.length;x++){
+LinkToOldScript(s[x],H,
+J);
+}
+z.created_script_name=I;
+}
+for(var x=0;x<t.length;x++){
+%LiveEditFunctionSetScript(
+t[x].info.shared_function_info,script);
+}
+for(var x=0;x<r.length;x++){
+PatchFunctionCode(r[x],change_log);
+}
+var K=new e();
+change_log.push({position_patched:K});
+for(var x=0;x<u.length;x++){
+PatchPositions(u[x],diff_array,
+K);
+if(u[x].live_shared_function_infos){
+u[x].live_shared_function_infos.
+forEach(function(L){
+%LiveEditFunctionSourceUpdated(L.raw_array);
+});
+}
+}
+G(m,H);
+z.updated=true;
+return z;
+}
+function GatherCompileInfo(M,N){
+var O=%LiveEditGatherCompileInfo(N,M);
+var P=new e();
+var Q=new e();
+for(var x=0;x<O.length;x++){
+var L=new FunctionCompileInfo(O[x]);
+%LiveEditFunctionSetScript(L.shared_function_info,(void 0));
+P.push(L);
+Q.push(x);
+}
+for(var x=0;x<P.length;x++){
+var R=x;
+for(var E=x+1;E<P.length;E++){
+if(P[R].start_position>P[E].start_position){
+R=E;
+}
+}
+if(R!=x){
+var S=P[R];
+var T=Q[R];
+P[R]=P[x];
+Q[R]=Q[x];
+P[x]=S;
+Q[x]=T;
+}
+}
+var U=0;
+function ResetIndexes(V,W){
+var X=-1;
+while(U<P.length&&
+P[U].outer_index==W){
+var Y=U;
+P[Y].outer_index=V;
+if(X!=-1){
+P[X].next_sibling_index=Y;
+}
+X=Y;
+U++;
+ResetIndexes(Y,Q[Y]);
+}
+if(X!=-1){
+P[X].next_sibling_index=-1;
+}
+}
+ResetIndexes(-1,-1);
+Assert(U==P.length);
+return P;
+}
+function PatchFunctionCode(v,Z){
+var D=v.corresponding_node.info;
+if(v.live_shared_function_infos){
+v.live_shared_function_infos.forEach(function(aa){
+%LiveEditReplaceFunctionCode(D.raw_array,
+aa.raw_array);
+for(var x=0;x<v.children.length;x++){
+if(v.children[x].corresponding_node){
+var ab=
+v.children[x].corresponding_node.info.
+shared_function_info;
+if(v.children[x].live_shared_function_infos){
+v.children[x].live_shared_function_infos.
+forEach(function(ac){
+%LiveEditReplaceRefToNestedFunction(
+aa.info,
+ab,
+ac.info);
+});
+}
+}
+}
+});
+Z.push({function_patched:D.function_name});
+}else{
+Z.push({function_patched:D.function_name,
+function_info_not_found:true});
+}
+}
+function LinkToOldScript(ad,H,ae){
+if(ad.live_shared_function_infos){
+ad.live_shared_function_infos.
+forEach(function(L){
+%LiveEditFunctionSetScript(L.info,H);
+});
+ae.push({name:ad.info.function_name});
+}else{
+ae.push(
+{name:ad.info.function_name,not_found:true});
+}
+}
+function TemporaryRemoveBreakPoints(af,Z){
+var ag=d(af);
+var ah=[];
+Z.push({break_points_update:ah});
+var ai=[];
+for(var x=0;x<ag.length;x++){
+var aj=ag[x];
+aj.clear();
+var ak=c(af,
+aj.line(),aj.column());
+var al={
+position:ak,
+line:aj.line(),
+column:aj.column()
+};
+ai.push(al);
+}
+return function(m,am){
+for(var x=0;x<ag.length;x++){
+var aj=ag[x];
+if(am){
+var an=aj.cloneForOtherScript(am);
+an.set(am);
+ah.push({
+type:"copied_to_old",
+id:aj.number(),
+new_id:an.number(),
+positions:ai[x]
+});
+}
+var ao=m.Translate(
+ai[x].position,
+PosTranslator.ShiftWithTopInsideChunkHandler);
+var ap=
+af.locationFromPosition(ao,false);
+aj.update_positions(ap.line,ap.column);
+var aq={
+position:ao,
+line:ap.line,
+column:ap.column
+};
+aj.set(af);
+ah.push({type:"position_changed",
+id:aj.number(),
+old_positions:ai[x],
+new_positions:aq
+});
+}
+};
+}
+function Assert(ar,as){
+if(!ar){
+if(as){
+throw"Assert "+as;
+}else{
+throw"Assert";
+}
+}
+}
+function DiffChunk(at,au,av,aw){
+this.pos1=at;
+this.pos2=au;
+this.len1=av;
+this.len2=aw;
+}
+function PosTranslator(ax){
+var ay=new e();
+var az=0;
+for(var x=0;x<ax.length;x+=3){
+var aA=ax[x];
+var aB=aA+az;
+var aC=ax[x+1];
+var aD=ax[x+2];
+ay.push(new DiffChunk(aA,aB,aC-aA,
+aD-aB));
+az=aD-aC;
+}
+this.chunks=ay;
+}
+PosTranslator.prototype.GetChunks=function(){
+return this.chunks;
+};
+PosTranslator.prototype.Translate=function(aE,aF){
+var aG=this.chunks;
+if(aG.length==0||aE<aG[0].pos1){
+return aE;
+}
+var aH=0;
+var aI=aG.length-1;
+while(aH<aI){
+var aJ=f((aH+aI)/2);
+if(aE<aG[aJ+1].pos1){
+aI=aJ;
+}else{
+aH=aJ+1;
+}
+}
+var aK=aG[aH];
+if(aE>=aK.pos1+aK.len1){
+return aE+aK.pos2+aK.len2-aK.pos1-aK.len1;
+}
+if(!aF){
+aF=PosTranslator.DefaultInsideChunkHandler;
+}
+return aF(aE,aK);
+};
+PosTranslator.DefaultInsideChunkHandler=function(aE,aL){
+Assert(false,"Cannot translate position in changed area");
+};
+PosTranslator.ShiftWithTopInsideChunkHandler=
+function(aE,aL){
+return aE-aL.pos1+aL.pos2;
+};
+var i={
+UNCHANGED:"unchanged",
+SOURCE_CHANGED:"source changed",
+CHANGED:"changed",
+DAMAGED:"damaged"
+};
+function CodeInfoTreeNode(aM,aN,aO){
+this.info=aM;
+this.children=aN;
+this.array_index=aO;
+this.parent=(void 0);
+this.status=i.UNCHANGED;
+this.status_explanation=(void 0);
+this.new_start_pos=(void 0);
+this.new_end_pos=(void 0);
+this.corresponding_node=(void 0);
+this.unmatched_new_nodes=(void 0);
+this.textual_corresponding_node=(void 0);
+this.textually_unmatched_new_nodes=(void 0);
+this.live_shared_function_infos=(void 0);
+}
+function BuildCodeInfoTree(aP){
+var aQ=0;
+function BuildNode(){
+var aR=aQ;
+aQ++;
+var aS=new e();
+while(aQ<aP.length&&
+aP[aQ].outer_index==aR){
+aS.push(BuildNode());
+}
+var w=new CodeInfoTreeNode(aP[aR],aS,
+aR);
+for(var x=0;x<aS.length;x++){
+aS[x].parent=w;
+}
+return w;
+}
+var aT=BuildNode();
+Assert(aQ==aP.length);
+return aT;
+}
+function MarkChangedFunctions(aU,ay){
+var aV=new function(){
+var aW=0;
+var aX=0;
+this.current=function(){return ay[aW];};
+this.next=function(){
+var aK=ay[aW];
+aX=aK.pos2+aK.len2-(aK.pos1+aK.len1);
+aW++;
+};
+this.done=function(){return aW>=ay.length;};
+this.TranslatePos=function(aE){return aE+aX;};
+};
+function ProcessInternals(aY){
+aY.new_start_pos=aV.TranslatePos(
+aY.info.start_position);
+var aZ=0;
+var ba=false;
+var bb=false;
+while(!aV.done()&&
+aV.current().pos1<aY.info.end_position){
+if(aZ<aY.children.length){
+var bc=aY.children[aZ];
+if(bc.info.end_position<=aV.current().pos1){
+ProcessUnchangedChild(bc);
+aZ++;
+continue;
+}else if(bc.info.start_position>=
+aV.current().pos1+aV.current().len1){
+ba=true;
+aV.next();
+continue;
+}else if(bc.info.start_position<=aV.current().pos1&&
+bc.info.end_position>=aV.current().pos1+
+aV.current().len1){
+ProcessInternals(bc);
+bb=bb||
+(bc.status!=i.UNCHANGED);
+ba=ba||
+(bc.status==i.DAMAGED);
+aZ++;
+continue;
+}else{
+ba=true;
+bc.status=i.DAMAGED;
+bc.status_explanation=
+"Text diff overlaps with function boundary";
+aZ++;
+continue;
+}
+}else{
+if(aV.current().pos1+aV.current().len1<=
+aY.info.end_position){
+aY.status=i.CHANGED;
+aV.next();
+continue;
+}else{
+aY.status=i.DAMAGED;
+aY.status_explanation=
+"Text diff overlaps with function boundary";
+return;
+}
+}
+Assert("Unreachable",false);
+}
+while(aZ<aY.children.length){
+var bc=aY.children[aZ];
+ProcessUnchangedChild(bc);
+aZ++;
+}
+if(ba){
+aY.status=i.CHANGED;
+}else if(bb){
+aY.status=i.SOURCE_CHANGED;
+}
+aY.new_end_pos=
+aV.TranslatePos(aY.info.end_position);
+}
+function ProcessUnchangedChild(w){
+w.new_start_pos=aV.TranslatePos(w.info.start_position);
+w.new_end_pos=aV.TranslatePos(w.info.end_position);
+}
+ProcessInternals(aU);
+}
+function FindCorrespondingFunctions(bd,be){
+function ProcessNode(v,bf){
+var bg=
+IsFunctionContextLocalsChanged(v.info,bf.info);
+if(bg){
+v.status=i.CHANGED;
+}
+var bh=v.children;
+var bi=bf.children;
+var bj=[];
+var bk=[];
+var bl=0;
+var bm=0;
+while(bl<bh.length){
+if(bh[bl].status==i.DAMAGED){
+bl++;
+}else if(bm<bi.length){
+if(bi[bm].info.start_position<
+bh[bl].new_start_pos){
+bj.push(bi[bm]);
+bk.push(bi[bm]);
+bm++;
+}else if(bi[bm].info.start_position==
+bh[bl].new_start_pos){
+if(bi[bm].info.end_position==
+bh[bl].new_end_pos){
+bh[bl].corresponding_node=
+bi[bm];
+bh[bl].textual_corresponding_node=
+bi[bm];
+if(bg){
+bh[bl].status=i.DAMAGED;
+bh[bl].status_explanation=
+"Enclosing function is now incompatible. "+
+bg;
+bh[bl].corresponding_node=(void 0);
+}else if(bh[bl].status!=
+i.UNCHANGED){
+ProcessNode(bh[bl],
+bi[bm]);
+if(bh[bl].status==i.DAMAGED){
+bj.push(
+bh[bl].corresponding_node);
+bh[bl].corresponding_node=(void 0);
+v.status=i.CHANGED;
+}
+}
+}else{
+bh[bl].status=i.DAMAGED;
+bh[bl].status_explanation=
+"No corresponding function in new script found";
+v.status=i.CHANGED;
+bj.push(bi[bm]);
+bk.push(bi[bm]);
+}
+bm++;
+bl++;
+}else{
+bh[bl].status=i.DAMAGED;
+bh[bl].status_explanation=
+"No corresponding function in new script found";
+v.status=i.CHANGED;
+bl++;
+}
+}else{
+bh[bl].status=i.DAMAGED;
+bh[bl].status_explanation=
+"No corresponding function in new script found";
+v.status=i.CHANGED;
+bl++;
+}
+}
+while(bm<bi.length){
+bj.push(bi[bm]);
+bk.push(bi[bm]);
+bm++;
+}
+if(v.status==i.CHANGED){
+if(v.info.param_num!=bf.info.param_num){
+v.status=i.DAMAGED;
+v.status_explanation="Changed parameter number: "+
+v.info.param_num+" and "+bf.info.param_num;
+}
+}
+v.unmatched_new_nodes=bj;
+v.textually_unmatched_new_nodes=
+bk;
+}
+ProcessNode(bd,be);
+bd.corresponding_node=be;
+bd.textual_corresponding_node=be;
+Assert(bd.status!=i.DAMAGED,
+"Script became damaged");
+}
+function FindLiveSharedInfos(bd,N){
+var bn=%LiveEditFindSharedFunctionInfosForScript(N);
+var bo=new e();
+for(var x=0;x<bn.length;x++){
+bo.push(new SharedInfoWrapper(bn[x]));
+}
+function FindFunctionInfos(P){
+var bp=[];
+for(var x=0;x<bo.length;x++){
+var bq=bo[x];
+if(bq.start_position==P.start_position&&
+bq.end_position==P.end_position){
+bp.push(bq);
+}
+}
+if(bp.length>0){
+return bp;
+}
+}
+function TraverseTree(w){
+w.live_shared_function_infos=FindFunctionInfos(w.info);
+for(var x=0;x<w.children.length;x++){
+TraverseTree(w.children[x]);
+}
+}
+TraverseTree(bd);
+}
+function FunctionCompileInfo(br){
+this.function_name=br[0];
+this.start_position=br[1];
+this.end_position=br[2];
+this.param_num=br[3];
+this.code=br[4];
+this.code_scope_info=br[5];
+this.scope_info=br[6];
+this.outer_index=br[7];
+this.shared_function_info=br[8];
+this.next_sibling_index=null;
+this.raw_array=br;
+}
+function SharedInfoWrapper(br){
+this.function_name=br[0];
+this.start_position=br[1];
+this.end_position=br[2];
+this.info=br[3];
+this.raw_array=br;
+}
+function PatchPositions(ad,ax,ae){
+if(ad.live_shared_function_infos){
+ad.live_shared_function_infos.forEach(function(L){
+%LiveEditPatchFunctionPositions(L.raw_array,
+ax);
+});
+ae.push({name:ad.info.function_name});
+}else{
+ae.push(
+{name:ad.info.function_name,info_not_found:true});
+}
+}
+function CreateNameForOldScript(N){
+return N.name+" (old)";
+}
+function IsFunctionContextLocalsChanged(bs,bt){
+var bu=bs.scope_info;
+var bv=bt.scope_info;
+var bw;
+var bx;
+if(bu){
+bw=bu.toString();
+}else{
+bw="";
+}
+if(bv){
+bx=bv.toString();
+}else{
+bx="";
+}
+if(bw!=bx){
+return"Variable map changed: ["+bw+
+"] => ["+bx+"]";
+}
+return;
+}
+var by;
+function CheckStackActivations(old_shared_wrapper_list,
+new_shared_list,
+Z){
+var bz=new e();
+for(var x=0;x<old_shared_wrapper_list.length;x++){
+bz[x]=old_shared_wrapper_list[x].info;
+}
+var bA=%LiveEditCheckAndDropActivations(
+bz,new_shared_list,true);
+if(bA[old_shared_wrapper_list.length]){
+throw new Failure(bA[old_shared_wrapper_list.length]);
+}
+var bB=new e();
+var bC=new e();
+for(var x=0;x<bz.length;x++){
+var bD=old_shared_wrapper_list[x];
+if(bA[x]==by.REPLACED_ON_ACTIVE_STACK){
+bC.push({name:bD.function_name});
+}else if(bA[x]!=by.AVAILABLE_FOR_PATCH){
+var bE={
+name:bD.function_name,
+start_pos:bD.start_position,
+end_pos:bD.end_position,
+replace_problem:
+by.SymbolName(bA[x])
+};
+bB.push(bE);
+}
+}
+if(bC.length>0){
+Z.push({dropped_from_stack:bC});
+}
+if(bB.length>0){
+Z.push({functions_on_stack:bB});
+throw new Failure("Blocked by functions on stack");
+}
+return bC.length;
+}
+var by={
+AVAILABLE_FOR_PATCH:1,
+BLOCKED_ON_ACTIVE_STACK:2,
+BLOCKED_ON_OTHER_STACK:3,
+BLOCKED_UNDER_NATIVE_CODE:4,
+REPLACED_ON_ACTIVE_STACK:5,
+BLOCKED_UNDER_GENERATOR:6,
+BLOCKED_ACTIVE_GENERATOR:7,
+BLOCKED_NO_NEW_TARGET_ON_RESTART:8
+};
+by.SymbolName=function(bF){
+var bG=by;
+for(var bH in bG){
+if(bG[bH]==bF){
+return bH;
+}
+}
+};
+function Failure(as){
+this.message=as;
+}
+Failure.prototype.toString=function(){
+return"LiveEdit Failure: "+this.message;
+};
+function CopyErrorPositionToDetails(bI,p){
+function createPositionStruct(N,bJ){
+if(bJ==-1)return;
+var bK=N.locationFromPosition(bJ,true);
+if(bK==null)return;
+return{
+line:bK.line+1,
+column:bK.column+1,
+position:bJ
+};
+}
+if(!("scriptObject"in bI)||!("startPosition"in bI)){
+return;
+}
+var N=bI.scriptObject;
+var bL={
+start:createPositionStruct(N,bI.startPosition),
+end:createPositionStruct(N,bI.endPosition)
+};
+p.position=bL;
+}
+function GetPcFromSourcePos(bM,bN){
+return %GetFunctionCodePositionFromSource(bM,bN);
+}
+function SetScriptSource(N,bO,bP,Z){
+var j=N.source;
+var bQ=CompareStrings(j,bO);
+return ApplyPatchMultiChunk(N,bQ,bO,bP,
+Z);
+}
+function CompareStrings(bR,bS){
+return %LiveEditCompareStrings(bR,bS);
+}
+function ApplySingleChunkPatch(N,change_pos,change_len,new_str,
+Z){
+var j=N.source;
+var bO=j.substring(0,change_pos)+
+new_str+j.substring(change_pos+change_len);
+return ApplyPatchMultiChunk(N,
+[change_pos,change_pos+change_len,change_pos+new_str.length],
+bO,false,Z);
+}
+function DescribeChangeTree(bd){
+function ProcessOldNode(w){
+var bT=[];
+for(var x=0;x<w.children.length;x++){
+var bc=w.children[x];
+if(bc.status!=i.UNCHANGED){
+bT.push(ProcessOldNode(bc));
+}
+}
+var bU=[];
+if(w.textually_unmatched_new_nodes){
+for(var x=0;x<w.textually_unmatched_new_nodes.length;x++){
+var bc=w.textually_unmatched_new_nodes[x];
+bU.push(ProcessNewNode(bc));
+}
+}
+var bV={
+name:w.info.function_name,
+positions:DescribePositions(w),
+status:w.status,
+children:bT,
+new_children:bU
+};
+if(w.status_explanation){
+bV.status_explanation=w.status_explanation;
+}
+if(w.textual_corresponding_node){
+bV.new_positions=DescribePositions(w.textual_corresponding_node);
+}
+return bV;
+}
+function ProcessNewNode(w){
+var bT=[];
+if(false){
+for(var x=0;x<w.children.length;x++){
+bT.push(ProcessNewNode(w.children[x]));
+}
+}
+var bV={
+name:w.info.function_name,
+positions:DescribePositions(w),
+children:bT,
+};
+return bV;
+}
+function DescribePositions(w){
+return{
+start_position:w.info.start_position,
+end_position:w.info.end_position
+};
+}
+return ProcessOldNode(bd);
+}
+var bW={};
+bW.SetScriptSource=SetScriptSource;
+bW.ApplyPatchMultiChunk=ApplyPatchMultiChunk;
+bW.Failure=Failure;
+bW.GetPcFromSourcePos=GetPcFromSourcePos;
+bW.TestApi={
+PosTranslator:PosTranslator,
+CompareStrings:CompareStrings,
+ApplySingleChunkPatch:ApplySingleChunkPatch
+};
+a.Debug.LiveEdit=bW;
+})
+
+l prologue

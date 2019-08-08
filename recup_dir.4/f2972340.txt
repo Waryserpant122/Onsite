@@ -1,0 +1,8 @@
+esce operation is in progress. 
+9 - 'Quiesced': The replication has been quiesced and is ready for a change. 
+10 - 'RestoreInProgress': An operation is in progress to copy the Synced object to the System object. 
+11 - 'Idle': The 'normal' state for an UnSyncAssoc replica. 
+12 - 'Broken': The relationship is non-functional due to errors in the source, the target, the path between the two or space constraints. 
+13 - 'Fractured': An Async or Sync replication is fractured. 
+14 - 'Frozen': All blocks copied from source to an UnSyncAssoc replica and the copy engine is stopped. 
+15 - 'CopyInProgress': A deferred background copy operation is in progress to copy the source to the replica target for an UnSyncAssoc association. 

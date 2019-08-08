@@ -1,0 +1,2 @@
+inistrator intervention.
+2 - 'Unhealthy': The volume is not functioning, due to errors or failures. The volume needs immediate attention from an administrator.

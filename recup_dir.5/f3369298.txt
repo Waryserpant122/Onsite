@@ -1,0 +1,4 @@
+~72000~62000~42000~46000~34000~82000~45000~83000~33000~51000", "sub_zips": "81~71~2[13]~41~85~84~22~12~35~43~44~31~63~11~13~32~61~72~62~42~46~34~82~45~83~33~51", "zip": "\\d{5}", "zipex": "12411,11599"},
+  "data/EH": {"fmt": "%N%n%O%n%A%n%Z %C", "id": "data/EH", "key": "EH", "name": "WESTERN SAHARA", "zip": "\\d{5}", "zipex": "70000,72000"},
+  "data/ER": {"id": "data/ER", "key": "ER", "name": "ERITREA"},
+  "data/ES": {"fmt": "%N%n%O%n%A%n%Z %C %S", "id": "data/ES", "key": "ES", "lang": "es", "languages": "es~ca~gl~eu", "name": "SPAIN", "posturl": "http://www.correos.es/contenido/13-MenuRec2/04-MenuRec24/1010_s-CodPostal.asp", "require": "ACSZ", "sub_keys": "VI~AB~A~AL~O~AV~BA~B~BU~CC~CA~S~CS~CE~CR~CO~CU~GI~GR~GU~SS~H~HU~PM~J~C~LO~GC~LE~L~LU~M~MA~ML~MU~NA~OR~P~PO~SA~TF~SG~SE~SO~T~TE~TO~V~VA~BI~ZA~Z", "sub_names": "

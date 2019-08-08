@@ -1,0 +1,5 @@
+efault (system) 
+ 32-bit InprocHandler (appearing as the InprocHandler32 value) 
+
+3 = default (system) 
+ 16-bit as well as 32-bit InprocHandlers

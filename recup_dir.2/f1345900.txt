@@ -1,0 +1,37 @@
+ideo camera	7402
+*|camera	*|open webcam	8189
+*|camera	*|open camera	6576
+*|camera	*|camera app	8806
+*|camera	*|take photo	8173
+*|camera	*|my camera	8929
+*|camera	*|my webcam	9046
+*|camera	*|video re	8733
+*|camera	*|cameras	8360
+*|camera	*|cammera	8850
+*|camera	*|caamera	7745
+*|camera	*|cameera	8385
+*|camera	*|ccamera	8915
+*|camera	*|cameria	8954
+*|camera	*|camera'	8299
+*|camera	*|cameraa	7835
+*|camera	*|camerra	8732
+*|camera	*|camersa	9025
+*|camera	*|camerea	8479
+*|camera	*|camaera	8948
+*|camera	*|cameara	9239
+*|camera	*|camrea	7118
+*|camera	*|canera	7685
+*|camera	*|cmaera	7504
+*|camera	*|kamera	9092
+*|camera	*|ca,era	7826
+*|camera	*|camara	5618
+*|camera	*|camare	9275
+*|camera	*|web ca	8628
+*|camera	*|camerq	9134
+*|camera	*|caera	7628
+*|camera	*|camra	5217
+*|camera	*|cmera	7208
+*|camera	*|cam,	9059
+*|camera	*|cam'	8973
+*|camera	*|camw	7172
+*|camer

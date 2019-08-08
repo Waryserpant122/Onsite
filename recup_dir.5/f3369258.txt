@@ -1,0 +1,5 @@
+nstead if you want to add new property as complement
+// or overwrite the existing properties.
+
+var addressData = {
+  "data/AD": {"fmt": "%N%n%O%n%A%n%Z %C", "id": "data/AD", "key": "AD", "lang": "ca", "languages": "ca", "name": "ANDORRA", "posturl": "http://www.correos.es/comun/CodigosPostales/1010_s-CodPostal.asp?Provincia=", "sub_isoids": "07~02~03~08~04~05~06", "sub_keys": "Parr

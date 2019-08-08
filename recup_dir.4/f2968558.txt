@@ -1,0 +1,7 @@
+) is capable of returning a value for this property, but not ever for this particular piece of hardware/software or the property is intentionally not used because it adds no meaningful information (as in the case of a property that is intended to add additional info to another property). 
+"Servicing" describes an element being configured, maintained, cleaned, or otherwise administered. 
+"Starting" describes an element being initialized. 
+"Stopping" describes an element being brought to an orderly stop. 
+"Stopped" and "Aborted" are similar, although the former implies a clean and orderly stop, while the latter implies an abrupt stop where the state and configuration of the element might need to be updated. 
+"Dormant" indicates that the element is inactive or quiesced. 
+"Completed" indicates that the element has completed its operation. This value should be combined with either OK, Error, or Degraded in the PrimaryStatus so that a client can tell if the complete operation Completed with OK (passed), Completed wmong the library and driver modules

@@ -1,0 +1,68 @@
+configuration	*|control	3244
+*|parancssor	*|cmd	1
+*|password safe	*|pwsafe	4284
+*|pdf split and merge basic	*|pdfsam	2413
+*|people	*|address book	4231
+*|people	*|people app	5496
+*|people	*|contacts	3903
+*|people	*|peope	4891
+*|performance monitor	*|perfmon	2630
+*|perl (command line)	*|cmd	520
+*|photos	*|windows import pictures	7626
+*|photos	*|where are my photos	7268
+*|photos	*|microsoft photos	7270
+*|photos	*|import pictures	5663
+*|photos	*|picture viewer	7519
+*|photos	*|import photos	5678
+*|photos	*|photo gallery	4688
+*|photos	*|windows photo	5772
+*|photos	*|photo viewer	6866
+*|photos	*|photo editor	6776
+*|photos	*|open photos	7081
+*|photos	*|my photos	6410
+*|photos	*|photots	6935
+*|photos	*|gallery	7096
+*|photos	*|photoes	7034
+*|photos	*|images	5077
+*|photos	*|photod	6903
+*|photos	*|phoyos	7148
+*|photos	*|photoa	7170
+*|photos	*|phote	7343
+*|photos	*|phots	5898
+*|photos	*|potos	7731
+*|photos	*|phtos	6707
+*|photos	*|fotos	7465
+*|photos	*|photi	6517
+*|photos	*|phoh	7559
+*|photos	*|pics	5552
+*|photos	*|phh	7070
+*|picasa 3	*|picassa	5789
+*|play	*|igi	783
+*|play league of legends	*|lol	2825
+*|playmemories home	*|pmb	3068
+*|playstv	*|plays.	4341
+*|point	*|calyx	1861
+*|pokémon trading card game online	*|pokemon	1436
+*|popcorn time	*|popcorntime	6184
+*|power pdf advanced	*|nuance	1
+*|power pdf standard	*|nuance	618
+*|powerpoint 2013	*|microsoft power point	8175
+*|powerpoint 2013	*|microsoft powerpoint	6430
+*|powerpoint 2013	*|microsoft office	6732
+*|powerpoint 2013	*|open powerpoint	6957
+*|powerpoint 2013	*|presentation	7429
+*|powerpoint 2013	*|power point	4082
+*|powerpoint 2013	*|powerpiont	8282
+*|powerpoint 2013	*|powerpoing	8314
+*|powerpoint 2013	*|poerpoint	7989
+*|powerpoint 2013	*|powepoint	7262
+*|powerpoint 2013	*|poweroint	8258
+*|powerpoint 2013	*|powerpint	7451
+*|powerpoint 2013	*|powerpoit	7602
+*|powerpoint 2013	*|powerpont	7784
+*|powerpoint 2013	*|pwerpoint	8351
+*|powerpoint 2013	*|powerpnt	7267
+*|powerpoint 2013	*|office	7055
+*|powerpoint 2013	*|slides	8296
+*|powerpoint 2013	*|ppt	6401
+*|powerpoint 2013	*|p

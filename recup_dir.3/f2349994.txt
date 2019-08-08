@@ -1,0 +1,11 @@
+512
+timing-allow-origin: *
+access-control-allow-origin: *
+cache-control: max-age=1209600, no-transform
+x-enc-origin-req-handler: AcIUByZGlrEeKsw8IFEX7pC-gkoY5rAwke0bkeqQ8ObZLs2iGUt9DJ3X8C7hf-2KPmOScnacpSAEUQBa
+x-fb-trip-id: 2112188456
+x-fb-config-version-elb-prod: 512
+date: Mon, 24 Jun 2019 08:35:14 GMT
+x-fb-edge-debug: k65stWrVpvgFsm9NcJGx6G1VKSwLWqhHH0Raa3RqDUyWj0NE2bOBvkUaBdScClNbfsaXrZvrp3JRTQtnJoYrFQ
+access-control-expose-headers: X-FB-CEC-Video-Limit
+X-Firefox-Spdy: h2

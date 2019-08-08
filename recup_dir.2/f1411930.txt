@@ -1,0 +1,9 @@
+37D11356BDD8B49FD9FEBFFD8A8BF1A78630396C815D64EC51DA4F3</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>105379897</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

@@ -1,0 +1,3 @@
+
+5 - Access denied.
+Other - For integer values other than those listed above, refer to the documentation on the Win32 error codes.

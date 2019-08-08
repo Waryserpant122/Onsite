@@ -1,0 +1,7 @@
+ontrol: max-age=1209600, no-transform
+x-enc-origin-req-handler: AcK5uM2xkV8ENrwOuG72omeBbPEeD2UbRHGEbYYAAmScsNOIxuiJSnTGEFzya4Q5xVrBFfTGfl7c1HDJ
+content-length: 114129
+x-fb-trip-id: 2112188456
+date: Mon, 24 Jun 2019 09:57:55 GMT
+access-control-expose-headers: X-FB-CEC-Video-Limit
+X-Firefox-Spdy: h2

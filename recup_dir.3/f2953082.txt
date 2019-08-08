@@ -1,0 +1,2 @@
+e connected across the network.
+Values: TRUE or FALSE. A value of TRUE indicates the protocol allows data to be connected.

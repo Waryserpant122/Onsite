@@ -1,0 +1,9 @@
+, 24 Jun 2019 12:32:14 GMT
+last-modified: Fri, 21 Jun 2019 14:29:50 GMT
+x-content-type-options: nosniff
+server: sffe
+x-xss-protection: 0
+cache-control: public, max-age=86400
+age: 76631
+alt-svc: quic=":443"; ma=2592000; v="46,44,43,39"
+X-Firefox-Spdy: h2

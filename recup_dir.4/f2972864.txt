@@ -1,0 +1,4 @@
+'Service' state while suspended. (This is job-specific.) 
+4 - 'Terminate' stops the job cleanly, saving data, preserving the state, and shutting down all underlying processes in an orderly manner. 
+5 - 'Kill' terminates the job immediately with no requirement to save data or preserve the state. 
+6 - 'Service' puts the job into a vendor-specific service state. It might be possible to restart the job.

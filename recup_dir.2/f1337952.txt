@@ -1,0 +1,2 @@
+nFlag|InSetUp" Point_X="0.757031" Point_Y="0.573611" TexturePosition="GetIntoCar"/>
+<SwitchOperation Description="

@@ -1,0 +1,46 @@
+osoft test manager	*|mtm	513
+*|microsoft test manager 2013	*|mtm	477
+*|microsoft test manager 2015	*|mtm	698
+*|microsoft visual basic 2008 express edition	*|vb	1958
+*|microsoft visual basic 2010 express	*|vb	2116
+*|microsoft visual basic 6.0	*|vb6	2685
+*|microsoft visual studio 2010	*|devenv	4821
+*|microsoft wi-fi	*|microsoft wifi	2544
+*|microsoft wi-fi	*|wi fi	1355
+*|microsoft wi-fi client	*|wifi	1
+*|microsoft word 2010	*|winword	4236
+*|microsoft word 2010	*|ms wor	8572
+*|microsoft works word processor	*|microsoft word	2371
+*|mobile mouse	*|air	1281
+*|money	*|finance	3141
+*|money	*|stocks	3076
+*|mouse and keyboard settings	*|setpoint	1477
+*|mouse settings	*|wow	773
+*|movie maker	*|windows movie maker	3624
+*|movie maker	*|windows moviemaker	7783
+*|movie maker	*|window movie maker	7606
+*|movie maker	*|windows move	7003
+*|movie maker	*|windows live	7427
+*|movie maker	*|moive maker	7730
+*|movie maker	*|video maker	7635
+*|movie maker	*|video edit	6867
+*|movie maker	*|move maker	7697
+*|movie maker	*|moviemaker	4699
+*|movie maker	*|moviw	6845
+*|movie maker	*|movir	7668
+*|movies & tv	*|movies  tv	6411
+*|movies & tv	*|xbox video	4977
+*|movies & tv	*|*.mov	6545
+*|movies & tv	*|vedio	6244
+*|movies & tv	*|video	1998
+*|movies & tv	*|vido	6176
+*|mozilla firefox	*|fire f	8962
+*|mozilla firefox	*|mozila	7458
+*|mozilla firefox	*|fire'	8758
+*|mozilla firefox	*|fore	8873
+*|mozilla firefox	*|mozz	8318
+*|mozilla firefox	*|fie	8232
+*|music	*|groove	2824
+*|máy tính tay	*|cal	1302
+*|máy tính tay	*|may	1080
+*|máy 

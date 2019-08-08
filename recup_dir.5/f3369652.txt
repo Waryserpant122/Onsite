@@ -1,0 +1,13 @@
+es with synced devices
+creditCardsSyncCheckbox = Share credit cards with synced devices
+updateAddressMessage = Would you like to update your address with this new information?
+updateAddressDescriptionLabel = Address to update:
+createAddressLabel = Create New Address
+createAddressAccessKey = C
+updateAddressLabel = Update Address
+updateAddressAccessKey = U
+saveCreditCardMessage = Would you like %S to save this credit card? (Security code will not be saved)
+saveCreditCardDescriptionLabel = Credit card to save:
+saveCreditCardLabel = Save Credit Card
+saveCreditCardAccessKey = S
+cancelCreditCardLabel = Don

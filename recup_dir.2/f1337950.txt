@@ -1,0 +1,2 @@
+cket|XBtn" DisableSwitch="MapOpenFlag" Point_X="0.531250" Point_Y="0.447222" TexturePosition="ClickPacket"/>
+<SwitchOperation Description="

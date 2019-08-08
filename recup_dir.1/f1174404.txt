@@ -1,0 +1,10 @@
+id: 885332a6-501e-009a-4638-1ade11000000
+x-ms-version: 2009-09-19
+x-ms-lease-status: unlocked
+x-ms-blob-type: BlockBlob
+Access-Control-Expose-Headers: x-ms-request-id,Server,x-ms-version,Content-Type,Content-Encoding,Cache-Control,Last-Modified,ETag,Content-MD5,x-ms-lease-status,x-ms-blob-type,Content-Length,Date,Transfer-Encoding
+Access-Control-Allow-Origin: *
+X-Azure-Ref-OriginShield: 0sbH5XAAAAABMGVEZ0774SYbDKESfbQX0TUFBMDFFREdFMDMxOQBkYjY2MmZlMy1mNDM4LTQzYzItYTI5Zi1lNjU5MGM0ZjVlNTE=
+X-Azure-Ref: 02cX7XAAAAABa6fzN04o+QYxIf2QuZbkLQk9NMDFFREdFMDIxMQBkYjY2MmZlMy1mNDM4LTQzYzItYTI5Zi1lNjU5MGM0ZjVlNTE=
+Content-Length: 100498
+

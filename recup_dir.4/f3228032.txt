@@ -1,0 +1,237 @@
+/>
+          <task
+              name="PSObjectGetPropertyValue"
+              symbol="TASK_PSOBJECT_GET_PROPERTY_VALUE"
+              value="27"
+              message="$(string.Client.Task.PSObjectGetPropertyValue)" />
+          <task
+              name="PSObjectInvokeMethod"
+              symbol="TASK_PSOBJECT_INVOKE_METHOD"
+              value="28"
+              message="$(string.Client.Task.PSObjectInvokeMethod)" />
+          <task
+              name="ConnectToAppVClientService"
+              symbol="TASK_CONNECT_TO_CLIENT_SERVICE"
+              value="29"
+              message="$(string.Client.Task.ConnectToAppVClientService)" />
+          <task
+              name="PowershellProcess"
+              symbol="POWERSHELL_PROCESS"
+              value="30"
+              message="$(string.Client.Task.PowershellProcess)" />
+          <task
+              name="CreateReportingData"
+              symbol="TASK_CREATE_REPORTING_DATA"
+              value="31"
+              message="$(string.Client.Task.CreateReportingData)" />
+          <task
+              name="UploadReportingData"
+              symbol="TASK_UPLOAD_REPORTING_DATA"
+              value="32"
+              message="$(string.Client.Task.UploadReportingData)" />
+          <task
+              name="GeneralStreaming"
+              symbol="TASK_STREAMING"
+              value="33"
+              message="$(string.Client.Task.Streaming)" />
+          <task
+              name="RepairPackage"
+              symbol="TASK_REPAIR_PACKAGE"
+              value="34"
+              message="$(string.Client.Task.RepairPackage)" />
+          <task
+              name="RepairPackageGroup"
+              symbol="TASK_REPAIR_PACKAGE_GROUP"
+              value="35"
+              message="$(string.Client.Task.RepairPackageGroup)" />
+          <task
+              name="PublishingRefresh"
+              symbol="TASK_PUBLISHING_REFRESH"
+              value="36"
+              message="$(string.Client.Task.PublishingRefresh)" />
+          <task
+              name="StopPackageOrGroup"
+              symbol="TASK_STOP_PACKAGE_OR_GROUP"
+              value="37"
+              message="$(string.Client.Task.StopPackageOrGroup)" />
+          <task
+              name="Integration"
+              symbol="TASK_INTEGRATION"
+              value="38"
+              message="$(string.Client.Task.Integration)" />
+          <task
+              name="SxS"
+              symbol="TASK_SXS"
+              value="39"
+              message="$(string.Client.Task.SxS)" />
+
+        </tasks>
+        <opcodes>
+        </opcodes>
+        <templates>
+          <template tid="TEMPLATE_CLIENT_WIN32ERROR">
+            <data name="Error" inType="win:UInt32" outType="win:Win32Error" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_HRESULT">
+            <data name="Error" inType="win:Int32" outType="win:HResult" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_STRING">
+            <data name="Item" inType="win:UnicodeString" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_STRING_HRESULT">
+            <data name="Name" inType="win:UnicodeString" />
+            <data name="HResult" inType="win:Int32" outType="win:HResult" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_STRING_STRING">
+            <data name="Item1" inType="win:UnicodeString" />
+            <data name="Item2" inType="win:UnicodeString" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_APPVERROR">
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_STRING_APPVERROR">
+            <data name="StringParam" inType="win:UnicodeString" />
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_STRING_STRING_APPVERROR">
+            <data name="StringParam1" inType="win:UnicodeString" />
+            <data name="StringParam2" inType="win:UnicodeString" />
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_ITEM_WIN32ERROR">
+            <data name="Item" inType="win:UnicodeString" />
+            <data name="Error" inType="win:UInt32" outType="win:Win32Error" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_SCRIPTINGSCOPE_STRINGS_WIN32ERROR">
+            <data name="ScriptScope" inType="win:UInt32" map="EmbeddedScriptingScope" />
+            <data name="EventType" inType="win:UnicodeString" />
+            <data name="CommandLine" inType="win:UnicodeString" />
+            <data name="Error" inType="win:UInt32" outType="win:Win32Error" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_SCRIPTINGSCOPE_GUID_STRING">
+            <data name="ScriptScope" inType="win:UInt32" map="EmbeddedScriptingScope" />
+            <data name="Package" inType="win:GUID"/>
+            <data name="EventType" inType="win:UnicodeString" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_SCRIPTINGSCOPE_GUID_STRING_MULT">
+            <data name="ScriptScope" inType="win:UInt32" map="EmbeddedScriptingScope" />
+            <data name="Package" inType="win:GUID"/>
+            <data name="EventType" inType="win:UnicodeString" />
+            <data name="UserSid" inType="win:UnicodeString" />
+            <data name="CommandLine" inType="win:UnicodeString" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_SCRIPTINGSCOPE_STRINGS_ULONG">
+            <data name="Timeout" inType="win:UInt64" outType="xs:unsignedLong" />
+            <data name="ScriptScope" inType="win:UInt32" map="EmbeddedScriptingScope" />
+            <data name="EventType" inType="win:UnicodeString" />
+            <data name="CommandLine" inType="win:UnicodeString" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_CATALOG_FOLDER">
+            <data name="LastFolder" inType="win:UnicodeString" outType="xs:string"/>
+            <data name="ReqFolder" inType="win:UnicodeString" outType="xs:string"/>
+          </template>
+          <template tid="TEMPLATE_CLIENT_CATALOG_FOLDER_WIN32ERROR">
+            <data name="LastFolder" inType="win:UnicodeString" outType="xs:string"/>
+            <data name="ReqFolder" inType="win:UnicodeString" outType="xs:string"/>
+            <data name="Error" inType="win:Int32" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_CONFIGURE_PACKAGE">
+            <data name="Package" inType="win:GUID"/>
+            <data name="Version" inType="win:GUID"/>
+            <data name="Folder" inType="win:UnicodeString" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_CONFIGURE_PACKAGE_FAILURE">
+            <data name="Package" inType="win:GUID"/>
+            <data name="Version" inType="win:GUID"/>
+            <data name="Folder" inType="win:UnicodeString" />
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_PUBLISH_PACKAGE">
+            <data name="Package" inType="win:GUID"/>
+            <data name="Version" inType="win:GUID"/>
+          </template>
+          <template tid="TEMPLATE_CLIENT_GUID_RC">
+            <data name="Package" inType="win:GUID"/>
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_IMPERSONATION_LEVEL">
+            <data name="CurrentImpersonationLevel" inType="win:UInt32" map="ImpersonationLevel" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_CONFIGURE_PACKAGE_GROUP">
+            <data name="PackageGroup" inType="win:GUID"/>
+            <data name="Version" inType="win:GUID"/>
+          </template>
+          <template tid="TEMPLATE_CLIENT_CONFIGURE_PACKAGE_GROUP_FAILURE">
+            <data name="PackageGroup" inType="win:GUID"/>
+            <data name="Version" inType="win:GUID"/>
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_PUBLISH_PACKAGE_GROUP">
+            <data name="PackageGroup" inType="win:GUID"/>
+            <data name="Version" inType="win:GUID"/>
+          </template>
+          <template tid="TEMPLATE_GUID_STRING_ERROR">
+            <data name="tGuid" inType="win:GUID"/>
+            <data name="tString" inType="win:UnicodeString" />
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32" />
+          </template>
+          <template tid="TEMPLATE_LOAD_XML_ERROR">
+            <data name="Error" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="Reason" inType="win:UnicodeString" />
+            <data name="line" inType="win:Int64" />
+            <data name="column" inType="win:Int64" />
+            <data name="offset" inType="win:Int64" />
+          </template>
+          <template tid="TEMPLATE_VALIDATE_XML_ERROR">
+            <data name="Error" inType="win:Int32" outType="win:HResult" />
+            <data name="Reason" inType="win:UnicodeString" />
+          </template>
+          <template tid="TEMPLATE_POWERSHELL_INVOKE_ERROR_WARNING">
+            <data name="Command" inType="win:UnicodeString" outType="xs:string"/>
+            <data name="ErrorWarning" inType="win:UnicodeString" outType="xs:string"/>
+          </template>
+          <template tid="TEMPLATE_SUBSYSTEM_STARTUP_FAILURE">
+            <data name="PID" inType="win:UInt32" outType="win:PID"/>
+            <data name="Package" inType="win:GUID"/>
+            <data name="Version" inType="win:GUID"/>
+            <data name="SubsystemName" inType="win:UnicodeString" outType="xs:string"/>
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_GUID_WIN32ERROR">
+            <data name="Package" inType="win:GUID"/>
+            <data name="Error" inType="win:UInt32" outType="win:Win32Error" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_GUID">
+            <data name="Package" inType="win:GUID"/>
+          </template>
+          <template tid="TEMPLATE_APPV_ERROR">
+            <data name="ErrorHigh" inType="win:UInt64" outType="win:HexInt64" />
+            <data name="ErrorLow" inType="win:UInt64" outType="win:HexInt64" />
+          </template>
+          <template tid="TEMPLATE_COM_ERROR">
+            <data name="HResult" inType="win:Int32" />
+          </template>
+          <template tid="TEMPLATE_CLIENT_STRING_GUID_PID_RC">
+            <data name="ProcessName" inType="win:UnicodeString" />
+            <data name="Package" inType="win:GUID"/>
+            <data name="Pid" inType="win:UInt32" outType="win:PID" />
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32" />
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32" />
+          </template>
+          <template tid="TEMPLATE_PACKAGE_AND_VERSION">
+            <data name="Package" inType="win:GUID"/>
+            <data name="Version" inType="win:GUID"/>
+          </template>
+          <template tid="TEMPLATE_PACKAGE_VERSION_AND_HR">
+            <data name="Package" inType="win:GUID"/>
+            <data name="Version" inType="win:GUID"/>
+            <data name="Hresult" inType="win:UInt32" outType="win:HexInt32" />
+          </template

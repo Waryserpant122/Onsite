@@ -1,0 +1,6 @@
+f the item.  An item may represent a Server, Share, Directory, or a File. 
+
+0 - File 
+1 - Directory 
+2 - Share 
+3 - Server

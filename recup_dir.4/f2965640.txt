@@ -1,0 +1,5 @@
+the specified level is reached. Associations between objects (within the discovered levels) will also be discovered. The discovery levels are defined as follows: 
+0 - 'Level 0': The storage provider and storage subsystem objects will be discovered. 
+1 - 'Level 1': Storage pools, resiliency settings, target ports, target portals, and initiator ids will be discovered.
+2 - 'Level 2': Virtual disks and masking sets will be discovered.
+3 - 'Level 3': Physical disks will be discovered.

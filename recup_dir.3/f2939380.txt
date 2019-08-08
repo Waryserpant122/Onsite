@@ -1,0 +1,6 @@
+ can return the following values:
+0 - Success.
+5 - Access denied.
+1801 - Invalid printer name.
+1930 - Incompatible printer driver.
+Other - For integer values other than those listed above, refer to the documentation on the Win32 error codes.

@@ -1,0 +1,2 @@
+s are received in the same order they were transmitted. If the connection between machines fails, the application is notified.
+Values: TRUE or FALSE. A value of TRUE indicates the protocol uses aconnectionless service.

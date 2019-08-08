@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>Free Wi-Fi @ AAI by Vodafone</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>467265652057692D466920402041414920627920566F6461666F6E65</hex>
+			<name>Free Wi-Fi @ AAI by Vodafone</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>manual</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>open</authentication>
+				<encryption>none</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>2225994621</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

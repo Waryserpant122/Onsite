@@ -1,0 +1,3 @@
+Switch="MapOpenFlag|InSetUp" Point_X="0.619531" Point_Y="0.843056" HideTips="1"/>
+</KeyMapping>
+<KeyMapping ItemName="4" Point_X="0.680469" Point_Y="0.504167" Description="

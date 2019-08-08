@@ -1,0 +1,9 @@
+ NULL
+2019-07-18 17:16:17, Info                         [svchost.exe] Exit WinReIsWimBootEnabled returns 0 with last error: 0x0
+2019-07-18 17:17:09, Info                         [RelPost.exe] Enter WinReGetLogDirPath
+2019-07-18 17:17:09, Info                         [RelPost.exe] Update enhanced config info is enabled.
+2019-07-18 17:17:14, Info                         [RelPost.exe] WinRE is installed
+2019-07-18 17:17:14, Info                         [RelPost.exe] Exit WinReGetLogDirPath return error code: 0x0
+2019-07-18 17:17:15, Info                         [RelPost.exe] Enter WinReSetTriggerFile
+2019-07-18 17:17:15, Info                         [RelPost.exe] Parameters: DirName: \\?\GLOBALROOT\device\harddisk0\partition1\Recovery\Logs, fDelete: 1
+2019-07-18 17:17:15, Info                         [RelPost.exe] Exit WinReSetTriggerFile return error code: 0x0

@@ -1,0 +1,2 @@
+e DiscardNULLBytes property determines whether to discard NULL bytes (characters) when they are received.
+Values: TRUE or FALSE. If TRUE, NULL bytes are discarded.

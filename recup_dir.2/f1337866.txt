@@ -1,0 +1,2 @@
+="Jump" DisableSwitch="MapOpenFlag|InSetUp" Point_X="0.586719" Point_Y="0.881944" HideTips="1"/>
+<SwitchOperation Description="

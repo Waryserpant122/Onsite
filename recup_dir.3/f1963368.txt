@@ -1,0 +1,777 @@
+formSplice;
+o=r.ObserveEndPerformSplice;
+p=r.ObserveEnqueueSpliceRecord;
+});
+function GlobalIsNaN(s){
+s=(%_ToNumber(s));
+return(!%_IsSmi(%IS_VAR(s))&&!(s==s));
+}
+function GlobalIsFinite(s){
+s=(%_ToNumber(s));
+return(%_IsSmi(%IS_VAR(s))||((s==s)&&(s!=1/0)&&(s!=-1/0)));
+}
+function GlobalParseInt(t,u){
+if((u===(void 0))||u===10||u===0){
+if(%_IsSmi(t))return t;
+if((typeof(t)==='number')&&
+((0.01<t&&t<1e9)||
+(-1e9<t&&t<-0.01))){
+return t|0;
+}
+t=(%_ToString(t));
+u=u|0;
+}else{
+t=(%_ToString(t));
+u=((u)|0);
+if(!(u==0||(2<=u&&u<=36))){
+return l;
+}
+}
+if(%_HasCachedArrayIndex(t)&&
+(u==0||u==10)){
+return %_GetCachedArrayIndex(t);
+}
+return %StringParseInt(t,u);
+}
+function GlobalParseFloat(t){
+t=(%_ToString(t));
+if(%_HasCachedArrayIndex(t))return %_GetCachedArrayIndex(t);
+return %StringParseFloat(t);
+}
+var v=2|4|1;
+b.InstallConstants(a,[
+"Infinity",(1/0),
+"NaN",l,
+"undefined",(void 0),
+]);
+b.InstallFunctions(a,2,[
+"isNaN",GlobalIsNaN,
+"isFinite",GlobalIsFinite,
+"parseInt",GlobalParseInt,
+"parseFloat",GlobalParseFloat,
+]);
+function ObjectToLocaleString(){
+if((%IS_VAR(this)===null)||(this===(void 0)))throw j(18,"Object.prototype.toLocaleString");
+return this.toString();
+}
+function ObjectValueOf(){
+return(%_ToObject(this));
+}
+function ObjectIsPrototypeOf(w){
+if(!(%_IsJSReceiver(w)))return false;
+var x=(%_ToObject(this));
+return %HasInPrototypeChain(w,x);
+}
+function ObjectPropertyIsEnumerable(w){
+var y=(%_ToName(w));
+return %PropertyIsEnumerable((%_ToObject(this)),y);
+}
+function ObjectDefineGetter(z,A){
+var B=this;
+if((B===null)||(B===(void 0))){
+B=%GlobalProxy(ObjectDefineGetter);
+}
+if(!(typeof(A)==='function')){
+throw j(76);
+}
+var C=new PropertyDescriptor();
+C.setGet(A);
+C.setEnumerable(true);
+C.setConfigurable(true);
+DefineOwnProperty((%_ToObject(B)),(%_ToName(z)),C,false);
+}
+function ObjectLookupGetter(z){
+var B=this;
+if((B===null)||(B===(void 0))){
+B=%GlobalProxy(ObjectLookupGetter);
+}
+return %LookupAccessor((%_ToObject(B)),(%_ToName(z)),0);
+}
+function ObjectDefineSetter(z,A){
+var B=this;
+if((B===null)||(B===(void 0))){
+B=%GlobalProxy(ObjectDefineSetter);
+}
+if(!(typeof(A)==='function')){
+throw j(79);
+}
+var C=new PropertyDescriptor();
+C.setSet(A);
+C.setEnumerable(true);
+C.setConfigurable(true);
+DefineOwnProperty((%_ToObject(B)),(%_ToName(z)),C,false);
+}
+function ObjectLookupSetter(z){
+var B=this;
+if((B===null)||(B===(void 0))){
+B=%GlobalProxy(ObjectLookupSetter);
+}
+return %LookupAccessor((%_ToObject(B)),(%_ToName(z)),1);
+}
+function IsAccessorDescriptor(C){
+if((C===(void 0)))return false;
+return C.hasGetter()||C.hasSetter();
+}
+function IsDataDescriptor(C){
+if((C===(void 0)))return false;
+return C.hasValue()||C.hasWritable();
+}
+function IsGenericDescriptor(C){
+if((C===(void 0)))return false;
+return!(IsAccessorDescriptor(C)||IsDataDescriptor(C));
+}
+function IsInconsistentDescriptor(C){
+return IsAccessorDescriptor(C)&&IsDataDescriptor(C);
+}
+function FromGenericPropertyDescriptor(C){
+if((C===(void 0)))return C;
+var D=new e();
+if(C.hasValue()){
+%AddNamedProperty(D,"value",C.getValue(),0);
+}
+if(C.hasWritable()){
+%AddNamedProperty(D,"writable",C.isWritable(),0);
+}
+if(C.hasGetter()){
+%AddNamedProperty(D,"get",C.getGet(),0);
+}
+if(C.hasSetter()){
+%AddNamedProperty(D,"set",C.getSet(),0);
+}
+if(C.hasEnumerable()){
+%AddNamedProperty(D,"enumerable",C.isEnumerable(),0);
+}
+if(C.hasConfigurable()){
+%AddNamedProperty(D,"configurable",C.isConfigurable(),0);
+}
+return D;
+}
+function ToPropertyDescriptor(D){
+if(!(%_IsJSReceiver(D)))throw j(95,D);
+var C=new PropertyDescriptor();
+if("enumerable"in D){
+C.setEnumerable((!!(D.enumerable)));
+}
+if("configurable"in D){
+C.setConfigurable((!!(D.configurable)));
+}
+if("value"in D){
+C.setValue(D.value);
+}
+if("writable"in D){
+C.setWritable((!!(D.writable)));
+}
+if("get"in D){
+var E=D.get;
+if(!(E===(void 0))&&!(typeof(E)==='function')){
+throw j(77,E);
+}
+C.setGet(E);
+}
+if("set"in D){
+var F=D.set;
+if(!(F===(void 0))&&!(typeof(F)==='function')){
+throw j(80,F);
+}
+C.setSet(F);
+}
+if(IsInconsistentDescriptor(C)){
+throw j(153,D);
+}
+return C;
+}
+function ToCompletePropertyDescriptor(D){
+var C=ToPropertyDescriptor(D);
+if(IsGenericDescriptor(C)||IsDataDescriptor(C)){
+if(!C.hasValue())C.setValue((void 0));
+if(!C.hasWritable())C.setWritable(false);
+}else{
+if(!C.hasGetter())C.setGet((void 0));
+if(!C.hasSetter())C.setSet((void 0));
+}
+if(!C.hasEnumerable())C.setEnumerable(false);
+if(!C.hasConfigurable())C.setConfigurable(false);
+return C;
+}
+function PropertyDescriptor(){
+this.value_=(void 0);
+this.hasValue_=false;
+this.writable_=false;
+this.hasWritable_=false;
+this.enumerable_=false;
+this.hasEnumerable_=false;
+this.configurable_=false;
+this.hasConfigurable_=false;
+this.get_=(void 0);
+this.hasGetter_=false;
+this.set_=(void 0);
+this.hasSetter_=false;
+}
+b.SetUpLockedPrototype(PropertyDescriptor,[
+"value_",
+"hasValue_",
+"writable_",
+"hasWritable_",
+"enumerable_",
+"hasEnumerable_",
+"configurable_",
+"hasConfigurable_",
+"get_",
+"hasGetter_",
+"set_",
+"hasSetter_"
+],[
+"toString",function PropertyDescriptor_ToString(){
+return"[object PropertyDescriptor]";
+},
+"setValue",function PropertyDescriptor_SetValue(G){
+this.value_=G;
+this.hasValue_=true;
+},
+"getValue",function PropertyDescriptor_GetValue(){
+return this.value_;
+},
+"hasValue",function PropertyDescriptor_HasValue(){
+return this.hasValue_;
+},
+"setEnumerable",function PropertyDescriptor_SetEnumerable(H){
+this.enumerable_=H;
+this.hasEnumerable_=true;
+},
+"isEnumerable",function PropertyDescriptor_IsEnumerable(){
+return this.enumerable_;
+},
+"hasEnumerable",function PropertyDescriptor_HasEnumerable(){
+return this.hasEnumerable_;
+},
+"setWritable",function PropertyDescriptor_SetWritable(I){
+this.writable_=I;
+this.hasWritable_=true;
+},
+"isWritable",function PropertyDescriptor_IsWritable(){
+return this.writable_;
+},
+"hasWritable",function PropertyDescriptor_HasWritable(){
+return this.hasWritable_;
+},
+"setConfigurable",
+function PropertyDescriptor_SetConfigurable(J){
+this.configurable_=J;
+this.hasConfigurable_=true;
+},
+"hasConfigurable",function PropertyDescriptor_HasConfigurable(){
+return this.hasConfigurable_;
+},
+"isConfigurable",function PropertyDescriptor_IsConfigurable(){
+return this.configurable_;
+},
+"setGet",function PropertyDescriptor_SetGetter(E){
+this.get_=E;
+this.hasGetter_=true;
+},
+"getGet",function PropertyDescriptor_GetGetter(){
+return this.get_;
+},
+"hasGetter",function PropertyDescriptor_HasGetter(){
+return this.hasGetter_;
+},
+"setSet",function PropertyDescriptor_SetSetter(F){
+this.set_=F;
+this.hasSetter_=true;
+},
+"getSet",function PropertyDescriptor_GetSetter(){
+return this.set_;
+},
+"hasSetter",function PropertyDescriptor_HasSetter(){
+return this.hasSetter_;
+}
+]);
+function ConvertDescriptorArrayToDescriptor(K){
+if((K===(void 0))){
+return(void 0);
+}
+var C=new PropertyDescriptor();
+if(K[0]){
+C.setGet(K[2]);
+C.setSet(K[3]);
+}else{
+C.setValue(K[1]);
+C.setWritable(K[4]);
+}
+C.setEnumerable(K[5]);
+C.setConfigurable(K[6]);
+return C;
+}
+function GetTrap(L,z,M){
+var N=L[z];
+if((N===(void 0))){
+if((M===(void 0))){
+throw j(43);
+}
+N=M;
+}else if(!(typeof(N)==='function')){
+throw j(43);
+}
+return N;
+}
+function CallTrap1(L,z,M,O){
+return %_Call(GetTrap(L,z,M),L,O);
+}
+function CallTrap2(L,z,M,O,P){
+return %_Call(GetTrap(L,z,M),L,O,P);
+}
+function GetOwnPropertyJS(D,Q){
+var R=(%_ToName(Q));
+if((%_IsJSProxy(D))){
+if((typeof(Q)==='symbol'))return(void 0);
+var L=%JSProxyGetHandler(D);
+var S=CallTrap1(
+L,"getOwnPropertyDescriptor",(void 0),R);
+if((S===(void 0)))return S;
+var C=ToCompletePropertyDescriptor(S);
+if(!C.isConfigurable()){
+throw j(43);
+}
+return C;
+}
+var T=%GetOwnProperty_Legacy((%_ToObject(D)),R);
+return ConvertDescriptorArrayToDescriptor(T);
+}
+function GetMethod(D,R){
+var U=D[R];
+if((U==null))return(void 0);
+if((typeof(U)==='function'))return U;
+throw j(15,typeof U);
+}
+function DefineProxyProperty(D,R,v,V){
+if((typeof(R)==='symbol'))return false;
+var L=%JSProxyGetHandler(D);
+var W=CallTrap2(L,"defineProperty",(void 0),R,v);
+if(!W){
+if(V){
+throw j(43);
+}else{
+return false;
+}
+}
+return true;
+}
+function DefineObjectProperty(D,R,C,V){
+var X=%GetOwnProperty_Legacy(D,(%_ToName(R)));
+var Y=ConvertDescriptorArrayToDescriptor(X);
+var Z=%object_is_extensible(D);
+if((Y===(void 0))&&!Z){
+if(V){
+throw j(36,R);
+}else{
+return false;
+}
+}
+if(!(Y===(void 0))){
+if((IsGenericDescriptor(C)||
+IsDataDescriptor(C)==IsDataDescriptor(Y))&&
+(!C.hasEnumerable()||
+%SameValue(C.isEnumerable(),Y.isEnumerable()))&&
+(!C.hasConfigurable()||
+%SameValue(C.isConfigurable(),Y.isConfigurable()))&&
+(!C.hasWritable()||
+%SameValue(C.isWritable(),Y.isWritable()))&&
+(!C.hasValue()||
+%SameValue(C.getValue(),Y.getValue()))&&
+(!C.hasGetter()||
+%SameValue(C.getGet(),Y.getGet()))&&
+(!C.hasSetter()||
+%SameValue(C.getSet(),Y.getSet()))){
+return true;
+}
+if(!Y.isConfigurable()){
+if(C.isConfigurable()||
+(C.hasEnumerable()&&
+C.isEnumerable()!=Y.isEnumerable())){
+if(V){
+throw j(129,R);
+}else{
+return false;
+}
+}
+if(!IsGenericDescriptor(C)){
+if(IsDataDescriptor(Y)!=IsDataDescriptor(C)){
+if(V){
+throw j(129,R);
+}else{
+return false;
+}
+}
+if(IsDataDescriptor(Y)&&IsDataDescriptor(C)){
+var aa=Y.isWritable();
+if(aa!=C.isWritable()){
+if(!aa){
+if(V){
+throw j(129,R);
+}else{
+return false;
+}
+}
+}
+if(!aa&&C.hasValue()&&
+!%SameValue(C.getValue(),Y.getValue())){
+if(V){
+throw j(129,R);
+}else{
+return false;
+}
+}
+}
+if(IsAccessorDescriptor(C)&&IsAccessorDescriptor(Y)){
+if(C.hasSetter()&&
+!%SameValue(C.getSet(),Y.getSet())){
+if(V){
+throw j(129,R);
+}else{
+return false;
+}
+}
+if(C.hasGetter()&&!%SameValue(C.getGet(),Y.getGet())){
+if(V){
+throw j(129,R);
+}else{
+return false;
+}
+}
+}
+}
+}
+}
+var ab=0;
+if(C.hasEnumerable()){
+ab|=C.isEnumerable()?0:2;
+}else if(!(Y===(void 0))){
+ab|=Y.isEnumerable()?0:2;
+}else{
+ab|=2;
+}
+if(C.hasConfigurable()){
+ab|=C.isConfigurable()?0:4;
+}else if(!(Y===(void 0))){
+ab|=Y.isConfigurable()?0:4;
+}else
+ab|=4;
+if(IsDataDescriptor(C)||
+(IsGenericDescriptor(C)&&
+((Y===(void 0))||IsDataDescriptor(Y)))){
+if(C.hasWritable()){
+ab|=C.isWritable()?0:1;
+}else if(!(Y===(void 0))){
+ab|=Y.isWritable()?0:1;
+}else{
+ab|=1;
+}
+var G=(void 0);
+if(C.hasValue()){
+G=C.getValue();
+}else if(!(Y===(void 0))&&IsDataDescriptor(Y)){
+G=Y.getValue();
+}
+%DefineDataPropertyUnchecked(D,R,G,ab);
+}else{
+var ac=null;
+if(C.hasGetter()){
+ac=C.getGet();
+}else if(IsAccessorDescriptor(Y)&&Y.hasGetter()){
+ac=Y.getGet();
+}
+var ad=null;
+if(C.hasSetter()){
+ad=C.getSet();
+}else if(IsAccessorDescriptor(Y)&&Y.hasSetter()){
+ad=Y.getSet();
+}
+%DefineAccessorPropertyUnchecked(D,R,ac,ad,ab);
+}
+return true;
+}
+function DefineArrayProperty(D,R,C,V){
+if(!(typeof(R)==='symbol')){
+var ae=((R)>>>0);
+var af=false;
+if((%_ToString(ae))==R&&ae!=4294967295){
+var ag=D.length;
+if(ae>=ag&&%IsObserved(D)){
+af=true;
+n(D);
+}
+var ah=GetOwnPropertyJS(D,"length");
+if((ae>=ag&&!ah.isWritable())||
+!DefineObjectProperty(D,R,C,true)){
+if(af)
+o(D);
+if(V){
+throw j(36,R);
+}else{
+return false;
+}
+}
+if(ae>=ag){
+D.length=ae+1;
+}
+if(af){
+o(D);
+p(D,ag,[],ae+1-ag);
+}
+return true;
+}
+}
+return DefineObjectProperty(D,R,C,V);
+}
+function DefineOwnProperty(D,R,C,V){
+if((%_IsJSProxy(D))){
+if((typeof(R)==='symbol'))return false;
+var v=FromGenericPropertyDescriptor(C);
+return DefineProxyProperty(D,R,v,V);
+}else if((%_IsArray(D))){
+return DefineArrayProperty(D,R,C,V);
+}else{
+return DefineObjectProperty(D,R,C,V);
+}
+}
+function ObjectGetPrototypeOf(D){
+return %_GetPrototype((%_ToObject(D)));
+}
+function ObjectSetPrototypeOf(D,ai){
+if((%IS_VAR(D)===null)||(D===(void 0)))throw j(18,"Object.setPrototypeOf");
+if(ai!==null&&!(%_IsJSReceiver(ai))){
+throw j(97,ai);
+}
+if((%_IsJSReceiver(D))){
+%SetPrototype(D,ai);
+}
+return D;
+}
+function ObjectDefineProperty(D,R,v){
+if(%IsObserved(D)){
+if(!(%_IsJSReceiver(D))){
+throw j(17,"Object.defineProperty");
+}
+var z=(%_ToName(R));
+var C=ToPropertyDescriptor(v);
+DefineOwnProperty(D,z,C,true);
+return D;
+}
+return %ObjectDefineProperty(D,R,v);
+}
+function ObjectDefineProperties(D,aj){
+if(%IsObserved(D)){
+if(!(%_IsJSReceiver(D))){
+throw j(17,"Object.defineProperties");
+}
+var T=(%_ToObject(aj));
+var ak=%GetOwnPropertyKeys(T,2);
+var al=new f();
+for(var am=0;am<ak.length;am++){
+al.push(ToPropertyDescriptor(T[ak[am]]));
+}
+for(var am=0;am<ak.length;am++){
+DefineOwnProperty(D,ak[am],al[am],true);
+}
+return D;
+}
+return %ObjectDefineProperties(D,aj);
+}
+function ObjectGetProto(){
+return %_GetPrototype((%_ToObject(this)));
+}
+function ObjectSetProto(ai){
+if((%IS_VAR(this)===null)||(this===(void 0)))throw j(18,"Object.prototype.__proto__");
+if(((%_IsJSReceiver(ai))||(ai===null))&&(%_IsJSReceiver(this))){
+%SetPrototype(this,ai);
+}
+}
+function ObjectConstructor(O){
+if(e!=new.target&&!(new.target===(void 0))){
+return this;
+}
+if((O===null)||(O===(void 0)))return{};
+return(%_ToObject(O));
+}
+%SetNativeFlag(e);
+%SetCode(e,ObjectConstructor);
+%AddNamedProperty(e.prototype,"constructor",e,
+2);
+b.InstallFunctions(e.prototype,2,[
+"toString",m,
+"toLocaleString",ObjectToLocaleString,
+"valueOf",ObjectValueOf,
+"isPrototypeOf",ObjectIsPrototypeOf,
+"propertyIsEnumerable",ObjectPropertyIsEnumerable,
+"__defineGetter__",ObjectDefineGetter,
+"__lookupGetter__",ObjectLookupGetter,
+"__defineSetter__",ObjectDefineSetter,
+"__lookupSetter__",ObjectLookupSetter
+]);
+b.InstallGetterSetter(e.prototype,"__proto__",ObjectGetProto,
+ObjectSetProto);
+b.InstallFunctions(e,2,[
+"defineProperty",ObjectDefineProperty,
+"defineProperties",ObjectDefineProperties,
+"getPrototypeOf",ObjectGetPrototypeOf,
+"setPrototypeOf",ObjectSetPrototypeOf,
+]);
+function NumberToStringJS(u){
+var s=this;
+if(!(typeof(this)==='number')){
+if(!(%_ClassOf(this)==='Number')){
+throw j(69,'Number.prototype.toString');
+}
+s=%_ValueOf(this);
+}
+if((u===(void 0))||u===10){
+return %_NumberToString(s);
+}
+u=(%_ToInteger(u));
+if(u<2||u>36)throw h(188);
+return %NumberToRadixString(s,u);
+}
+function NumberToLocaleString(){
+return %_Call(NumberToStringJS,this);
+}
+function NumberValueOf(){
+if(!(typeof(this)==='number')&&!(%_ClassOf(this)==='Number')){
+throw j(69,'Number.prototype.valueOf');
+}
+return %_ValueOf(this);
+}
+function NumberToFixedJS(an){
+var O=this;
+if(!(typeof(this)==='number')){
+if(!(%_ClassOf(this)==='Number')){
+throw j(44,
+"Number.prototype.toFixed",this);
+}
+O=%_ValueOf(this);
+}
+var ao=(%_ToInteger(an));
+if(ao<0||ao>20){
+throw h(184,"toFixed() digits");
+}
+if((!%_IsSmi(%IS_VAR(O))&&!(O==O)))return"NaN";
+if(O==(1/0))return"Infinity";
+if(O==-(1/0))return"-Infinity";
+return %NumberToFixed(O,ao);
+}
+function NumberToExponentialJS(an){
+var O=this;
+if(!(typeof(this)==='number')){
+if(!(%_ClassOf(this)==='Number')){
+throw j(44,
+"Number.prototype.toExponential",this);
+}
+O=%_ValueOf(this);
+}
+var ao=(an===(void 0))?(void 0):(%_ToInteger(an));
+if((!%_IsSmi(%IS_VAR(O))&&!(O==O)))return"NaN";
+if(O==(1/0))return"Infinity";
+if(O==-(1/0))return"-Infinity";
+if((ao===(void 0))){
+ao=-1;
+}else if(ao<0||ao>20){
+throw h(184,"toExponential()");
+}
+return %NumberToExponential(O,ao);
+}
+function NumberToPrecisionJS(ap){
+var O=this;
+if(!(typeof(this)==='number')){
+if(!(%_ClassOf(this)==='Number')){
+throw j(44,
+"Number.prototype.toPrecision",this);
+}
+O=%_ValueOf(this);
+}
+if((ap===(void 0)))return(%_ToString(O));
+var R=(%_ToInteger(ap));
+if((!%_IsSmi(%IS_VAR(O))&&!(O==O)))return"NaN";
+if(O==(1/0))return"Infinity";
+if(O==-(1/0))return"-Infinity";
+if(R<1||R>21){
+throw h(187);
+}
+return %NumberToPrecision(O,R);
+}
+function NumberIsFinite(s){
+return(typeof(s)==='number')&&(%_IsSmi(%IS_VAR(s))||((s==s)&&(s!=1/0)&&(s!=-1/0)));
+}
+function NumberIsInteger(s){
+return NumberIsFinite(s)&&(%_ToInteger(s))==s;
+}
+function NumberIsNaN(s){
+return(typeof(s)==='number')&&(!%_IsSmi(%IS_VAR(s))&&!(s==s));
+}
+function NumberIsSafeInteger(s){
+if(NumberIsFinite(s)){
+var aq=(%_ToInteger(s));
+if(aq==s){
+return k(aq)<=9007199254740991;
+}
+}
+return false;
+}
+%FunctionSetPrototype(d,new d(0));
+%OptimizeObjectForAddingMultipleProperties(d.prototype,8);
+%AddNamedProperty(d.prototype,"constructor",d,
+2);
+b.InstallConstants(d,[
+"MAX_VALUE",1.7976931348623157e+308,
+"MIN_VALUE",5e-324,
+"NaN",l,
+"NEGATIVE_INFINITY",-(1/0),
+"POSITIVE_INFINITY",(1/0),
+"MAX_SAFE_INTEGER",%_MathPow(2,53)-1,
+"MIN_SAFE_INTEGER",-%_MathPow(2,53)+1,
+"EPSILON",%_MathPow(2,-52)
+]);
+b.InstallFunctions(d.prototype,2,[
+"toString",NumberToStringJS,
+"toLocaleString",NumberToLocaleString,
+"valueOf",NumberValueOf,
+"toFixed",NumberToFixedJS,
+"toExponential",NumberToExponentialJS,
+"toPrecision",NumberToPrecisionJS
+]);
+b.InstallFunctions(d,2,[
+"isFinite",NumberIsFinite,
+"isInteger",NumberIsInteger,
+"isNaN",NumberIsNaN,
+"isSafeInteger",NumberIsSafeInteger,
+"parseInt",GlobalParseInt,
+"parseFloat",GlobalParseFloat
+]);
+%SetForceInlineFlag(NumberIsNaN);
+function GetIterator(D,ar){
+if((ar===(void 0))){
+ar=D[g];
+}
+if(!(typeof(ar)==='function')){
+throw j(70,D);
+}
+var as=%_Call(ar,D);
+if(!(%_IsJSReceiver(as))){
+throw j(64,as);
+}
+return as;
+}
+b.Export(function(at){
+at.GetIterator=GetIterator;
+at.GetMethod=GetMethod;
+at.IsFinite=GlobalIsFinite;
+at.IsNaN=GlobalIsNaN;
+at.NumberIsNaN=NumberIsNaN;
+at.NumberIsInteger=NumberIsInteger;
+at.ObjectDefineProperties=ObjectDefineProperties;
+at.ObjectDefineProperty=ObjectDefineProperty;
+at.ObjectHasOwnProperty=e.prototype.hasOwnProperty;
+});
+%InstallToContext([
+"object_value_of",ObjectValueOf,
+]);
+})
+

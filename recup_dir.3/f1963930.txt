@@ -1,0 +1,7 @@
+rty(global, 'ReadableStream', {
+    value: ReadableStream,
+    enumerable: false,
+    configurable: true,
+    writable: true
+  });
+});

@@ -1,0 +1,20 @@
+ssKey = U
+openAutofillMessagePanel = Open Form Autofill message panel
+
+autocompleteFooterOptionShort = More Options
+autocompleteFooterOptionOSXShort = Preferences
+category.address = address
+category.name = name
+category.organization2 = organization
+category.tel = phone
+category.email = email
+fieldNameSeparator = ,\u0020
+phishingWarningMessage = Also autofills %S
+phishingWarningMessage2 = Autofills %S
+insecureFieldWarningDescription = %S has detected an insecure site. Form Autofill is temporarily disabled.
+clearFormBtnLabel2 = Clear Autofill Form
+
+autofillHeader = Forms and Autofill
+autofillAddressesCheckbox = Autofill addresses
+learnMoreLabel = Learn more
+savedAddressesBtnLabel = Saved Addresses

@@ -1,0 +1,858 @@
+r j={};
+function GetObservationStateJS(){
+if((i===(void 0))){
+i=%GetObservationState();
+}
+if((i.callbackInfoMap===(void 0))){
+i.callbackInfoMap=%ObservationWeakMapCreate();
+i.objectInfoMap=%ObservationWeakMapCreate();
+i.notifierObjectInfoMap=%ObservationWeakMapCreate();
+i.pendingObservers=null;
+i.nextCallbackPriority=0;
+i.lastMicrotaskId=0;
+}
+return i;
+}
+function GetPendingObservers(){
+return GetObservationStateJS().pendingObservers;
+}
+function SetPendingObservers(k){
+GetObservationStateJS().pendingObservers=k;
+}
+function GetNextCallbackPriority(){
+return GetObservationStateJS().nextCallbackPriority++;
+}
+function nullProtoObject(){
+return{__proto__:null};
+}
+function TypeMapCreate(){
+return nullProtoObject();
+}
+function TypeMapAddType(l,m,n){
+l[m]=n?1:(l[m]||0)+1;
+}
+function TypeMapRemoveType(l,m){
+l[m]--;
+}
+function TypeMapCreateFromList(o,p){
+var l=TypeMapCreate();
+for(var q=0;q<p;q++){
+TypeMapAddType(l,o[q],true);
+}
+return l;
+}
+function TypeMapHasType(l,m){
+return!!l[m];
+}
+function TypeMapIsDisjointFrom(r,s){
+if(!r||!s)
+return true;
+for(var m in r){
+if(TypeMapHasType(r,m)&&TypeMapHasType(s,m))
+return false;
+}
+return true;
+}
+var t=(function(){
+var u=[
+'add',
+'update',
+'delete',
+'setPrototype',
+'reconfigure',
+'preventExtensions'
+];
+return TypeMapCreateFromList(u,u.length);
+})();
+function ObserverCreate(v,w){
+if((w===(void 0)))
+return v;
+var x=nullProtoObject();
+x.callback=v;
+x.accept=w;
+return x;
+}
+function ObserverGetCallback(x){
+return(typeof(x)==='function')?x:x.callback;
+}
+function ObserverGetAcceptTypes(x){
+return(typeof(x)==='function')?t:x.accept;
+}
+function ObserverIsActive(x,y){
+return TypeMapIsDisjointFrom(ObjectInfoGetPerformingTypes(y),
+ObserverGetAcceptTypes(x));
+}
+function ObjectInfoGetOrCreate(z){
+var y=ObjectInfoGet(z);
+if((y===(void 0))){
+if(!(%_IsJSProxy(z))){
+%SetIsObserved(z);
+}
+y={
+object:z,
+changeObservers:null,
+notifier:null,
+performing:null,
+performingCount:0,
+};
+%WeakCollectionSet(GetObservationStateJS().objectInfoMap,
+z,y,c(z));
+}
+return y;
+}
+function ObjectInfoGet(z){
+return %WeakCollectionGet(GetObservationStateJS().objectInfoMap,z,
+c(z));
+}
+function ObjectInfoGetFromNotifier(A){
+return %WeakCollectionGet(GetObservationStateJS().notifierObjectInfoMap,
+A,c(A));
+}
+function ObjectInfoGetNotifier(y){
+if((y.notifier===null)){
+var A={__proto__:j};
+y.notifier=A;
+%WeakCollectionSet(GetObservationStateJS().notifierObjectInfoMap,
+A,y,c(A));
+}
+return y.notifier;
+}
+function ChangeObserversIsOptimized(B){
+return(typeof(B)==='function')||
+(typeof(B.callback)==='function');
+}
+function ObjectInfoNormalizeChangeObservers(y){
+if(ChangeObserversIsOptimized(y.changeObservers)){
+var x=y.changeObservers;
+var v=ObserverGetCallback(x);
+var C=CallbackInfoGet(v);
+var D=CallbackInfoGetPriority(C);
+y.changeObservers=nullProtoObject();
+y.changeObservers[D]=x;
+}
+}
+function ObjectInfoAddObserver(y,v,w){
+var C=CallbackInfoGetOrCreate(v);
+var x=ObserverCreate(v,w);
+if(!y.changeObservers){
+y.changeObservers=x;
+return;
+}
+ObjectInfoNormalizeChangeObservers(y);
+var D=CallbackInfoGetPriority(C);
+y.changeObservers[D]=x;
+}
+function ObjectInfoRemoveObserver(y,v){
+if(!y.changeObservers)
+return;
+if(ChangeObserversIsOptimized(y.changeObservers)){
+if(v===ObserverGetCallback(y.changeObservers))
+y.changeObservers=null;
+return;
+}
+var C=CallbackInfoGet(v);
+var D=CallbackInfoGetPriority(C);
+y.changeObservers[D]=null;
+}
+function ObjectInfoHasActiveObservers(y){
+if((y===(void 0))||!y.changeObservers)
+return false;
+if(ChangeObserversIsOptimized(y.changeObservers))
+return ObserverIsActive(y.changeObservers,y);
+for(var D in y.changeObservers){
+var x=y.changeObservers[D];
+if(!(x===null)&&ObserverIsActive(x,y))
+return true;
+}
+return false;
+}
+function ObjectInfoAddPerformingType(y,m){
+y.performing=y.performing||TypeMapCreate();
+TypeMapAddType(y.performing,m);
+y.performingCount++;
+}
+function ObjectInfoRemovePerformingType(y,m){
+y.performingCount--;
+TypeMapRemoveType(y.performing,m);
+}
+function ObjectInfoGetPerformingTypes(y){
+return y.performingCount>0?y.performing:null;
+}
+function ConvertAcceptListToTypeMap(E){
+if((E===(void 0)))
+return E;
+if(!(%_IsJSReceiver(E)))throw g(84);
+var F=(%_ToInteger(E.length));
+if(F<0)F=0;
+return TypeMapCreateFromList(E,F);
+}
+function CallbackInfoGet(v){
+return %WeakCollectionGet(GetObservationStateJS().callbackInfoMap,v,
+c(v));
+}
+function CallbackInfoSet(v,C){
+%WeakCollectionSet(GetObservationStateJS().callbackInfoMap,
+v,C,c(v));
+}
+function CallbackInfoGetOrCreate(v){
+var C=CallbackInfoGet(v);
+if(!(C===(void 0)))
+return C;
+var D=GetNextCallbackPriority();
+CallbackInfoSet(v,D);
+return D;
+}
+function CallbackInfoGetPriority(C){
+if((typeof(C)==='number'))
+return C;
+else
+return C.priority;
+}
+function CallbackInfoNormalize(v){
+var C=CallbackInfoGet(v);
+if((typeof(C)==='number')){
+var D=C;
+C=new f;
+C.priority=D;
+CallbackInfoSet(v,C);
+}
+return C;
+}
+function ObjectObserve(z,v,w){
+if(!(%_IsJSReceiver(z)))
+throw g(86,"observe","observe");
+if(%IsJSGlobalProxy(z))
+throw g(82,"observe");
+if(%IsAccessCheckNeeded(z))
+throw g(83,"observe");
+if(!(typeof(v)==='function'))
+throw g(85,"observe");
+if(%object_is_frozen(v))
+throw g(81);
+var G=%GetObjectContextObjectObserve(z);
+return G(z,v,w);
+}
+function NativeObjectObserve(z,v,w){
+var y=ObjectInfoGetOrCreate(z);
+var o=ConvertAcceptListToTypeMap(w);
+ObjectInfoAddObserver(y,v,o);
+return z;
+}
+function ObjectUnobserve(z,v){
+if(!(%_IsJSReceiver(z)))
+throw g(86,"unobserve","unobserve");
+if(%IsJSGlobalProxy(z))
+throw g(82,"unobserve");
+if(!(typeof(v)==='function'))
+throw g(85,"unobserve");
+var y=ObjectInfoGet(z);
+if((y===(void 0)))
+return z;
+ObjectInfoRemoveObserver(y,v);
+return z;
+}
+function ArrayObserve(z,v){
+return ObjectObserve(z,v,['add',
+'update',
+'delete',
+'splice']);
+}
+function ArrayUnobserve(z,v){
+return ObjectUnobserve(z,v);
+}
+function ObserverEnqueueIfActive(x,y,H){
+if(!ObserverIsActive(x,y)||
+!TypeMapHasType(ObserverGetAcceptTypes(x),H.type)){
+return;
+}
+var v=ObserverGetCallback(x);
+if(!%ObserverObjectAndRecordHaveSameOrigin(v,H.object,
+H)){
+return;
+}
+var C=CallbackInfoNormalize(v);
+if((GetPendingObservers()===null)){
+SetPendingObservers(nullProtoObject());
+if((%_DebugIsActive()!=0)){
+var I=++GetObservationStateJS().lastMicrotaskId;
+var J="Object.observe";
+%EnqueueMicrotask(function(){
+%DebugAsyncTaskEvent({type:"willHandle",id:I,name:J});
+ObserveMicrotaskRunner();
+%DebugAsyncTaskEvent({type:"didHandle",id:I,name:J});
+});
+%DebugAsyncTaskEvent({type:"enqueue",id:I,name:J});
+}else{
+%EnqueueMicrotask(ObserveMicrotaskRunner);
+}
+}
+GetPendingObservers()[C.priority]=v;
+C.push(H);
+}
+function ObjectInfoEnqueueExternalChangeRecord(y,H,m){
+if(!ObjectInfoHasActiveObservers(y))
+return;
+var K=!(m===(void 0));
+var L=K?
+{object:y.object,type:m}:
+{object:y.object};
+for(var M in H){
+if(M==='object'||(K&&M==='type'))continue;
+%DefineDataPropertyUnchecked(
+L,M,H[M],1+4);
+}
+%object_freeze(L);
+ObjectInfoEnqueueInternalChangeRecord(y,L);
+}
+function ObjectInfoEnqueueInternalChangeRecord(y,H){
+if((typeof(H.name)==='symbol'))return;
+if(ChangeObserversIsOptimized(y.changeObservers)){
+var x=y.changeObservers;
+ObserverEnqueueIfActive(x,y,H);
+return;
+}
+for(var D in y.changeObservers){
+var x=y.changeObservers[D];
+if((x===null))
+continue;
+ObserverEnqueueIfActive(x,y,H);
+}
+}
+function BeginPerformSplice(N){
+var y=ObjectInfoGet(N);
+if(!(y===(void 0)))
+ObjectInfoAddPerformingType(y,'splice');
+}
+function EndPerformSplice(N){
+var y=ObjectInfoGet(N);
+if(!(y===(void 0)))
+ObjectInfoRemovePerformingType(y,'splice');
+}
+function EnqueueSpliceRecord(N,O,P,Q){
+var y=ObjectInfoGet(N);
+if(!ObjectInfoHasActiveObservers(y))
+return;
+var H={
+type:'splice',
+object:N,
+index:O,
+removed:P,
+addedCount:Q
+};
+%object_freeze(H);
+%object_freeze(H.removed);
+ObjectInfoEnqueueInternalChangeRecord(y,H);
+}
+function NotifyChange(m,z,J,R){
+var y=ObjectInfoGet(z);
+if(!ObjectInfoHasActiveObservers(y))
+return;
+var H;
+if(arguments.length==2){
+H={type:m,object:z};
+}else if(arguments.length==3){
+H={type:m,object:z,name:J};
+}else{
+H={
+type:m,
+object:z,
+name:J,
+oldValue:R
+};
+}
+%object_freeze(H);
+ObjectInfoEnqueueInternalChangeRecord(y,H);
+}
+function ObjectNotifierNotify(H){
+if(!(%_IsJSReceiver(this)))
+throw g(17,"notify");
+var y=ObjectInfoGetFromNotifier(this);
+if((y===(void 0)))
+throw g(87);
+if(!(typeof(H.type)==='string'))
+throw g(90);
+ObjectInfoEnqueueExternalChangeRecord(y,H);
+}
+function ObjectNotifierPerformChange(S,T){
+if(!(%_IsJSReceiver(this)))
+throw g(17,"performChange");
+var y=ObjectInfoGetFromNotifier(this);
+if((y===(void 0)))
+throw g(87);
+if(!(typeof(S)==='string'))
+throw g(89);
+if(!(typeof(T)==='function'))
+throw g(88);
+var U=%GetObjectContextNotifierPerformChange(y);
+U(y,S,T);
+}
+function NativeObjectNotifierPerformChange(y,S,T){
+ObjectInfoAddPerformingType(y,S);
+var H;
+try{
+H=T();
+}finally{
+ObjectInfoRemovePerformingType(y,S);
+}
+if((%_IsJSReceiver(H)))
+ObjectInfoEnqueueExternalChangeRecord(y,H,S);
+}
+function ObjectGetNotifier(z){
+if(!(%_IsJSReceiver(z)))
+throw g(86,"getNotifier","getNotifier");
+if(%IsJSGlobalProxy(z))
+throw g(82,"getNotifier");
+if(%IsAccessCheckNeeded(z))
+throw g(83,"getNotifier");
+if(%object_is_frozen(z))return null;
+if(!%ObjectWasCreatedInCurrentOrigin(z))return null;
+var V=%GetObjectContextObjectGetNotifier(z);
+return V(z);
+}
+function NativeObjectGetNotifier(z){
+var y=ObjectInfoGetOrCreate(z);
+return ObjectInfoGetNotifier(y);
+}
+function CallbackDeliverPending(v){
+var C=CallbackInfoGet(v);
+if((C===(void 0))||(typeof(C)==='number'))
+return false;
+var D=C.priority;
+CallbackInfoSet(v,D);
+var k=GetPendingObservers();
+if(!(k===null))
+delete k[D];
+var W=[];
+%MoveArrayContents(C,W);
+%DeliverObservationChangeRecords(v,W);
+return true;
+}
+function ObjectDeliverChangeRecords(v){
+if(!(typeof(v)==='function'))
+throw g(85,"deliverChangeRecords");
+while(CallbackDeliverPending(v)){}
+}
+function ObserveMicrotaskRunner(){
+var k=GetPendingObservers();
+if(!(k===null)){
+SetPendingObservers(null);
+for(var q in k){
+CallbackDeliverPending(k[q]);
+}
+}
+}
+b.InstallFunctions(j,2,[
+"notify",ObjectNotifierNotify,
+"performChange",ObjectNotifierPerformChange
+]);
+var X=[
+"deliverChangeRecords",ObjectDeliverChangeRecords,
+"getNotifier",ObjectGetNotifier,
+"observe",ObjectObserve,
+"unobserve",ObjectUnobserve
+];
+var Y=[
+"observe",ArrayObserve,
+"unobserve",ArrayUnobserve
+];
+var Z=function(aa,q){
+if(q % 2===1)%FunctionRemovePrototype(aa);
+};
+X.forEach(Z);
+Y.forEach(Z);
+%InstallToContext([
+"native_object_get_notifier",NativeObjectGetNotifier,
+"native_object_notifier_perform_change",NativeObjectNotifierPerformChange,
+"native_object_observe",NativeObjectObserve,
+"observers_begin_perform_splice",BeginPerformSplice,
+"observers_end_perform_splice",EndPerformSplice,
+"observers_enqueue_splice",EnqueueSpliceRecord,
+"observers_notify_change",NotifyChange,
+]);
+b.Export(function(ab){
+ab.ObserveArrayMethods=Y;
+ab.ObserveBeginPerformSplice=BeginPerformSplice;
+ab.ObserveEndPerformSplice=EndPerformSplice;
+ab.ObserveEnqueueSpliceRecord=EnqueueSpliceRecord;
+ab.ObserveObjectMethods=X;
+});
+})
+
+(collectionE}
+(function(a,b){
+"use strict";
+%CheckIsBootstrapping();
+var c=a.Map;
+var d=a.Object;
+var e=a.Set;
+var f=b.ImportNow("hash_code_symbol");
+var g;
+var h;
+var i;
+var j;
+var k;
+var l=b.ImportNow("to_string_tag_symbol");
+b.Import(function(m){
+g=m.IntRandom;
+h=m.MakeTypeError;
+i=m.MapIterator;
+j=m.NumberIsNaN;
+k=m.SetIterator;
+});
+function HashToEntry(n,o,p){
+var q=(o&((p)-1));
+return((%_FixedArrayGet(n,(3+(q))|0)));
+}
+%SetForceInlineFlag(HashToEntry);
+function SetFindEntry(n,p,r,o){
+var s=HashToEntry(n,o,p);
+if(s===-1)return s;
+var t=((%_FixedArrayGet(n,((3+(p)+((s)<<1)))|0)));
+if(r===t)return s;
+var u=j(r);
+while(true){
+if(u&&j(t)){
+return s;
+}
+s=((%_FixedArrayGet(n,((3+(p)+((s)<<1))+1)|0)));
+if(s===-1)return s;
+t=((%_FixedArrayGet(n,((3+(p)+((s)<<1)))|0)));
+if(r===t)return s;
+}
+return-1;
+}
+%SetForceInlineFlag(SetFindEntry);
+function MapFindEntry(n,p,r,o){
+var s=HashToEntry(n,o,p);
+if(s===-1)return s;
+var t=((%_FixedArrayGet(n,((3+(p)+((s)*3)))|0)));
+if(r===t)return s;
+var u=j(r);
+while(true){
+if(u&&j(t)){
+return s;
+}
+s=((%_FixedArrayGet(n,((3+(p)+((s)*3))+2)|0)));
+if(s===-1)return s;
+t=((%_FixedArrayGet(n,((3+(p)+((s)*3)))|0)));
+if(r===t)return s;
+}
+return-1;
+}
+%SetForceInlineFlag(MapFindEntry);
+function ComputeIntegerHash(r,v){
+var o=r;
+o=o^v;
+o=~o+(o<<15);
+o=o^(o>>>12);
+o=o+(o<<2);
+o=o^(o>>>4);
+o=(o*2057)|0;
+o=o^(o>>>16);
+return o&0x3fffffff;
+}
+%SetForceInlineFlag(ComputeIntegerHash);
+function GetExistingHash(r){
+if(%_IsSmi(r)){
+return ComputeIntegerHash(r,0);
+}
+if((typeof(r)==='string')){
+var w=%_StringGetRawHashField(r);
+if((w&1)===0){
+return w>>>2;
+}
+}else if((%_IsJSReceiver(r))&&!(%_IsJSProxy(r))&&!(%_ClassOf(r)==='global')){
+var o=(r[f]);
+return o;
+}
+return %GenericHash(r);
+}
+%SetForceInlineFlag(GetExistingHash);
+function GetHash(r){
+var o=GetExistingHash(r);
+if((o===(void 0))){
+o=g()|0;
+if(o===0)o=1;
+(r[f]=o);
+}
+return o;
+}
+%SetForceInlineFlag(GetHash);
+function SetConstructor(x){
+if((new.target===(void 0))){
+throw h(28,"Set");
+}
+%_SetInitialize(this);
+if(!(x==null)){
+var y=this.add;
+if(!(typeof(y)==='function')){
+throw h(96,y,'add',this);
+}
+for(var z of x){
+%_Call(y,this,z);
+}
+}
+}
+function SetAdd(r){
+if(!(%_ClassOf(this)==='Set')){
+throw h(44,'Set.prototype.add',this);
+}
+if(r===0){
+r=0;
+}
+var n=%_JSCollectionGetTable(this);
+var p=((%_FixedArrayGet(n,(0)|0)));
+var o=GetHash(r);
+if(SetFindEntry(n,p,r,o)!==-1)return this;
+var A=((%_FixedArrayGet(n,(1)|0)));
+var B=((%_FixedArrayGet(n,(2)|0)));
+var C=p<<1;
+if((A+B)>=C){
+%SetGrow(this);
+n=%_JSCollectionGetTable(this);
+p=((%_FixedArrayGet(n,(0)|0)));
+A=((%_FixedArrayGet(n,(1)|0)));
+B=((%_FixedArrayGet(n,(2)|0)));
+}
+var s=A+B;
+var D=(3+(p)+((s)<<1));
+var q=(o&((p)-1));
+var E=((%_FixedArrayGet(n,(3+(q))|0)));
+((%_FixedArraySet(n,(3+(q))|0,s)));
+(((%_FixedArraySet(n,(1)|0,(A+1)|0))));
+(%_FixedArraySet(n,(D)|0,r));
+((%_FixedArraySet(n,(D+1)|0,(E)|0)));
+return this;
+}
+function SetHas(r){
+if(!(%_ClassOf(this)==='Set')){
+throw h(44,'Set.prototype.has',this);
+}
+var n=%_JSCollectionGetTable(this);
+var p=((%_FixedArrayGet(n,(0)|0)));
+var o=GetExistingHash(r);
+if((o===(void 0)))return false;
+return SetFindEntry(n,p,r,o)!==-1;
+}
+function SetDelete(r){
+if(!(%_ClassOf(this)==='Set')){
+throw h(44,
+'Set.prototype.delete',this);
+}
+var n=%_JSCollectionGetTable(this);
+var p=((%_FixedArrayGet(n,(0)|0)));
+var o=GetExistingHash(r);
+if((o===(void 0)))return false;
+var s=SetFindEntry(n,p,r,o);
+if(s===-1)return false;
+var A=((%_FixedArrayGet(n,(1)|0)))-1;
+var B=((%_FixedArrayGet(n,(2)|0)))+1;
+var D=(3+(p)+((s)<<1));
+(%_FixedArraySet(n,(D)|0,%_TheHole()));
+(((%_FixedArraySet(n,(1)|0,(A)|0))));
+(((%_FixedArraySet(n,(2)|0,(B)|0))));
+if(A<(p>>>1))%SetShrink(this);
+return true;
+}
+function SetGetSize(){
+if(!(%_ClassOf(this)==='Set')){
+throw h(44,
+'Set.prototype.size',this);
+}
+var n=%_JSCollectionGetTable(this);
+return((%_FixedArrayGet(n,(1)|0)));
+}
+function SetClearJS(){
+if(!(%_ClassOf(this)==='Set')){
+throw h(44,
+'Set.prototype.clear',this);
+}
+%_SetClear(this);
+}
+function SetForEach(F,G){
+if(!(%_ClassOf(this)==='Set')){
+throw h(44,
+'Set.prototype.forEach',this);
+}
+if(!(typeof(F)==='function'))throw h(15,F);
+var H=new k(this,2);
+var r;
+var I=[(void 0)];
+while(%SetIteratorNext(H,I)){
+r=I[0];
+%_Call(F,G,r,r,this);
+}
+}
+%SetCode(e,SetConstructor);
+%FunctionSetLength(e,0);
+%FunctionSetPrototype(e,new d());
+%AddNamedProperty(e.prototype,"constructor",e,2);
+%AddNamedProperty(e.prototype,l,"Set",
+2|1);
+%FunctionSetLength(SetForEach,1);
+b.InstallGetter(e.prototype,"size",SetGetSize);
+b.InstallFunctions(e.prototype,2,[
+"add",SetAdd,
+"has",SetHas,
+"delete",SetDelete,
+"clear",SetClearJS,
+"forEach",SetForEach
+]);
+function MapConstructor(x){
+if((new.target===(void 0))){
+throw h(28,"Map");
+}
+%_MapInitialize(this);
+if(!(x==null)){
+var y=this.set;
+if(!(typeof(y)==='function')){
+throw h(96,y,'set',this);
+}
+for(var J of x){
+if(!(%_IsJSReceiver(J))){
+throw h(52,J);
+}
+%_Call(y,this,J[0],J[1]);
+}
+}
+}
+function MapGet(r){
+if(!(%_ClassOf(this)==='Map')){
+throw h(44,
+'Map.prototype.get',this);
+}
+var n=%_JSCollectionGetTable(this);
+var p=((%_FixedArrayGet(n,(0)|0)));
+var o=GetExistingHash(r);
+if((o===(void 0)))return(void 0);
+var s=MapFindEntry(n,p,r,o);
+if(s===-1)return(void 0);
+return((%_FixedArrayGet(n,((3+(p)+((s)*3))+1)|0)));
+}
+function MapSet(r,z){
+if(!(%_ClassOf(this)==='Map')){
+throw h(44,
+'Map.prototype.set',this);
+}
+if(r===0){
+r=0;
+}
+var n=%_JSCollectionGetTable(this);
+var p=((%_FixedArrayGet(n,(0)|0)));
+var o=GetHash(r);
+var s=MapFindEntry(n,p,r,o);
+if(s!==-1){
+var K=(3+(p)+((s)*3));
+(%_FixedArraySet(n,(K+1)|0,z));
+return this;
+}
+var A=((%_FixedArrayGet(n,(1)|0)));
+var B=((%_FixedArrayGet(n,(2)|0)));
+var C=p<<1;
+if((A+B)>=C){
+%MapGrow(this);
+n=%_JSCollectionGetTable(this);
+p=((%_FixedArrayGet(n,(0)|0)));
+A=((%_FixedArrayGet(n,(1)|0)));
+B=((%_FixedArrayGet(n,(2)|0)));
+}
+s=A+B;
+var D=(3+(p)+((s)*3));
+var q=(o&((p)-1));
+var E=((%_FixedArrayGet(n,(3+(q))|0)));
+((%_FixedArraySet(n,(3+(q))|0,s)));
+(((%_FixedArraySet(n,(1)|0,(A+1)|0))));
+(%_FixedArraySet(n,(D)|0,r));
+(%_FixedArraySet(n,(D+1)|0,z));
+(%_FixedArraySet(n,(D+2)|0,E));
+return this;
+}
+function MapHas(r){
+if(!(%_ClassOf(this)==='Map')){
+throw h(44,
+'Map.prototype.has',this);
+}
+var n=%_JSCollectionGetTable(this);
+var p=((%_FixedArrayGet(n,(0)|0)));
+var o=GetHash(r);
+return MapFindEntry(n,p,r,o)!==-1;
+}
+function MapDelete(r){
+if(!(%_ClassOf(this)==='Map')){
+throw h(44,
+'Map.prototype.delete',this);
+}
+var n=%_JSCollectionGetTable(this);
+var p=((%_FixedArrayGet(n,(0)|0)));
+var o=GetHash(r);
+var s=MapFindEntry(n,p,r,o);
+if(s===-1)return false;
+var A=((%_FixedArrayGet(n,(1)|0)))-1;
+var B=((%_FixedArrayGet(n,(2)|0)))+1;
+var D=(3+(p)+((s)*3));
+(%_FixedArraySet(n,(D)|0,%_TheHole()));
+(%_FixedArraySet(n,(D+1)|0,%_TheHole()));
+(((%_FixedArraySet(n,(1)|0,(A)|0))));
+(((%_FixedArraySet(n,(2)|0,(B)|0))));
+if(A<(p>>>1))%MapShrink(this);
+return true;
+}
+function MapGetSize(){
+if(!(%_ClassOf(this)==='Map')){
+throw h(44,
+'Map.prototype.size',this);
+}
+var n=%_JSCollectionGetTable(this);
+return((%_FixedArrayGet(n,(1)|0)));
+}
+function MapClearJS(){
+if(!(%_ClassOf(this)==='Map')){
+throw h(44,
+'Map.prototype.clear',this);
+}
+%_MapClear(this);
+}
+function MapForEach(F,G){
+if(!(%_ClassOf(this)==='Map')){
+throw h(44,
+'Map.prototype.forEach',this);
+}
+if(!(typeof(F)==='function'))throw h(15,F);
+var H=new i(this,3);
+var I=[(void 0),(void 0)];
+while(%MapIteratorNext(H,I)){
+%_Call(F,G,I[1],I[0],this);
+}
+}
+%SetCode(c,MapConstructor);
+%FunctionSetLength(c,0);
+%FunctionSetPrototype(c,new d());
+%AddNamedProperty(c.prototype,"constructor",c,2);
+%AddNamedProperty(
+c.prototype,l,"Map",2|1);
+%FunctionSetLength(MapForEach,1);
+b.InstallGetter(c.prototype,"size",MapGetSize);
+b.InstallFunctions(c.prototype,2,[
+"get",MapGet,
+"set",MapSet,
+"has",MapHas,
+"delete",MapDelete,
+"clear",MapClearJS,
+"forEach",MapForEach
+]);
+%InstallToContext([
+"map_get",MapGet,
+"map_set",MapSet,
+"map_has",MapHas,
+"map_delete",MapDelete,
+"set_add",SetAdd,
+"set_has",SetHas,
+"set_delete",SetDelete,
+]);
+b.Export(function(L){
+L.GetExistingHash=GetExistingHash;
+L.GetHash=GetHash;
+});
+})
+
+<weak-collection

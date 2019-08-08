@@ -1,0 +1,827 @@
+function example(){
+	
+return	validateUploadDocuments();
+
+	
+}	
+ 
+
+function disableRefresh(e){
+	if(window.event)
+	{
+		if(e.keyCode==116 ||(e.keycode==17 || e.ctrlKey ) )
+		{
+			//alert("IE");
+			e.keyCode=0;
+			event.returnValue = false;
+            return false;
+		}
+	}
+	else
+	{
+		if(e.which ==116 ||(e.which==17||e.ctrlKey ) )
+			
+		{
+			//alert("chrome/firefox");
+			e.preventDefault();
+			return false;
+		}
+	}
+}
+ 
+
+
+function onlyNumerics(e)
+{
+	if(window.event)
+	{
+		if((e.keyCode < 48 || e.keyCode >57 ) && e.keyCode != 8 && e.keyCode !=9 )
+		{
+			event.returnValue = false;
+            return false;
+		}
+	}                            
+	else
+	{
+		if((e.which < 48 || e.which > 57) && e.which !=8 && e.which !=9)
+		{
+			e.preventDefault();
+			return false;
+		}
+	}
+}
+
+
+
+
+function onlyAlphabets(e)
+{
+	if(window.event)
+	{
+		if((e.keyCode < 65 || e.keyCode > 90) && (e.keyCode < 97 || e.keyCode >123 ) && e.keyCode !=8 && e.keyCode != 32 && e.keyCode!=9)
+		{
+			event.returnValue = false;
+            return false;
+		}
+		
+		
+	}
+	else
+	{
+		if((e.which < 65 || e.which > 90) && (e.which < 97 || e.which >123 ) && e.which !=8 && e.which !=32 && e.which!=9)
+		{
+			e.preventDefault();
+			return false;
+		}
+	}
+}
+
+function onlyAlphaNumeric(e)
+{
+	if(window.event)
+	{
+		if((e.keyCode < 48 || e.keyCode > 90) && (e.keyCode < 97 || e.keyCode >123 ) && e.keyCode !=8 && e.keyCode != 32 && e.keyCode!=9 && e.keyCode!=191 && e.keyCode!=220 && e.keyCode!=173 && e.keyCode!=189)
+		{
+			event.returnValue = false;
+            return false;
+		}
+		
+		
+	}
+	else
+	{
+		if((e.which < 48 || e.which > 90) && (e.which < 97 || e.which >123 ) && e.which !=8 && e.which !=32 && e.which!=9 && e.which!=191 && e.which!=220 && e.which!=173 && e.which!=189 )
+		{
+			e.preventDefault();
+			return false;
+		}
+	}
+}
+
+var  myVar=setInterval(function(){ disableOrEnable();},0);
+function disableOrEnable()
+{
+	var table=	document.getElementById('detailsTable1');
+	if(table!=null){
+		var rcount	=table.rows.length;
+		 for (var i = 1; i < rcount; i++) {
+	if(	(document.getElementById('relatedDocuments'+i).value=="-1" || document.getElementById('relatedDocuments'+i)== null) ||( document.getElementById('issuedDate'+i).value=="" || document.getElementById('issuedDate'+i)==null)){
+		document.getElementById('attachdoc'+i).disabled=true;
+	}else{
+		document.getElementById('attachdoc'+i).disabled=false;
+	}
+	if(document.getElementById('attachdoc'+i).checked==true){
+		document.getElementById('attachSubmit').disabled=false;
+	}else{
+		document.getElementById('attachSubmit').disabled=true;
+	}
+		 }
+	}
+	
+//	|| document.getElementById("issuedAuthority").value=="" ||  document.getElementById("issuedAuthDesg").value==""|| document.getElementById("certificateNumber").value==""||  document.getElementById("issuedDate").value==""
+	if(document.getElementById("uploadType")==null || document.getElementById("uploadType").value=="1"){
+	if(document.getElementById("documentType").value=="-1" || document.getElementById("relatedDocuments").value=="-1"    ){
+		document.getElementById("uploadedFile").disabled= true;
+		document.getElementById('upload').disabled= true ;
+		
+	}
+	else{
+		document.getElementById("uploadedFile").disabled= false;
+		document.getElementById('upload').disabled= false;
+		
+	}
+	}else{
+		if(document.getElementById("documentType").value=="-1" || document.getElementById("relatedDocuments").value=="-1" || document.getElementById("certificateNumber").value=="" || document.getElementById("issuedDate").value==""  ){
+			document.getElementById("view1").disabled= true;
+			document.getElementById('confirm1').disabled= true ;
+			
+		}
+		else{
+			document.getElementById("view1").disabled= false;
+			document.getElementById('confirm1').disabled= false;
+			
+		}
+		
+	}
+}
+
+
+/*var myVar1=setInterval(function(){ disableOrEnable1();},0);
+function disableOrEnable1()
+{
+	
+	if(document.getElementById("documentType").value=="-1" || document.getElementById("relatedDocuments").value=="-1" || document.getElementById("certificateNumber").value=="" || document.getElementById("issuedAuthority").value=="" || document.getElementById("issuedAuthDesg").value==""|| document.getElementById("issuedDate").value==""  ){
+		
+		document.getElementById("view1").disabled= true;
+		alert("after view1");
+		
+		document.getElementById('confirm').disabled= true ;
+		alert("sdfgjkdfjh");
+	}
+	else{
+		document.getElementById("view1").disabled= false;
+		document.getElementById('confirm').disabled= false;
+		
+	}
+}*/
+
+
+				/*UC 4*/
+
+		/*Validations for Upload Page*/
+function validate(){
+	
+	var applicationNum=document.uploadForm.applicationNum;
+	var dateOfBirth=document.uploadForm.dateOfBirth;
+	var date=dateOfBirth.value.substring(0,2);
+	var month=dateOfBirth.value.substring(3,5);
+	var year=dateOfBirth.value.substring(6,10);
+	var hiphen1=dateOfBirth.value.substring(2,3);
+	var hiphen2=dateOfBirth.value.substring(5,6);
+	var serverdate= document.getElementById("sdt");
+	var currentDate=serverdate.value.substring(8,10);
+	var currentMonth=serverdate.value.substring(5,7);
+	var currentYear=serverdate.value.substring(0,4);
+	var today=new Date();
+/*	var currentDate=today.getDate();
+	var currentMonth=today.getMonth()+1;
+	var currentYear=today.getFullYear();
+	
+*/	MessageHandler("UC04-E04");
+	var  v=document.getElementById('s4msg').value;
+  
+
+	if(applicationNum.value==""){
+		 alert(v);
+		//alert("Enter Application Number");
+		applicationNum.focus();
+		return false;
+	}
+	
+	MessageHandler("UC04-E05");
+	var  v=document.getElementById('s4msg').value;
+	if(dateOfBirth.value==""){
+		alert(v);
+		//alert("Enter Date Of Birth");
+		dateOfBirth.focus();
+		return false;
+	}
+	MessageHandler("UC04-E06");
+	var  v=document.getElementById('s4msg').value;
+	if(hiphen1!='-' || hiphen2!='-')
+	{
+		alert(v);
+		//alert("Enter Date of Birth in dd-MM-yyyy Format \n Ex: 22-04-1991");
+		dateOfBirth.focus();
+		return false;
+	}
+	MessageHandler("UC04-E06");
+	var  v=document.getElementById('s4msg').value;
+	if(dateOfBirth.value.length !=10)
+	{
+		alert(v);
+		//alert("Enter Date of Birth in dd-MM-yyyy Format \n Ex: 22-04-1991");
+		dateOfBirth.focus();
+		return false;
+	}
+	MessageHandler("UC04-E07");
+	var  v=document.getElementById('s4msg').value;
+	//alert(year + currentYear+"shargfehjr");
+	if(year > currentYear)
+	{
+		alert(v);
+	//	alert("Date Of Birth cannot be future date");
+		dateOfBirth.focus();
+		return false;
+	}
+	else if(year == currentYear)
+	{
+		if(month > currentMonth)
+		{
+			alert(v);
+		//	alert("Date Of Birth cannot be future date");
+			dateOfBirth.focus();
+			return false;
+		}
+		else if(month == currentMonth)
+		{
+			if(date > currentDate)
+			{
+				alert(v);
+			//	alert("Date Of Birth cannot be future date");
+				dateOfBirth.focus();
+				return false;
+			}
+		MessageHandler("UC04-E08");
+			var  v=document.getElementById('s4msg').value;
+			if(date == currentDate)
+			{
+				alert(v);
+				//alert("Date Of Birth cannot be  today");
+				dateOfBirth.focus();
+				return false;
+			}
+			MessageHandler("UC04-E09");
+			var  v=document.getElementById('s4msg').value;
+			if(date < currentDate)
+			{
+				alert("invalid date of birth");
+			//	alert("age cannot be less than 16 years ");
+				dateOfBirth.focus();
+				return false;
+			}
+		}
+		else if(month < currentMonth)
+		{
+			alert("invalid date of birth");
+		//	alert("age cannot be less than 16 years ");
+			dateOfBirth.focus();
+			return false;
+		}
+	}
+}
+
+function validateUploadDocuments()
+{
+	var documentType=document.uploadForm.documentType;
+	var relatedDocuments=document.uploadForm.relatedDocuments;
+	var certificateNumber=document.uploadForm.certificateNumber;
+	var issuedDate=document.uploadForm.issuedDate;
+	var uploadedFile=document.uploadForm.uploadedFile;
+	var ext=uploadedFile.value.substring(uploadedFile.value.lastIndexOf('.') + 1);
+	var date=issuedDate.value.substring(0,2);
+	var month=issuedDate.value.substring(3,5);
+	var year=issuedDate.value.substring(6,10);
+	var hiphen1=issuedDate.value.substring(2,3);
+	var hiphen2=issuedDate.value.substring(5,6);
+	var serverdate= document.getElementById("sdt");
+	var currentDate=serverdate.value.substring(8,10);
+	var currentMonth=serverdate.value.substring(5,7);
+	var currentYear=serverdate.value.substring(0,4);
+	var reg=/^[a-zA-Z0-9]*([/-]*)(\s)*[a-zA-Z0-9]*$/;
+	MessageHandler("UC04-E10");
+	var  v=document.getElementById('s4msg').value;
+	if(documentType.value=="-1")
+	{
+		alert(v);
+		documentType.focus();
+		return false;
+	}
+	MessageHandler("UC04-E11");
+	var  v=document.getElementById('s4msg').value;
+	if(relatedDocuments.value=="-1")
+	{
+		alert(v);
+		relatedDocuments.focus();
+		return false;
+	}
+if((certificateNumber.value != "" )&& (!reg.test(certificateNumber.value)))
+	{
+		alert("invalid dcoument number");
+		certificateNumber.focus();
+		return false;
+	}
+	if(issuedDate.value != ""){
+	MessageHandler("UC04-E17");
+	var  v=document.getElementById('s4msg').value;
+	if(hiphen1!='-' || hiphen2!='-')
+	{
+		alert(v);
+		//alert("Enter Issued Date in dd-MM-yyyy Format \n Ex: 22-04-1991");
+		issuedDate.focus();
+		return false;
+	}
+	if(issuedDate.value.length !=10)
+	{
+		alert(v);
+		//alert("Enter Issued Date in dd-MM-yyyy Format \n Ex: 22-04-1991");
+		issuedDate.focus();
+		return false;
+	}
+	if(date==00 || month==00 ||year==0000){
+		alert("Invalid Date");
+		issuedDate.focus();
+		return false;
+
+	}
+	MessageHandler("UC04-E18");
+	var  v=document.getElementById('s4msg').value;
+	if(year > currentYear)
+	{
+		alert(v);
+		//alert("Issued Date cannot be future date");
+		issuedDate.focus();
+		return false;
+	}
+	else if(year == currentYear)
+	{
+		if(month > currentMonth)
+		{
+			alert(v);
+			//alert("Issued Date cannot be future date");
+			issuedDate.focus();
+			return false;
+		}
+		else if(month == currentMonth)
+		{
+			if(date > currentDate)
+			{
+			alert(v);
+			//	alert("Issued Date cannot be future date");
+				issuedDate.focus();
+				return false;
+			}
+		}
+	}
+	
+	}
+	var projectObj = document.uploadForm.uploadType;
+	var len = projectObj.length;
+	var chosen = null;
+	for (var i = 0; i <len; i++) {
+	   if (projectObj[i].checked) {
+	      chosen = projectObj[i].value;
+	   }
+	}
+	if(chosen==null){
+		
+	alert("choose value Document/Url to upload document");
+	return false;
+	}
+	MessageHandler("UC04-E19");
+	var  v=document.getElementById('s4msg').value;
+	if(uploadedFile.value=="")
+	{
+		alert(v);
+		//alert("Select any File to Upload");
+		uploadedFile.focus();
+		return false;
+	}
+	if(ext=="pdf" || ext=="PDF"){
+		MessageHandler("UC04-E20");
+		var v=document.getElementById('s4msg').value;
+		var filesize=uploadedFile.files[0].size;
+		if(filesize> 307200){
+			alert(v);
+			uploadedFile.focus();
+			return false;
+		}else{
+			return true;
+		}
+	}if(ext=="JPEG" || ext=="jpeg" || ext=="jpg" || ext=="JPG"){
+		MessageHandler("UC09-E34");
+		var v=document.getElementById('s4msg').value;
+		var filesize=uploadedFile.files[0].size;
+		if(filesize> 1024000 ){
+			alert(v);
+			uploadedFile.focus();
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
+	/*else if( ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" || ext == "pdf"|| ext == "PDF"){
+		//alert(ext);
+		MessageHandler("UC04-E20");
+		var  v=document.getElementById('s4msg').value;
+		var filesize= uploadedFile.files[0].size;
+			//if(filesize > 1048576){
+		if(filesize > 524288){		
+			alert(v);
+				
+			//	alert("file size upto 500 KB only");
+				uploadedFile.focus();
+				return false;
+			}else{
+				//progressBarSim(0);
+				return true;
+			}
+		
+		}else{
+			MessageHandler("UC04-E21");
+			var  v=document.getElementById('s4msg').value;
+			alert(v);
+			//alert("File extension not supported!choose only(jpg,jpeg,pdf) ");
+			uploadedFile.focus();
+			return false;
+		}*/if (!(ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG"
+			|| ext == "pdf" || ext == "PDF")) {
+			MessageHandler("UC04-E21");
+			var v = document.getElementById('s4msg').value;
+			alert(v);
+			//alert("File extension not supported!choose only(jpg,jpeg,pdf) ");
+			uploadedFile.focus();
+			return false;
+		}
+}
+
+function deleteFile(){
+	var deleted=confirm("You want to Delete ?");
+	if (deleted==true){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function changeDocumentType(){
+	documentType=document.getElementById("documentType");
+	if(documentType.value =="-1"){
+		document.getElementById("documentTypeLegend").innerHTML="Select Document Type";		
+	}else {
+		document.getElementById("documentTypeLegend").innerHTML=documentType.value;		
+		document.uploadForm.action="upload_updateProofDoc.do";
+		document.uploadForm.submit();
+	}
+}
+function changeOfProof(){
+	documentType=document.getElementById("relatedDocuments");
+	if(documentType.value =="-1"){
+		alert("select proof");
+		return false;
+	}else {
+		document.uploadForm.action="upload_updateUrl.do";
+		document.uploadForm.submit();
+		
+	}
+}
+
+function changeUploadType(){
+	var projectObj = document.uploadForm.uploadType;
+	var len = projectObj.length;
+	var chosen = null;
+	for (var i = 0; i <len; i++) {
+	   if (projectObj[i].checked) {
+	      chosen = projectObj[i].value;
+	      
+	   }
+	}if(chosen==null){
+		
+	alert("select value document/url");
+	return false;
+	}else{
+		document.uploadForm.action="upload_uploadTypeSelect.do";
+		document.uploadForm.submit();
+	}
+}
+function getProofs()
+{
+	var DocType= $("#documentType").val();
+	$.ajax({
+		type:'POST',
+		url:'displayProofDocs.do?documentType='+DocType,
+		dataType:'json',
+		success:function(data){
+			var $pdoc=$('#relatedDocuments');
+			var options="<option value='select'>----select----</option>";
+			$.each(data,function(key, value){
+				options+="<option value='"+key+"'>"+value+"</option>";
+			});
+		$("#relatedDocuments").html(options);
+		},
+		error:function(xhr,status,error){
+			alert("data not available");
+		}
+	});
+
+	function getUrl(){
+		var proof= $("#relatedDocuments").val();
+		$.ajax({
+			type:'POST',
+			url:'displayUrl.do?relatedDocumentss='+proof,
+			dataType:'json',
+			success:function(data){
+				var $pth=$('#urlPath');
+				$.each(data,function(key, value){
+					$('#urlPath').val("value");
+				});
+			$("#urlPath").html(text);
+			},
+			error:function(xhr,status,error){
+				alert("data not available");
+			}
+		});
+	}
+}
+function prepareHashDocumentRequest() {
+	console.log('==prepareHashDocumentRequest==');
+
+	var documentType = document.uploadForm.documentType;
+	var relatedDocuments = document.uploadForm.relatedDocuments;
+	var certificateNumber = document.uploadForm.certificateNumber;
+	var issuedDate = document.uploadForm.issuedDate;
+	var issueAuthDesgn = document.uploadForm.issuedAuthDesg;
+	//alert("==auth desgn=="+issueAuthDesgn.value);
+	var date = issuedDate.value.substring(0, 2);
+	var month = issuedDate.value.substring(3, 5);
+	var year = issuedDate.value.substring(6, 10);
+	var hiphen1 = issuedDate.value.substring(2, 3);
+	var hiphen2 = issuedDate.value.substring(5, 6);
+	var serverdate = document.getElementById("sdt");
+	var currentDate = serverdate.value.substring(8, 10);
+	var currentMonth = serverdate.value.substring(5, 7);
+	var currentYear = serverdate.value.substring(0, 4);
+	var reg = /^[a-zA-Z0-9]*([/-]*)(\s)*[a-zA-Z0-9]*$/;
+	console.log("===document name==" + documentType.value);
+	console.log("===proof name==" + relatedDocuments.value);
+
+	if (documentType.value == "-1" || documentType.value == "select") {
+		console.log("===invalid doc code==");
+		MessageHandler("UC04-E10");
+		var v = document.getElementById('s4msg').value;
+		alert(v);
+		documentType.focus();
+		return false;
+	} else if (relatedDocuments.value == "-1"
+			|| relatedDocuments.value == "select") {
+		console.log("===invalid proof code==");
+		MessageHandler("UC04-E11");
+		var v = document.getElementById('s4msg').value;
+		alert(v);
+		relatedDocuments.focus();
+		return false;
+	} else if ((certificateNumber.value != "")
+			&& (!reg.test(certificateNumber.value))) {
+		console.log("==invalid dcoument number====");
+		alert("invalid document number");
+		certificateNumber.focus();
+		return false;
+	} else if (issuedDate.value != "") {
+		console.log("==issue date===" + issuedDate.value);
+		MessageHandler("UC04-E17");
+		var v = document.getElementById('s4msg').value;
+		if (hiphen1 != '-' || hiphen2 != '-') {
+			alert(v);//alert("Enter Issued Date in dd-MM-yyyy Format \n Ex: 22-04-1991");
+			issuedDate.focus();
+			return false;
+		}
+		if (issuedDate.value.length != 10) {
+			alert(v);//alert("Enter Issued Date in dd-MM-yyyy Format \n Ex: 22-04-1991");
+			issuedDate.focus();
+			return false;
+		}
+		if (date == 00 || month == 00 || year == 0000) {
+			alert("Invalid Date");
+			issuedDate.focus();
+			return false;
+
+		}
+		MessageHandler("UC04-E18");
+		var v = document.getElementById('s4msg').value;
+		if (year > currentYear) {
+			alert(v);//alert("Issued Date cannot be future date");
+			issuedDate.focus();
+			return false;
+		} else if (year == currentYear) {
+			if (month > currentMonth) {
+				alert(v);//alert("Issued Date cannot be future date");
+				issuedDate.focus();
+				return false;
+			} else if (month == currentMonth) {
+				if (date > currentDate) {
+					alert(v);//alert("Issued Date cannot be future date");
+					issuedDate.focus();
+					return false;
+				}
+			}
+		}
+	} else {
+		console.log("==document is validated sucessfully==");
+		var params = document.getElementById("isDocSigned");
+		var docSigned = params.value;
+		console.log("===isDocSigned boolean==" + docSigned);
+		//alert("===isDocSigned boolean=="+docSigned);
+		var data = {
+			documentName : documentType.value,
+			proofName : relatedDocuments.value,
+			certificateNum : certificateNumber.value,
+			issueADesgn : issueAuthDesgn.value,
+			issueDt : issuedDate.value,
+			uploadFileDataFileName : uploadedFile.value
+		}
+		console.log("===data===/" + data.documentName + "==/" + data.proofName
+				+ "===/" + data.certificateNum + "===/" + data.issueADesgn
+				+ "===/" + data.issueDt + "===/" + data.uploadFileDataFileName);
+		$("#preloader").css("display", "block");
+		
+		$.ajax({
+					type : 'POST',
+					dataType : 'json',
+					url : 'eSignDoc.do',
+					data : {
+						documentName : documentType.value,
+						proofName : relatedDocuments.value,
+						certificateNum : certificateNumber.value,
+						issueADesgn : issueAuthDesgn.value,
+						issueDt : issuedDate.value,
+						uploadFileDataFileName : uploadedFile.value
+					},
+					success : function(result) {
+
+						if (result != null
+								&& result == 'Select any Document Type') {
+							alert("Select any Document Type");
+						} else if (result != null
+								&& result == 'Select any Proof Document') {
+							alert("Select any Proof Document");
+						} else if (result != null
+								&& result == 'Invalid document number') {
+							alert("Invalid document number");
+						} else if (result != null
+								&& result == 'IssueAuthDesg allows only alphabets') {
+							alert("IssueAuthDesg allows only alphabets");
+						} else if (result != null
+								&& result == 'IssueAuthDesg lenght exceeded') {
+							alert("IssueAuthDesg lenght exceeded");
+						} else if (result != null
+								&& result == 'select any file to  upload') {
+							alert("select any file to  upload");
+						} else if (result != null
+								&& result == 'Uploaded File name should not contains any special characters') {
+							alert("Uploaded File name should not contains any special characters");
+						} else if (result != null
+								&& result == 'Only PDF file types are allowed') {
+							alert("Only PDF file types are allowed");
+						} else if (result != null
+								&& result == 'Suspicious Data Found') {
+							alert("Suspicious Data Found");
+						} else {
+							console
+									.log('==prepareHashDocumentRequest successfully=='
+											+ result);
+							$('#reqxml').val(result);
+							sendESignRequestas();
+						}
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						$("#preloader").css("display", "none");
+						alert('prepareHashDocumentRequest error: ' + textStatus);
+					}
+				});
+		return false;
+	}
+}
+function sendESignRequestas() {
+	//alert("===sendESignRequestas=======");
+	console.log("==sendESignRequestas=======");
+	var params = document.getElementById("reqxml");
+	var eSignRequestXML = params.value;
+	console.log("===request xml===" + eSignRequestXML);
+	var xhrFields;
+
+	if (window.XMLHttpRequest) {
+		//alert("hello");
+		xhrFields = new XMLHttpRequest(); // Support old browsers
+	} else {
+		xhrFields = new ActiveXObject("Microsoft.XMLHTTP"); //Support modern browsers
+	}
+	$.ajax({
+		type : "POST",
+		url : "https://es-staging.cdac.in/esign2.1level1/2.1/signdoc",
+		contentType : "application/xml; charset=utf-8",
+		xhrFields : {
+			withCredentials : true
+		},
+		crossDomain : true,
+		data : eSignRequestXML,
+		success : function(aspResp) {
+			$("#preloader").css("display", "none");
+			//alert(" " + aspResp.responseUrl);
+			console.log("===success function===");
+			console.log("==response==" + aspResp);
+			xhrFields: {
+				withCredentials: true
+			}
+			/*responseUrl": "https://es-staging.cdac.in/esign2.1level1/OTP", */
+			//window.location.href=aspResp.responseUrl;
+			if (aspResp.responseUrl != null) {
+				window.location.href = aspResp.responseUrl;
+				//window.open(aspResp.responseUrl, '_blank').focus();
+			}else{
+				alert("Please try after some time : "+aspResp.responseUrl);
+			}
+		},
+		error : function(ts) {
+			$("#preloader").css("display", "none");
+			alert("Please try after some time ");
+		}
+	});
+	return false;
+}
+
+function fileData() {
+	var uploadedFile = document.getElementById("uploadedFile");
+	var fileName = document.getElementById("uploadedFile").value;
+	var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+	var projectObj = document.uploadForm.uploadType;
+	var len = projectObj.length;
+	var chosen = null;
+	for (var i = 0; i < len; i++) {
+		if (projectObj[i].checked) {
+			chosen = projectObj[i].value;
+		}
+	}
+	if (chosen == null) {
+		alert("choose value Document/Url to upload document");
+		return false;
+	} else if (fileName == "") {
+		console.log("==Select any File to Upload====");
+		MessageHandler("UC04-E19");
+		var v = document.getElementById('s4msg').value;
+		alert(v);//alert("Select any File to Upload");
+		uploadedFile.focus();
+		return false;
+	} else if (ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG") {
+		console.log("==Only PDF file types are allowed====");
+		MessageHandler("UC04-E34");
+		var v = document.getElementById('s4msg').value;
+		alert(v);
+		uploadedFile.focus();
+		return false;
+	} else {
+		if (ext == "pdf" || ext == "PDF") {
+			console.log("==Select file is pdf and check size====");
+			MessageHandler("UC04-E20");
+			var v = document.getElementById('s4msg').value;
+			var filesize = uploadedFile.files[0].size;
+			console.log("==pdf file size==" + filesize);
+			if (filesize > 307200) {
+				alert(v);
+				uploadedFile.focus();
+				return false;
+			}
+		}
+		console.log("==document is validated sucessfully==");
+		var params = document.getElementById("isDocSigned");
+		var docSigned = params.value;
+		console.log("===isDocSigned boolean==" + docSigned);
+		//alert("===isDocSigned boolean=="+docSigned);
+
+		var filesSelected = uploadedFile.files;
+		if (filesSelected.length > 0) {
+			var fileToLoad = filesSelected[0];
+			var fileReader = new FileReader();
+			fileReader.onload = function(fileLoadedEvent) {
+				var srcData = fileLoadedEvent.target.result; // <--- data: base64
+				document.getElementById("fileDatahidden").value = srcData;
+				$.ajax({
+					type : 'POST',
+					url : 'fileData.do',
+					data : {
+						uploadFileData : document
+								.getElementById("fileDatahidden").value
+					},
+					dataType : 'json',
+					success : function(result) {
+						console.log("==encoded base64 document==" + result);
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert('fileData error: ' + textStatus);
+					}
+				});
+			};
+			fileReader.readAsDataURL(fileToLoad);
+		}
+	}
+}

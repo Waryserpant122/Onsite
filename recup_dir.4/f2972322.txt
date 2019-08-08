@@ -1,0 +1,4 @@
+Copy-On-Write': Affected data is copied on the first write to the source or to the target elements. 
+7 - 'Copy-On-Access': Affected data is copied on the first access to the source element. 
+8 - 'Delta-Update': Difference based replication where after the initial copy, only updates to source are copied to target. 
+9 - 'Snap-And-Clone': The service creates a snapshot of the source element first, then uses the snapshot as the source of the copy operation to the target element.

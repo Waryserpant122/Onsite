@@ -1,0 +1,2 @@
+iority of the process within the operating system. The higher the value, the higher priority the process receives. Priority values can range from 0 (lowest priority) to 31 (highest priority).
+Example: 7.

@@ -1,0 +1,3 @@
+DisableSwitch="XBtn|MapOpenFlag|InSetUp"/>
+</KeyMappingEx>
+<KeyMappingEx ItemName="0" Point_X="0.360000" Point_Y="0.769444" Description="

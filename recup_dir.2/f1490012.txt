@@ -1,0 +1,12 @@
+t-ranges: bytes
+content-type: image/png
+content-length: 3831
+date: Fri, 03 May 2019 17:27:52 GMT
+expires: Fri, 03 May 2019 17:27:52 GMT
+cache-control: private, max-age=31536000
+last-modified: Thu, 08 Dec 2016 01:00:57 GMT
+x-content-type-options: nosniff
+server: sffe
+x-xss-protection: 0
+alt-svc: quic=":443"; ma=2592000; v="46,44,43,39"
+X-Firefox-Spdy: h2

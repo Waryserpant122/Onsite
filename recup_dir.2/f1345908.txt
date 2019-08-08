@@ -1,0 +1,197 @@
+ompt - nt	*|cmd	1
+*|command prompt with ruby and rails	*|cmd	958
+*|command shell	*|cmd	1
+*|component services	*|.com	3726
+*|composite command prompt	*|cmd	1
+*|computer management	*|manage computer	7108
+*|computer management	*|computer co	7642
+*|computer management	*|compmgmt	5257
+*|computer management	*|com[	7384
+*|conexão de área de trabalho remota	*|mstsc	550
+*|conexão de área de trabalho remota	*|area	1960
+*|configuration du système	*|msconfig	1
+*|configuration manager console	*|sccm	3117
+*|configuration wizard	*|crm	496
+*|configuração do sistema	*|msconfig	1
+*|configure java	*|java con	4274
+*|configure java	*|javac	6236
+*|connexion bureau à distance	*|mstsc	1
+*|contact support	*|microsoft support	3375
+*|contact support	*|windows support	3566
+*|contacts	*|icloud	1940
+*|content manager assistant for playstation(r)	*|cma	2539
+*|control center & documentation	*|pcc	1
+*|control panel	*|appearance and personalization	10198
+*|control panel	*|where is the control panel?	10504
+*|control panel	*|where is my control panel	10093
+*|control panel	*|system and maintenance	10884
+*|control panel	*|where is control panel	9095
+*|control panel	*|windows control panel	10323
+*|control panel	*|configuration manager	10160
+*|control panel	*|network and internet	8931
+*|control panel	*|go to control panel	9958
+*|control panel	*|system and security	8626
+*|control panel	*|find control panel	9840
+*|control panel	*|system preferences	9966
+*|control panel	*|open control panel	7389
+*|control panel	*|painel de controle	10372
+*|control panel	*|panel de control	9601
+*|control panel	*|uninstall a pro	10789
+*|control panel	*|control panael	10350
+*|control panel	*|control panels	9557
+*|control panel	*|control panekl	10701
+*|control panel	*|controll panel	8838
+*|control panel	*|conntrol panel	10992
+*|control panel	*|control panelo	10847
+*|control panel	*|control panerl	10431
+*|control panel	*|control planel	10025
+*|control panel	*|control p[anel	10534
+*|control panel	*|control [panel	10843
+*|control panel	*|control panel.	10771
+*|control panel	*|control pannel	6903
+*|control panel	*|control panel'	9877
+*|control panel	*|control panell	9946
+*|control panel	*|controle panel	10077
+*|control panel	*|control paneel	10957
+*|control panel	*|computer panel	10594
+*|control panel	*|control panelk	10488
+*|control panel	*|system control	10392
+*|control panel	*|controlcontrol	10508
+*|control panel	*|control pantel	10799
+*|control panel	*|conttrol panel	10899
+*|control panel	*|coontrol panel	10701
+*|control panel	*|ccontrol panel	10191
+*|control panel	*|control center	8466
+*|control panel	*|control apnel	10428
+*|control panel	*|contorl panel	8445
+*|control panel	*|contril panel	10886
+*|control panel	*|conrtol panel	10683
+*|control panel	*|control pamel	10259
+*|control panel	*|control panet	9939
+*|control panel	*|control palen	10662
+*|control panel	*|control oanel	10692
+*|control panel	*|panel control	9241
+*|control panel	*|control [anel	10185
+*|control panel	*|control panes	10982
+*|control panel	*|control paenl	10789
+*|control panel	*|comtrol panel	9735
+*|control panel	*|control pane'	10668
+*|control panel	*|control penal	10887
+*|control panel	*|control panal	7700
+*|control panel	*|control psnel	10901
+*|control panel	*|control pnael	9846
+*|control panel	*|control panle	8709
+*|control panel	*|contral panel	10083
+*|control panel	*|control pnel	9043
+*|control panel	*|cntrol panel	10358
+*|control panel	*|control pael	9398
+*|control panel	*|conrol panel	8728
+*|control panel	*|contol panel	8062
+*|control panel	*|control anel	9631
+*|control panel	*|controlpanel	7314
+*|control panel	*|contro panel	8405
+*|control panel	*|contrl panel	9322
+*|control panel	*|cotrol panel	9403
+*|control panel	*|control pad	10851
+*|control panel	*|control po	10798
+*|control panel	*|contontrol	10920
+*|control panel	*|conontrol	9743
+*|control panel	*|smart ges	10930
+*|control panel	*|controlon	9490
+*|control panel	*|control m	10445
+*|control panel	*|controln	10001
+*|control panel	*|c ontrol	10534
+*|control panel	*|controil	9360
+*|control panel	*|controkl	10032
+*|control panel	*|ciontrol	10776
+*|control panel	*|controlr	10628
+*|control panel	*|controls	9196
+*|control panel	*|controlt	10766
+*|control panel	*|controol	8397
+*|control panel	*|co ntrol	11001
+*|control panel	*|contrrol	9144
+*|control panel	*|contrtol	9132
+*|control panel	*|control.	10085
+*|control panel	*|contyrol	9436
+*|control panel	*|cointrol	10269
+*|control panel	*|conytrol	10463
+*|control panel	*|contorol	9577
+*|control panel	*|copntrol	10256
+*|control panel	*|comntrol	9889
+*|control panel	*|cpontrol	10815
+*|control panel	*|con trol	9687
+*|control panel	*|conbtrol	10424
+*|control panel	*|contriol	9474
+*|control panel	*|congtrol	9957
+*|control panel	*|conmtrol	9794
+*|control panel	*|controal	9051
+*|control panel	*|conotrol	10711
+*|control panel	*|parental	11033
+*|control panel	*|contreol	9376
+*|control panel	*|conrtrol	10464
+*|control panel	*|constrol	10709
+*|control panel	*|conterol	10029
+*|control panel	*|contgrol	9726
+*|control panel	*|contraol	9157
+*|control panel	*|control'	10012
+*|control panel	*|control,	10601
+*|control panel	*|control4	10098
+*|control panel	*|control]	10984
+*|control panel	*|controla	9411
+*|control panel	*|controld	10608
+*|control panel	*|controlk	9474
+*|control panel	*|contropl	10400
+*|control panel	*|xontrol	9376
+*|control panel	*|conttol	10008
+*|control panel	*|cnotrol	10404
+*|control panel	*|conyrol	9864
+*|control panel	*|conytol	9356
+*|control panel	*|contrik	9828
+*|control panel	*|conteol	9783
+*|control panel	*|cotnrol	10576
+*|control panel	*|cpntrol	9226
+*|control panel	*|cantrol	8438
+*|control panel	*|contro'	10036
+*|control panel	*|gamepad	10746
+*|control panel	*|contoll	10741
+*|control panel	*|cintrol	9153
+*|control panel	*|c0ntrol	9384
+*|control panel	*|contolr	10279
+*|control panel	*|contrlo	9867
+*|control panel	*|adapter	9901
+*|control panel	*|contro,	9948
+*|control panel	*|conreol	9555
+*|control panel	*|contro.	10082
+*|control panel	*|congrol	10326
+*|control panel	*|controm	10717
+*|control panel	*|contron	8488
+*|control panel	*|systems	10789
+*|control panel	*|unstall	10588
+*|control panel	*|contrpl	9550
+*|control panel	*|contrpo	10632
+*|control panel	*|cobtrol	10103
+*|control panel	*|contrn	10689
+*|control panel	*|contru	10928
+*|control panel	*|instal	11003
+*|control panel	*|concon	10421
+*|control panel	*|pannel	10199
+*|control panel	*|contr'	10704
+*|control panel	*|cpanel	8909
+*|control panel	*|cpmtrp	10118
+*|control panel	*|kontr	10584
+*|control panel	*|conti	10113
+*|control panel	*|cibtr	10557
+*|control panel	*|appli	10752
+*|control panel	*|contn	10185
+*|control panel	*|contl	10250
+*|control panel	*|wajam	10422
+*|control panel	*|guest	10567
+*|control panel	*|con'	10834
+*|control panel	*|cond	10429
+*|control panel	*|elan	11035
+*|control panel	*|conl	10671
+*|control panel	*|conp	10730
+*|control panel	*|ccc	11155
+*|control panel	*|add	8055
+*|control panel	*|coj	10053
+*|control panel	*|

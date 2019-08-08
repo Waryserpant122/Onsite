@@ -1,0 +1,2 @@
+llUsers input parameter has been deprecated as the functionality implied is not supported. The operation will effect all users on the machine.  
+Indicates whether the operation should be applied to the current user (FALSE) or all users on the machine (TRUE).

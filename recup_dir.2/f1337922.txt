@@ -1,0 +1,8 @@
+eration Description="MeleeWeapon3" EnableSwitch="MeleeWeapon3" EnablePositionSwitch="MeleeWeapon3:0.606250,0.202847,0.695312,1.000000" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" NotifyController="1" TexturePosition="MeleeWeapon3"/>
+<SwitchOperation Description="MeleeWeapon4" EnableSwitch="MeleeWeapon4" EnablePositionSwitch="MeleeWeapon4:0.606250,0.202847,0.695312,1.000000" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" NotifyController="1" TexturePosition="MeleeWeapon4"/>
+<SwitchOperation Description="MeleeWeapon5" EnableSwitch="MeleeWeapon5" EnablePositionSwitch="MeleeWeapon5:0.606250,0.202847,0.695312,1.000000" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" NotifyController="1" TexturePosition="MeleeWeapon5"/>
+<SwitchOperation Description="Boom" EnableSwitch="Boom" EnablePositionSwitch="Boom:0.606250,0.202847,0.695312,1.000000" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" NotifyController="1" TexturePosition="Boom"/>
+<SwitchOperation Description="GrenadeArrowUp" EnableSwitch="GrenadeArrowUp" EnablePositionSwitch="GrenadeArrowUp:0.606250,0.884750,0.695312,0.916667" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" HideTips="1" TexturePosition="GrenadeArrowUp"/>
+<SwitchOperation Description="GrenadeArrowUp" EnableSwitch="GrenadeArrowUp" EnablePositionSwitch="GrenadeArrowUp:0.606250,0.202847,0.695312,0.884750" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" HideTips="1" NotifyController="1" TexturePosition="GrenadeArrowUp"/>
+</KeyMappingEx>
+<KeyMappingEx ItemName="Zoom with Scroll Wheel" Point_X="0.735938" Point_Y="0.122222" Description="8

@@ -1,0 +1,4 @@
+r not the storage pool can maintain the required levels of resiliency.
+ 0 - 'Healthy': All physical disks are present and in a healthy state. 
+1 - 'Warning': The majority of physical disks are healthy, but one or more may be failing I/O requests. 
+2 - 'Unhealthy': The majority of physical disks are unhealthy or in a failed state, and the pool no longer has data integrity.

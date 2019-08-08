@@ -1,0 +1,2 @@
+of each piece of data.
+Values: TRUE or FALSE. A value of TRUE indicates interval timeouts are supported.

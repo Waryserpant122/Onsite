@@ -1,0 +1,3 @@
+rmat and interpretation of the AccessInfo property.
+206\'Parameterized URL\'- a URL containing ${parameterName} strings. Those strings are intended to be replaced in their entirety by the value of the named parameter. The interpretation of such parameters is not defined by this subclass. 
+As an example use: If a parameter named \'CompanyURL\' has a value of \'www.DMTF.org\' and the value of AccessInfo was \'http:\${CompanyURL}\', then the resultant URL is intended to be \'http:\www.dmtf.org\'.

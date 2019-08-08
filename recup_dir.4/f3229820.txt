@@ -1,0 +1,9 @@
+arset=UTF-8
+strict-transport-security: max-age=31536000
+date: Mon, 24 Jun 2019 11:41:39 GMT
+server: gws
+content-length: 0
+x-xss-protection: 0
+x-frame-options: SAMEORIGIN
+alt-svc: quic=":443"; ma=2592000; v="46,44,43,39"
+X-Firefox-Spdy: h2

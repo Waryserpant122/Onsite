@@ -1,0 +1,50 @@
+12	*|devenv	5380
+*|visual studio 2012 arm phone tools command prompt	*|cmd	1
+*|visual studio 2013	*|devenv	5222
+*|visual studio 2013	*|ví	6546
+*|visual studio 2015	*|visual studios	7728
+*|visual studio 2015	*|visualstudio	7730
+*|visual studio 2015	*|devenv	5596
+*|visual studio 2015	*|vius	7370
+*|visual studio 2015	*|ví	7585
+*|visual studio code	*|visual code	4839
+*|visual studio command prompt (2010)	*|cmd	1
+*|vlc media player	*|vlc player	7339
+*|vmware horizon client	*|view	2527
+*|vmware player	*|vmplayer	4486
+*|vmware vsphere client	*|vcenter	5892
+*|vmware vsphere client	*|vp	5534
+*|vmware workstation 12 player	*|vmplayer	5018
+*|voice & video calls	*|skype	1
+*|voice recorder	*|windows voice recorder	6771
+*|voice recorder	*|audio recording	7257
+*|voice recorder	*|sound recording	7522
+*|voice recorder	*|voice recording	6853
+*|voice recorder	*|audio recorder	5989
+*|voice recorder	*|sound recorder	3824
+*|voice recorder	*|record audio	6892
+*|voice recorder	*|recording	5289
+*|voice recorder	*|recoder	6595
+*|voice recorder	*|recore	6931
+*|voice recorder	*|vioce	6945
+*|voice recorder	*|voive	7212
+*|voice recorder	*|recr	7315
+*|voice recorder	*|soud	7302
+*|volume activation management tool 3.1	*|vamt	1
+*|vpn access manager	*|shrew	3739
+*|vuze	*|azu	5812
+*|weather	*|do i need an umbrella	6537
+*|weather	*|will it rain tomorrow	6720
+*|weather	*|will it rain today	6641
+*|weather	*|local weather	6239
+*|weather	*|the weather	6785
+*|weather	*|weather app	6864
+*|weather	*|forecast	6745
+*|weather	*|wheather	5739
+*|weather	*|waether	6597
+*|weather	*|weatehr	6974
+*|weather	*|wather	6190
+*|weather	*|weater	5429
+*|weather	*|weathr	6639
+*|weather	*|wether	5219
+*|where

@@ -1,0 +1,2 @@
+nt between computers that verify that both computers are ready to transmit or receive data.
+Example: &K2.

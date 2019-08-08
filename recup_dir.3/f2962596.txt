@@ -1,0 +1,3 @@
+mediate action is needed. 
+6 - 'Critical': Immediate action is needed and the scope of the issue is broad. 
+7 - 'Fatal/NonRecoverable': An error has occurred, but it is too late to take remedial action. 

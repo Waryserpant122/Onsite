@@ -1,0 +1,4 @@
+ainder of the string into sub-strings. 
+- Each sub-string is separated by the delimiter character and should be in the form of a CIM property declaration (i.e., datatype and property name). This set of declarations may be used to interpret the similarly delimited RecordData property. 
+For example, using a '*' delimiter, RecordFormat = "*string ThisDay*uint32 ThisYear*datetime SomeTime" 
+may be used to interpret: RecordData = "*This is Friday*2002*20020807141000.000000-300".

@@ -1,0 +1,11 @@
+-type: application/json; charset=UTF-8
+expires: -1
+server: Microsoft-IIS/8.5
+x-content-type-options: nosniff
+x-aspnet-version: 4.0.30319
+access-control-allow-origin: *
+access-control-allow-headers: Content-Type,RequestTarget,x-requested-with
+date: Mon, 27 May 2019 08:18:58 GMT
+via: 1.1 google
+alt-svc: clear
+X-Firefox-Spdy: h2

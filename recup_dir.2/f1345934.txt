@@ -1,0 +1,177 @@
+ce	*|nvide	6593
+*|geforce experience	*|nivi	6501
+*|get skype	*|open skype	5137
+*|get skype	*|video chat	7539
+*|get skype	*|messaging	6995
+*|get skype	*|skypekype	7519
+*|get skype	*|scype	7151
+*|get skype	*|skipe	6000
+*|get skype	*|sky[	7162
+*|get skype	*|syk	6811
+*|get skype	*|syp	5966
+*|get started	*|windows 10 tutorial	4510
+*|get started	*|windows 10 help	3344
+*|get started	*|windows help	3912
+*|get started	*|tutorial	3983
+*|get started	*|help	1827
+*|gimp 2	*|gimp2	6121
+*|gimp 2	*|gim[	6367
+*|git bash	*|gitbash	3803
+*|git extensions	*|gitex	3322
+*|global vpn client	*|sonicwall	4231
+*|go-global	*|go global	1352
+*|google chrome	*|google.c	8828
+*|google chrome	*|chrome'	8734
+*|google chrome	*|chrome]	9685
+*|google chrome	*|google'	9582
+*|google chrome	*|gooogle	9679
+*|google chrome	*|chorme	8705
+*|google chrome	*|chrom,	9515
+*|google chrome	*|crhome	9559
+*|google chrome	*|goggle	8851
+*|google chrome	*|googel	9493
+*|google chrome	*|googlr	8958
+*|google chrome	*|googlw	9673
+*|google chrome	*|chome	8445
+*|google chrome	*|chro,	8213
+*|google chrome	*|chron	9718
+*|google chrome	*|crome	7432
+*|google chrome	*|gogle	8697
+*|google chrome	*|goole	9279
+*|google chrome	*|chr'	9677
+*|google chrome	*|cj	9367
+*|google chrome	*|cg	8524
+*|google chrome	*|gô	9149
+*|google cloud sdk shell	*|cmd	1
+*|google drive	*|googledrive	6212
+*|google earth	*|googleearth	6407
+*|google earth	*|google.	6970
+*|google play music	*|google music	2700
+*|grand theft auto v	*|gta	1603
+*|grand theft auto: san andreas ["ao" version]	*|gta	1
+*|groove music	*|play my music	5618
+*|groove music	*|free music	6921
+*|groove music	*|open music	7136
+*|groove music	*|play music	4514
+*|groove music	*|xbox music	6761
+*|groove music	*|groovw	7428
+*|groove music	*|grrove	7444
+*|groove music	*|goove	7177
+*|groove music	*|grooo	7491
+*|groove music	*|grove	5931
+*|groove music	*|musci	6855
+*|groove music	*|radio	5674
+*|groove music	*|songs	5733
+*|groove music	*|zune	6376
+*|groove music	*|mui	7293
+*|groove música	*|music	2041
+*|guild wars 2	*|gw2	2732
+*|h&r block 2014	*|hr	417
+*|h&r block 2015	*|hr	583
+*|hard disk sentinel	*|hd	888
+*|hd tune	*|hdtune	1481
+*|hd tune pro	*|hdtune	2229
+*|heroes of newerth	*|hon	1427
+*|hesap makinesi	*|calcu	3363
+*|hi-rez diagnostics and support	*|hi rez	2380
+*|hi-rez diagnostics and support	*|hirez	1973
+*|home	*|roxio	1
+*|hotspot shield	*|hss	4218
+*|hp aio printer remote	*|hp printer	2738
+*|hp scan	*|hpscan	4913
+*|hp support assistant	*|hp ass	4255
+*|hp support assistant	*|hps	4890
+*|hrs toolbar	*|bing	896
+*|hwmonitor	*|cpui	5232
+*|hyper-v manager	*|hyper v	4225
+*|hyper-v manager	*|hyperv	3631
+*|i.r.i.s. ocr registration	*|iris	1265
+*|idle (python 3.5 32-bit)	*|python idle	5058
+*|idle (python gui)	*|python idle	4801
+*|ignite	*|aeria	1782
+*|iheartradio	*|i heart	5460
+*|image composite editor	*|ice	215
+*|intel(r) driver update utility	*|intel driver	3178
+*|intel(r) extreme tuning utility	*|xtu	1622
+*|intel® hd graphics control panel	*|intel hd	3464
+*|intel® rapid storage technology	*|intel rapid	3273
+*|interactive ruby	*|irb	1319
+*|internet download accelerator	*|ida	356
+*|internet download manager	*|idman	6644
+*|internet download manager	*|id,	6987
+*|internet explorer	*|microsoft internet explorer	10248
+*|internet explorer	*|where is internet explorer?	10162
+*|internet explorer	*|start internet explorer	10225
+*|internet explorer	*|open internet explorer	7656
+*|internet explorer	*|internet explorer 11	7905
+*|internet explorer	*|internet explorere	7950
+*|internet explorer	*|internet expolorer	10417
+*|internet explorer	*|internet exploerer	9667
+*|internet explorer	*|internet exploreer	9110
+*|internet explorer	*|microsoft explorer	8574
+*|internet explorer	*|enternet explorer	9276
+*|internet explorer	*|internet exployer	8534
+*|internet explorer	*|internet exploror	10409
+*|internet explorer	*|interent explorer	10096
+*|internet explorer	*|internetexplorer	8330
+*|internet explorer	*|inernet explorer	9854
+*|internet explorer	*|internet exlorer	10013
+*|internet explorer	*|internet exporer	8991
+*|internet explorer	*|internet browser	10356
+*|internet explorer	*|internet eplorer	9958
+*|internet explorer	*|intenet explorer	9908
+*|internet explorer	*|iexplorer.exe	9535
+*|internet explorer	*|iexplore.exe	7898
+*|internet explorer	*|explorer 11	9779
+*|internet explorer	*|web browser	10137
+*|internet explorer	*|internetr	9392
+*|internet explorer	*|ineternet	9104
+*|internet explorer	*|internetn	10346
+*|internet explorer	*|internet'	10025
+*|internet explorer	*|internert	8900
+*|internet explorer	*|inter net	10080
+*|internet explorer	*|interenet	8188
+*|internet explorer	*|internett	9923
+*|internet explorer	*|internety	9384
+*|internet explorer	*|internext	10322
+*|internet explorer	*|internter	9213
+*|internet explorer	*|intertnet	10223
+*|internet explorer	*|internest	9909
+*|internet explorer	*|internent	10133
+*|internet explorer	*|iinternet	9693
+*|internet explorer	*|interney	8712
+*|internet explorer	*|imternet	9826
+*|internet explorer	*|inetrnet	10174
+*|internet explorer	*|interbet	9563
+*|internet explorer	*|internrt	10413
+*|internet explorer	*|intenret	8616
+*|internet explorer	*|itnernet	9668
+*|internet explorer	*|iexploer	10339
+*|internet explorer	*|browser	7904
+*|internet explorer	*|enernet	10228
+*|internet explorer	*|open ie	9829
+*|internet explorer	*|interet	8199
+*|internet explorer	*|ieplore	10436
+*|internet explorer	*|exploer	7632
+*|internet explorer	*|interna	8764
+*|internet explorer	*|exporer	10077
+*|internet explorer	*|int exp	10021
+*|internet explorer	*|intener	9311
+*|internet explorer	*|eplorer	9542
+*|internet explorer	*|intrnet	8941
+*|internet explorer	*|iternet	9010
+*|internet explorer	*|interm	8964
+*|internet explorer	*|inteer	8937
+*|internet explorer	*|inter'	9348
+*|internet explorer	*|intwer	9509
+*|internet explorer	*|inyter	10275
+*|internet explorer	*|ionter	10147
+*|internet explorer	*|intetr	10383
+*|internet explorer	*|innter	9219
+*|internet explorer	*|intewr	9270
+*|internet explorer	*|inter]	10341
+*|internet explorer	*|intner	9211
+*|internet explorer	*|intnet	10000
+*|internet explorer	*|ie.exe	9813
+*|internet explorer	*|intter	10007
+*|internet explorer	*|

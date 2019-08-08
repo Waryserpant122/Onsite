@@ -1,0 +1,2 @@
+Switch="XBtn|MapOpenFlag|InSetUp" Point_X="0.550781" Point_Y="0.600500"/>
+<SwitchOperation Description="

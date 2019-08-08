@@ -1,0 +1,2 @@
+d.The winning policy is contained in the Policy Object whose precedence is 1. Precedence greater that 1 means that the policy contained in this Policy Object is a conflicting value that did not 'win'.  
+Note: Classes deriving from RSOP_PolicySetting must redefine 'precedence' as a key

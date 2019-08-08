@@ -1,0 +1,7 @@
+n Gothic Semilight
+FileLength:5083156
+NameArray:3,Win,1,Malgun Gothic Semilight
+NameArray:0,Mac,4,Malgun Gothic Semilight
+NameArray:0,Win,1,Malgun Gothic Semilight
+NameArray:0,Win,16,Malgun Gothic
+NameArray:3,Win,1,

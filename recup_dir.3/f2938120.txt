@@ -1,0 +1,3 @@
+functioning normally. 
+"Degraded" indicates the ManagedElement is functioning below normal. 
+"Error" indicates the ManagedElement is in an Error condition. 

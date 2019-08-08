@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>Free Tata Docomo WiFi by Airport</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>46726565205461746120446F636F6D6F205769466920627920416972706F7274</hex>
+			<name>Free Tata Docomo WiFi by Airport</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>manual</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>open</authentication>
+				<encryption>none</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>630241898</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

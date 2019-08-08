@@ -1,0 +1,15 @@
+ctionStatus is a string indicating the state of the network adapter's connection to the network. The value of the property is to be interpreted as follows:
+0 - Disconnected
+1 - Connecting
+2 - Connected
+3 - Disconnecting
+4 - Hardware not present
+5 - Hardware disabled
+6 - Hardware malfunction
+7 - Media disconnected
+8 - Authenticating
+9 - Authentication succeeded
+10 - Authentication failed
+11 - Invalid Address
+12 - Credentials Required
+.. - Other - For integer values other than those listed above, refer to Win32 error code documentation.

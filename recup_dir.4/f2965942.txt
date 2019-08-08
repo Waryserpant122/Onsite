@@ -1,0 +1,11 @@
+resents a copy of the source. 
+5 - 'Broken': The relationship is non-functional due to errors in the source, the target, the path between the two or space constraints. 
+6 - 'Fractured': Target is split from the source. 
+7 - 'Split': The target element was gracefully (or systematically) split from its source element -- consistency is guaranteed. 
+8 - 'Inactive': Copy operation has stopped, writes to source element will not be sent to target element. 
+9 - 'Suspended': Data flow between the source and target elements has stopped. Writes to source element are held until the association is resumed. 
+10 - 'Failedover': Reads and writes to/from the target element. Source element is not reachable. 
+11 - 'Prepared': Initialization completed and the copy operation started; however, the data flow has not started. 
+12 - 'Aborted': The copy operation is aborted with the Abort operation. Use the Resync Replica operation to restart the copy operation. 
+13 - 'Skewed': The target has been modified and is no longer synchronized with the source element or the point-in-time view. 
+14 - 'Mixed': Applies to the CopyState of GroupSynchronized. It indicates the StorageSynchronized associations of the elements in the groups have different CopyState values.

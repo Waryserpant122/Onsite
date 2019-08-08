@@ -1,0 +1,62 @@
+ndows defender	*|microsoft security essentials	6871
+*|windows defender	*|turn off windows defender	9079
+*|windows defender	*|open windows defender	8159
+*|windows defender	*|run windows defender	9025
+*|windows defender	*|security essentials	8479
+*|windows defender	*|microsoft defender	7026
+*|windows defender	*|windows security	8077
+*|windows defender	*|virus protection	7929
+*|windows defender	*|windowsdefender	8615
+*|windows defender	*|window defender	6386
+*|windows defender	*|widows defender	8913
+*|windows defender	*|scan for virus	8963
+*|windows defender	*|free antivirus	9266
+*|windows defender	*|security scan	7742
+*|windows defender	*|scan computer	8746
+*|windows defender	*|computer scan	8856
+*|windows defender	*|virus scanner	8990
+*|windows defender	*|antimalware	8239
+*|windows defender	*|windows ess	8730
+*|windows defender	*|system scan	8805
+*|windows defender	*|scan virus	9064
+*|windows defender	*|windows di	9055
+*|windows defender	*|anti virus	5961
+*|windows defender	*|anti-virus	8199
+*|windows defender	*|protection	7575
+*|windows defender	*|antivirus	4939
+*|windows defender	*|essential	7139
+*|windows defender	*|defendeer	8777
+*|windows defender	*|defendere	8792
+*|windows defender	*|malicious	8538
+*|windows defender	*|difender	8724
+*|windows defender	*|defemder	8163
+*|windows defender	*|defebder	8628
+*|windows defender	*|maleware	8817
+*|windows defender	*|malware	5987
+*|windows defender	*|dfender	8690
+*|windows defender	*|spyware	7086
+*|windows defender	*|defendr	8553
+*|windows defender	*|deender	9095
+*|windows defender	*|defnder	8128
+*|windows defender	*|windown	7995
+*|windows defender	*|defeder	8479
+*|windows defender	*|defener	8265
+*|windows defender	*|win def	8054
+*|windows defender	*|windowa	9095
+*|windows defender	*|windowd	8578
+*|windows defender	*|windwos	7654
+*|windows defender	*|windoe	7064
+*|windows defender	*|windws	8570
+*|windows defender	*|windos	6710
+*|windows defender	*|defenc	8749
+*|windows defender	*|defee	8549
+*|windows defender	*|defef	8644
+*|windows defender	*|defne	8881
+*|windows defender	*|winde	8095
+*|windows defender	*|defer	7802
+*|windows defender	*|deff	7238
+*|windows defender	*|defi	8422
+*|windows defender	*|deef	8767
+*|windows defender	*|mse	6949
+*|windows defender	*|dè	7606
+*|windows defender	*|d

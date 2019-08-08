@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v3" manifestVersion="1.0" description="Fix for KB4503286" displayName="default" company="Microsoft Corporation" copyright="Microsoft Corporation" supportInformation="http://support.microsoft.com/?kbid=4503286" creationTimeStamp="2019-06-07T22:57:45Z" lastUpdateTimeStamp="2019-06-07T22:57:45Z">
+	<assemblyIdentity name="Package_3415_for_KB4503286" version="10.0.1.6" language="neutral" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35"/>
+	<package identifier="KB4503286" releaseType="Security Update" restart="possible" psfName="Windows10.0-KB4503286-x64.psf">
+		<parent buildCompare="EQ" integrate="separate" disposition="detect">
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-Package" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35" versionScope="nonSxS"/>
+			<assemblyIdentity name="Microsoft-Windows-ServerCore-Package" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35" versionScope="nonSxS"/>
+			<parent buildCompare="EQ" integrate="separate" disposition="detect">
+				<assemblyIdentity name="Microsoft-Windows-CoreCountrySpecificEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-CoreEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-CoreNEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-EnterpriseEvalEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-EnterpriseGEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-EnterpriseNEvalEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-ProfessionalEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-ProfessionalNEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-ServerDatacenterACorEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-ServerStandardACorEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+			</parent>
+		</parent>
+		<installerAssembly name="Microsoft-Windows-ServicingStack" version="6.0.0.0" language="neutral" processorArchitecture="amd64" versionScope="nonSxS" publicKeyToken="31bf3856ad364e35"/>
+		<update name="4503286-7139_neutral">
+			<component>
+				<assemblyIdentity name="9168484843909ebdeb84a6c152bac672" version="10.0.17134.619" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35" versionScope="nonSxS"/>
+			</component>
+		</update>
+		<update name="4503286-7140_neutral">
+			<component>
+				<assemblyIdentity name="cacd3da8166a86cc4fa97db8b23dddce" version="10.0.17134.753" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35" versionScope="nonSxS"/>
+			</component>
+		</update>
+	</package>
+</assembly>

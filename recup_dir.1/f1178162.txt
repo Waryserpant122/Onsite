@@ -1,0 +1,16 @@
+w.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HccI24MkBh/QksCWmzW81rCVcfbBJOGNbDPkg1kfms4=</dsig:DigestValue>
+    </asmv2:hash>
+  </file>
+  <memberships xmlns="urn:schemas-microsoft-com:asm.v3">
+    <categoryMembership>
+      <id buildType="release" language="neutral" name="Microsoft.Windows.Fusion_Components_All" processorArchitecture="x86" publicKeyToken="1122334455667788" version="10.0.17134.765" />
+    </categoryMembership>
+    <categoryMembership>
+      <id buildType="release" language="neutral" name="Microsoft.Windows.Multilingual_Components_All" processorArchitecture="x86" publicKeyToken="31bf3856ad364e35" version="10.0.17134.765" />
+    </categoryMembership>
+    <categoryMembership>
+      <id name="Microsoft.Windows.Categories" publicKeyToken="365143bb27e7ac8b" typeName="BootRecovery" version="1.0.0.0" />
+    </categoryMembership>
+  </memberships>
+</assembly>

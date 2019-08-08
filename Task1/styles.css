@@ -1,0 +1,84 @@
+body,
+html {
+  background: red;
+}
+
+p{
+  font-size: 10px;
+  color: white;
+}
+
+.resizable {
+  background: black;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  transform: rotate(0deg);
+}
+
+.resizable .rotate{
+ width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #4286f4;
+  position: absolute;
+  left: 45%;
+  top: -30px;
+
+}
+
+ .drag{
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: 3px solid #4286f4;
+  position: absolute;
+  left: 45%;
+  top: 44%;
+  cursor: move;
+
+}
+
+.resizable  .resizers .resizer{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; 
+  background: white;
+  border: 3px solid #4286f4;
+  position: absolute;
+}
+
+
+.resizable  .resizers .resizer.top-left {
+  left: -5px;
+  top: -5px;
+  cursor: nwse-resize; /*resizer cursor*/
+}
+.resizable  .resizers .resizer.top-right {
+  right: -5px;
+  top: -5px;
+  cursor: nesw-resize;
+}
+
+.resizable  .resizers .resizer.top-center {
+  left: 45%;
+  top: -5px;
+  cursor: row-resize;
+}
+
+.resizable  .resizers .resizer.bottom-left {
+  left: -5px;
+  bottom: -5px;
+  cursor: nesw-resize;
+}
+.resizable  .resizers .resizer.bottom-right {
+  right: -5px;
+  bottom: -5px;
+  cursor: nwse-resize;
+}
+
+
+

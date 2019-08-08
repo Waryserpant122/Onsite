@@ -1,0 +1,8 @@
+ified structure. 
+The method returns an integer value that can be interpreted as follows: 
+0 - Successful completion.
+2 - The user does not have access to the requested information.
+8 - Unknown failure.
+9 - The user does not have adequate privileges.
+21 - The specified parameter is invalid.
+Other - For integer values other than those listed above, refer to Win32 error code documentation.

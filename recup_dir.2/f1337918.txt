@@ -1,0 +1,5 @@
+sition="Medicine2"/>
+<SwitchOperation Description="GrenadeArrowUp" EnableSwitch="GrenadeArrowUp" EnablePositionSwitch="GrenadeArrowUp:0.337500,0.884750,0.384375,0.990000" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" HideTips="1" TexturePosition="GrenadeArrowUp"/>
+<SwitchOperation Description="GrenadeArrowUp" EnableSwitch="GrenadeArrowUp" EnablePositionSwitch="GrenadeArrowUp:0.337500,0.202847,0.384375,0.884750" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" HideTips="1" NotifyController="1" TexturePosition="GrenadeArrowUp"/>
+</KeyMappingEx>
+<KeyMappingEx ItemName="9" Point_X="0.360000" Point_Y="0.826389" Description="

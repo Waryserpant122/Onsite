@@ -1,0 +1,2 @@
+ property determines whether the system is running under a hypervisor that follows the industry standard convention for reporting a hypervisor is present.
+Values: TRUE or FALSE. If TRUE, a hypervisor is present.

@@ -1,0 +1,2 @@
+he refresh frequency for a monitor is the number of times the screen is redrawn per second. 
+This property has been deprecated because it is not applicable to printers.  There is no replacement value.

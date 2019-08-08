@@ -1,0 +1,34 @@
+#0(I)[2019-07-18 11:45:43,495]{000005B0}<NvContainer>      Container main v1.2
+#1(I)[2019-07-18 11:45:43,495]{000005B0}<NvcHost>          Base host initialized successfully
+#2(I)[2019-07-18 11:45:43,495]{000005D4}<NvcServiceHost>   Service host: 'Start-pending' status reported
+#3(I)[2019-07-18 11:45:43,495]{000005B0}<NvcServiceHost>   Service host: wait completed with 0
+#4(I)[2019-07-18 11:45:43,495]{000005B0}<NvcHost>          Load plugins from C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem
+#5(I)[2019-07-18 11:45:43,504]{000005B0}<NvcHost>          Process plugin C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem/NVDisplayPluginWatchdog.dll
+#6(I)[2019-07-18 11:45:43,504]{000005B0}<NvcPluginManager> Loading C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem/NVDisplayPluginWatchdog.dll
+#7(I)[2019-07-18 11:45:43,504]{000005B0}<NvcPluginManager> Load library for C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem/NVDisplayPluginWatchdog.dll
+#8(I)[2019-07-18 11:45:43,687]{000005B0}<NvcPluginManager> Loaded C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem/NVDisplayPluginWatchdog.dll
+#9(I)[2019-07-18 11:45:43,687]{000005B0}<NvcPluginManager> Loaded mandatory plugin NvPluginWatchdog, version 1
+#0(I)[2019-07-18 11:45:43,687]{000005B0}<NvcHost>          Process plugin C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem/NvXDCore.dll
+#1(I)[2019-07-18 11:45:43,687]{000005B0}<NvcPluginManager> Loading C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem/NvXDCore.dll
+#2(I)[2019-07-18 11:45:43,694]{000005B0}<NvcPluginManager> Load library for C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem/NvXDCore.dll
+#3(I)[2019-07-18 11:45:44,036]{000005B0}<NvcPluginManager> Loaded C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem/NvXDCore.dll
+#4(I)[2019-07-18 11:45:44,036]{000005B0}<NvcPluginManager> Loaded mandatory plugin NvXDCore, version 1
+#5(I)[2019-07-18 11:45:44,042]{000005B0}<DirectoryListene> Add directory C:\Program Files\NVIDIA Corporation\Display.NvContainer\plugins\LocalSystem.
+#6(I)[2019-07-18 11:45:44,042]{000005B0}<NvcHost>          Container is initializing
+#7(I)[2019-07-18 11:45:44,042]{000005B0}<NvcPluginManager> Initiate transition to Initializing state for NvPluginWatchdog
+#8(I)[2019-07-18 11:45:44,062]{000005B0}<NvcPluginManager> Transition to Initialized state for NvPluginWatchdog completed
+#9(I)[2019-07-18 11:45:44,062]{000005B0}<NvcPluginManager> Initiate transition to Initializing state for NvXDCore
+#0(I)[2019-07-18 11:45:51,236]{000005B0}<NvcPluginManager> Transition to Initialized state for NvXDCore completed
+#1(I)[2019-07-18 11:45:51,236]{000005B0}<NvcHost>          Container is initialized with 1. State: normal
+#2(I)[2019-07-18 11:45:51,236]{000005B0}<NvcServiceHost>   Service host: 'Running' status reported
+#3(I)[2019-07-18 11:45:51,236]{000005B0}<NvcHost>          Container is starting
+#4(I)[2019-07-18 11:45:51,236]{000005B0}<NvcPluginManager> Initiate transition to Starting state for NvPluginWatchdog
+#5(I)[2019-07-18 11:45:51,243]{000005B0}<NvcPluginManager> Transition to Started state for NvPluginWatchdog completed
+#6(I)[2019-07-18 11:45:51,243]{000005B0}<NvcPluginManager> Initiate transition to Starting state for NvXDCore
+#7(I)[2019-07-18 11:45:51,243]{000005B0}<NvcPluginManager> Transition to Started state for NvXDCore completed
+#8(I)[2019-07-18 11:45:51,243]{000005B0}<NvcHost>          Container is started with 1. State: normal
+#9(I)[2019-07-18 11:45:51,243]{000005B0}<NvcHost>          Host: event from plugin NvPluginWatchdog
+#0(I)[2019-07-18 11:45:51,243]{000005B0}<NvcServiceHost>   Service host: event from plugin NvPluginWatchdog
+#1(I)[2019-07-18 11:45:51,243]{000005B0}<NvcHost>          Host: event from plugin NvXDCore
+#2(I)[2019-07-18 11:45:51,243]{000005B0}<NvcServiceHost>   Service host: event from plugin NvXDCore
+#3(I)[2019-07-18 11:47:13,214]{000

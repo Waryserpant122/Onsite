@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v3" manifestVersion="1.0" description="Fix for KB4503286" displayName="default" company="Microsoft Corporation" copyright="Microsoft Corporation" supportInformation="http://support.microsoft.com/?kbid=4503286" creationTimeStamp="2019-06-07T22:57:36Z" lastUpdateTimeStamp="2019-06-07T22:57:36Z">
+	<assemblyIdentity name="Package_1104_for_KB4503286" version="10.0.1.6" language="neutral" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35"/>
+	<package identifier="KB4503286" releaseType="Security Update" restart="possible" psfName="Windows10.0-KB4503286-x64.psf">
+		<parent buildCompare="EQ" integrate="separate" disposition="detect">
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="ar-SA" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="bg-BG" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="el-GR" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="he-IL" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="ja-JP" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="ko-KR" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="ru-RU" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="th-TH" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="uk-UA" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="zh-CN" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" language="zh-TW" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-OneCore-CoreSystem-Core-WOW64-onecore-Package" version="10.0.17134.1" processorArchitecture="amd64" language="en-US" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="ar-SA" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="bg-BG" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="el-GR" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="he-IL" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="ja-JP" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="ko-KR" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="ru-RU" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="th-TH" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="uk-UA" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="zh-CN" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" language="zh-TW" version="10.0.17134.1" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" buildType="release"/>
+			<assemblyIdentity name="Microsoft-Windows-Client-Features-WOW64-Package0010" version="10.0.17134.1" processorArchitecture="amd64" language="en-US" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+			<parent buildCompare="EQ" integrate="separate" disposition="detect">
+				<assemblyIdentity name="Microsoft-Windows-CoreCountrySpecificEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-CoreEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-CoreNEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-EnterpriseEvalEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-EnterpriseGEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-EnterpriseNEvalEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-ProfessionalEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-ProfessionalNEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-ServerDatacenterACorEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+				<assemblyIdentity name="Microsoft-Windows-ServerStandardACorEdition" version="10.0.17134.1" processorArchitecture="amd64" language="neutral" buildType="release" publicKeyToken="31bf3856ad364e35"/>
+			</parent>
+		</parent>
+		<installerAssembly name="Microsoft-Windows-ServicingStack" version="6.0.0.0" language="neutral" processorArchitecture="amd64" versionScope="nonSxS" publicKeyToken="31bf3856ad364e35"/>
+		<update name="4503286-2358_neutral">
+			<applicable disposition="staged">
+				<updateComponent elevate="revision">
+					<assemblyIdentity name="Microsoft-Windows-International-ƒe  ä`^}%Ý fñ“ 78ô)~ÉxÒQÆ÷›òEJlÿO#Ýn[ëÃú6‡‡J/¸B^a¦&èºÐU-¥/|±Ï
+ó°Ó¥wW}:¡æÆ«'ÃØ¿ŸàøÔ-™a¶vá|š“ÐŠë¦úõ-o´gÓÅpÖ´×«'öï$ÓÔqæÌ      ]>]]>

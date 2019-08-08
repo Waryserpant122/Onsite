@@ -1,0 +1,2 @@
+tion of concrete storage pools. Primordial pools cannot be created or deleted. 
+If this field is set to FALSE, the storage pool is a concrete pool. These pools are subject to all of the management operations defined on the storage pool class. This includes creation, deletion, creation of virtual disks, etc.

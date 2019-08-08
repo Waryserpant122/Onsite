@@ -1,0 +1,4 @@
+      0
+#define ISCSI_HBA_STATUS_DEGRADED          1
+#define ISCSI_HBA_STATUS_CRITICAL          2
+#define ISCSI_HBA_STATUS_FAILED            3

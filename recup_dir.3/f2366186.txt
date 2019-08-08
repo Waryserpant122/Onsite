@@ -1,0 +1,10 @@
+:12:00 GMT
+access-control-allow-credentials: true
+x-content-type-options: nosniff
+x-frame-options: DENY
+age: 2049897
+x-cache: Hit from cloudfront
+via: 1.1 1db967f07328f9f8adfe3418d5ec389c.cloudfront.net (CloudFront)
+x-amz-cf-pop: HYD50-C2
+x-amz-cf-id: i0qYtERREU4JR-ishWE1A7HbacCz5xTVF_L3q1JD3kW8sfDaGdUjMA==
+X-Firefox-Spdy: h2

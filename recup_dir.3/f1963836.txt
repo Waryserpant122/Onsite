@@ -1,0 +1,16 @@
+symbol");
+b.OverrideFunction(c.prototype,"exec",
+d,true);
+b.OverrideFunction(c.prototype,j,
+e,true);
+b.OverrideFunction(c.prototype,k,
+f,true);
+b.OverrideFunction(c.prototype,l,
+g,true);
+b.OverrideFunction(c.prototype,m,
+h,true);
+b.OverrideFunction(c.prototype,"test",
+i,true);
+})
+
+Xharmony-object-observeU

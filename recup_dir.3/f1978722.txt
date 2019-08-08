@@ -1,0 +1,1 @@
+%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x}, expected dir_entry_guid; remaining directory entries ignored

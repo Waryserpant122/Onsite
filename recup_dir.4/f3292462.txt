@@ -1,0 +1,19 @@
+//www.hackerrank.com/careers
+vary: Accept-Encoding
+content-encoding: gzip
+etag: W/"0e32a1bfbed8065a67316e57ca23edf7"
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 1281ae89-8721-4791-9d57-8f0a45d81465
+x-runtime: 0.112215
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+x-download-options: noopen
+x-permitted-cross-domain-policies: none
+referrer-policy: strict-origin-when-cross-origin
+content-security-policy-report-only: default-src * data: blob: 'unsafe-inline' 'unsafe-eval'; base-uri 'self' *.hackerrank.com; connect-src * data: blob: 'unsafe-inline' 'unsafe-eval'; frame-src 'unsafe-inline' *; img-src * data: blob: 'unsafe-inline'; script-src 'self' data: 'unsafe-inline' 'unsafe-eval' *.chatlio.com *.ads.linkedin.com *.demandbase.com *.firebaseio.com *.hackerrank.com *.hackerrank.io *.linkedin.com *.twitter.com *.wsp.hackerrank.com *.wss.hackerrank.com *.zopim.com api.filepicker.io api.olark.com app-sji.marketo.com bam.nr-data.net cdn.amplitude.com cdn.auryc.com cdn.bizible.com cdn.heapanalytics.com cdn.mxpnl.com cdn.optimizely.com cdn.raygun.io cdn.userty.com cdn.walkme.com cdnjs.cloudflare.com connect.facebook.net d3keuzeb2crhkn.cloudfront.net ds-aksb-a.akamaihd.net googleads.g.doubleclick.net www.gstatic.com hrcdn.net js-agent.newrelic.com js.stripe.com munchkin.marketo.net script.hotjar.com snap.licdn.com ssl.google-analytics.com static.ads-twitter.com static.hotjar.com static.olark.com static.zdassets.com stats.pusher.com use.typekit.net www.google-analytics.com www.google.com www.googleadservices.com www.googletagmanager.com s3.amazonaws.com; style-src * data: blob: 'unsafe-inline'; worker-src 'self' data: blob:; report-uri https://hackerrank.report-uri.com/r/d/csp/reportOnly
+x-newrelic-app-data: PxQFVVJUCgYTVVNbBQQCXkYdFHANCBcQXw5UB0oXRldAERYCWQBfDgFYUAQVTEtbXxNDTgcfB0pUHwcCUF5RUAVRClQNCwwCC1MVTABNEVcAAVVSXwELBgBVWAdSAFZEOQ==
+content-length: 3180
+date: Mon, 24 Jun 2019 09:51:11 GMT
+strict-transport-security: max-age=15768000 ; preload
+X-Firefox-Spdy: h2

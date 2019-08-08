@@ -1,0 +1,22 @@
+ngs	8776
+*|settings	*|seettings	8595
+*|settings	*|settingds	8712
+*|settings	*|settings'	8518
+*|settings	*|settingss	8564
+*|settings	*|settingh	8603
+*|settings	*|settinga	7960
+*|settings	*|settigns	7878
+*|settings	*|seetings	7868
+*|settings	*|settimgs	8203
+*|settings	*|settomgs	8342
+*|settings	*|settigs	7685
+*|settings	*|settinf	8501
+*|settings	*|settinh	7501
+*|settings	*|settins	7167
+*|settings	*|settngs	8507
+*|settings	*|setings	6178
+*|settings	*|sttings	7931
+*|settings	*|confi	8798
+*|settings	*|sette	7608
+*|site administration	*|asa	1298
+*|skai

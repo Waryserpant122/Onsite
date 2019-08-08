@@ -1,0 +1,1289 @@
+;
+var q;
+var r;
+var s;
+var t;
+var u=b.ImportNow("ObjectDefineProperties");
+var v=b.ImportNow("ObjectDefineProperty");
+var w=b.ImportNow("ObjectHasOwnProperty");
+var x=b.OverrideFunction;
+var y=b.ImportNow("intl_pattern_symbol");
+var z=b.ImportNow("intl_resolved_symbol");
+var A=b.SetFunctionName;
+var B;
+var C;
+var D;
+var E;
+var F;
+b.Import(function(G){
+c=G.ArrayIndexOf;
+d=G.ArrayJoin;
+e=G.ArrayPush;
+p=G.IsFinite;
+q=G.IsNaN;
+r=G.MakeError;
+s=G.MakeRangeError;
+t=G.MakeTypeError;
+n=G.InternalRegExpMatch;
+o=G.InternalRegExpReplace;
+B=G.StringIndexOf;
+C=G.StringLastIndexOf;
+D=G.StringSplit;
+E=G.StringSubstr;
+F=G.StringSubstring;
+});
+function InstallFunction(H,I,J){
+k(H,2,[I,J]);
+}
+function InstallConstructor(H,I,J){
+%CheckIsBootstrapping();
+A(J,I);
+%AddNamedProperty(H,I,J,2);
+%SetNativeFlag(J);
+%ToFastProperties(H);
+}
+function AddBoundMethod(K,L,M,N){
+%CheckIsBootstrapping();
+var O=%CreatePrivateSymbol(L);
+var P=function(){
+if(!%IsInitializedIntlObject(this)){
+throw t(54,L);
+}
+if((this[O]===(void 0))){
+var Q;
+if((N===(void 0))||N===2){
+Q=(x,y)=>M(this,x,y);
+}else if(N===1){
+Q=x=>M(this,x);
+}else{
+Q=(...args)=>{
+if(args.length>0){
+return M(this,args[0]);
+}else{
+return M(this);
+}
+}
+}
+%FunctionSetName(Q,'__bound'+L+'__');
+%FunctionRemovePrototype(Q);
+%SetNativeFlag(Q);
+this[O]=Q;
+}
+return this[O];
+};
+l(K.prototype,L,P,2);
+}
+var R={};
+%AddNamedProperty(a,"Intl",R,2);
+var S={
+'collator':(void 0),
+'numberformat':(void 0),
+'dateformat':(void 0),
+'breakiterator':(void 0)
+};
+var T=(void 0);
+var U=(void 0);
+function GetUnicodeExtensionRE(){
+if(((void 0)===(void 0))){
+U=new i('-u(-[a-z0-9]{2,8})+','g');
+}
+return U;
+}
+var V=(void 0);
+function GetAnyExtensionRE(){
+if((V===(void 0))){
+V=new i('-[a-z0-9]{1}-.*','g');
+}
+return V;
+}
+var W=(void 0);
+function GetQuotedStringRE(){
+if((W===(void 0))){
+W=new i("'[^']+'",'g');
+}
+return W;
+}
+var X=(void 0);
+function GetServiceRE(){
+if((X===(void 0))){
+X=
+new i('^(collator|numberformat|dateformat|breakiterator)$');
+}
+return X;
+}
+var Y=(void 0);
+function GetLanguageTagRE(){
+if((Y===(void 0))){
+BuildLanguageTagREs();
+}
+return Y;
+}
+var Z=(void 0);
+function GetLanguageVariantRE(){
+if((Z===(void 0))){
+BuildLanguageTagREs();
+}
+return Z;
+}
+var aa=(void 0);
+function GetLanguageSingletonRE(){
+if((aa===(void 0))){
+BuildLanguageTagREs();
+}
+return aa;
+}
+var ab=(void 0);
+function GetTimezoneNameCheckRE(){
+if((ab===(void 0))){
+ab=new i(
+'^([A-Za-z]+)/([A-Za-z_-]+)((?:\/[A-Za-z_-]+)+)*$');
+}
+return ab;
+}
+var ac=(void 0);
+function GetTimezoneNameLocationPartRE(){
+if((ac===(void 0))){
+ac=
+new i('^([A-Za-z]+)((?:[_-][A-Za-z]+)+)*$');
+}
+return ac;
+}
+function supportedLocalesOf(ad,ae,af){
+if((n(GetServiceRE(),ad)===null)){
+throw r(7,ad);
+}
+if((af===(void 0))){
+af={};
+}else{
+af=(%_ToObject(af));
+}
+var ag=af.localeMatcher;
+if(!(ag===(void 0))){
+ag=j(ag);
+if(ag!=='lookup'&&ag!=='best fit'){
+throw s(182,ag);
+}
+}else{
+ag='best fit';
+}
+var ah=initializeLocaleList(ae);
+if((S[ad]===(void 0))){
+S[ad]=getAvailableLocalesOf(ad);
+}
+if(ag==='best fit'){
+return initializeLocaleList(bestFitSupportedLocalesOf(
+ah,S[ad]));
+}
+return initializeLocaleList(lookupSupportedLocalesOf(
+ah,S[ad]));
+}
+function lookupSupportedLocalesOf(ah,ai){
+var aj=[];
+for(var ak=0;ak<ah.length;++ak){
+var al=o(
+GetUnicodeExtensionRE(),ah[ak],'');
+do{
+if(!(ai[al]===(void 0))){
+%_Call(e,aj,ah[ak]);
+break;
+}
+var am=%_Call(C,al,'-');
+if(am===-1){
+break;
+}
+al=%_Call(F,al,0,am);
+}while(true);
+}
+return aj;
+}
+function bestFitSupportedLocalesOf(ah,ai){
+return lookupSupportedLocalesOf(ah,ai);
+}
+function getGetOption(af,an){
+if((af===(void 0)))throw r(4,an);
+var ao=function getOption(ap,aq,ar,as){
+if(!(af[ap]===(void 0))){
+var at=af[ap];
+switch(aq){
+case'boolean':
+at=f(at);
+break;
+case'string':
+at=j(at);
+break;
+case'number':
+at=h(at);
+break;
+default:
+throw r(8);
+}
+if(!(ar===(void 0))&&%_Call(c,ar,at)===-1){
+throw s(192,at,an,ap);
+}
+return at;
+}
+return as;
+}
+return ao;
+}
+function resolveLocale(ad,ah,af){
+ah=initializeLocaleList(ah);
+var ao=getGetOption(af,ad);
+var ag=ao('localeMatcher','string',
+['lookup','best fit'],'best fit');
+var au;
+if(ag==='lookup'){
+au=lookupMatcher(ad,ah);
+}else{
+au=bestFitMatcher(ad,ah);
+}
+return au;
+}
+function lookupMatcher(ad,ah){
+if((n(GetServiceRE(),ad)===null)){
+throw r(7,ad);
+}
+if((S[ad]===(void 0))){
+S[ad]=getAvailableLocalesOf(ad);
+}
+for(var ak=0;ak<ah.length;++ak){
+var al=o(
+GetAnyExtensionRE(),ah[ak],'');
+do{
+if(!(S[ad][al]===(void 0))){
+var av=n(
+GetUnicodeExtensionRE(),ah[ak]);
+var aw=(av===null)?'':av[0];
+return{'locale':al,'extension':aw,'position':ak};
+}
+var am=%_Call(C,al,'-');
+if(am===-1){
+break;
+}
+al=%_Call(F,al,0,am);
+}while(true);
+}
+if((T===(void 0))){
+T=%GetDefaultICULocale();
+}
+return{'locale':T,'extension':'','position':-1};
+}
+function bestFitMatcher(ad,ah){
+return lookupMatcher(ad,ah);
+}
+function parseExtension(aw){
+var ax=%_Call(D,aw,'-');
+if(ax.length<=2||
+(ax[0]!==''&&ax[1]!=='u')){
+return{};
+}
+var ay={};
+var az=(void 0);
+for(var ak=2;ak<ax.length;++ak){
+var N=ax[ak].length;
+var aA=ax[ak];
+if(N===2){
+ay[aA]=(void 0);
+az=aA;
+}else if(N>=3&&N<=8&&!(az===(void 0))){
+ay[az]=aA;
+az=(void 0);
+}else{
+return{};
+}
+}
+return ay;
+}
+function setOptions(aB,ay,aC,ao,aD){
+var aw='';
+var aE=function updateExtension(aF,at){
+return'-'+aF+'-'+j(at);
+}
+var aG=function updateProperty(ap,aq,at){
+if(aq==='boolean'&&(typeof at==='string')){
+at=(at==='true')?true:false;
+}
+if(!(ap===(void 0))){
+defineWEProperty(aD,ap,at);
+}
+}
+for(var aF in aC){
+if((%_Call(w,aC,aF))){
+var at=(void 0);
+var aH=aC[aF];
+if(!(aH.property===(void 0))){
+at=ao(aH.property,aH.type,aH.values);
+}
+if(!(at===(void 0))){
+aG(aH.property,aH.type,at);
+aw+=aE(aF,at);
+continue;
+}
+if((%_Call(w,ay,aF))){
+at=ay[aF];
+if(!(at===(void 0))){
+aG(aH.property,aH.type,at);
+aw+=aE(aF,at);
+}else if(aH.type==='boolean'){
+aG(aH.property,aH.type,true);
+aw+=aE(aF,true);
+}
+}
+}
+}
+return aw===''?'':'-u'+aw;
+}
+function freezeArray(aI){
+var aJ=aI.length;
+for(var ak=0;ak<aJ;ak++){
+if(ak in aI){
+v(aI,ak,{value:aI[ak],
+configurable:false,
+writable:false,
+enumerable:true});
+}
+}
+v(aI,'length',{value:aJ,writable:false});
+return aI;
+}
+function getOptimalLanguageTag(aK,au){
+if(aK===au){
+return aK;
+}
+var ae=%GetLanguageTagVariants([aK,au]);
+if(ae[0].maximized!==ae[1].maximized){
+return au;
+}
+var aL=new i('^'+ae[1].base,'g');
+return o(aL,au,ae[0].base);
+}
+function getAvailableLocalesOf(ad){
+var aM=%AvailableLocalesOf(ad);
+for(var ak in aM){
+if((%_Call(w,aM,ak))){
+var aN=n(
+/^([a-z]{2,3})-([A-Z][a-z]{3})-([A-Z]{2})$/,ak);
+if(!(aN===null)){
+aM[aN[1]+'-'+aN[3]]=null;
+}
+}
+}
+return aM;
+}
+function defineWEProperty(H,ap,at){
+v(H,ap,
+{value:at,writable:true,enumerable:true});
+}
+function addWEPropertyIfDefined(H,ap,at){
+if(!(at===(void 0))){
+defineWEProperty(H,ap,at);
+}
+}
+function defineWECProperty(H,ap,at){
+v(H,ap,{value:at,
+writable:true,
+enumerable:true,
+configurable:true});
+}
+function addWECPropertyIfDefined(H,ap,at){
+if(!(at===(void 0))){
+defineWECProperty(H,ap,at);
+}
+}
+function toTitleCaseWord(aO){
+return %StringToUpperCase(%_Call(E,aO,0,1))+
+%StringToLowerCase(%_Call(E,aO,1));
+}
+function toTitleCaseTimezoneLocation(aP){
+var aQ=n(GetTimezoneNameLocationPartRE(),aP)
+if((aQ===null))throw s(161,aP);
+var aR=toTitleCaseWord(aQ[1]);
+if(!(aQ[2]===(void 0))&&2<aQ.length){
+var aS=%_Call(F,aQ[2],0,1);
+var aN=%_Call(D,aQ[2],aS);
+for(var ak=1;ak<aN.length;ak++){
+var aT=aN[ak]
+var aU=%StringToLowerCase(aT);
+aR=aR+aS+
+((aU!=='es'&&
+aU!=='of'&&aU!=='au')?
+toTitleCaseWord(aT):aU);
+}
+}
+return aR;
+}
+function canonicalizeLanguageTag(aV){
+if(typeof aV!=='string'&&typeof aV!=='object'||
+(aV===null)){
+throw t(53);
+}
+var aW=j(aV);
+if(isValidLanguageTag(aW)===false){
+throw s(173,aW);
+}
+var aX=%CanonicalizeLanguageTag(aW);
+if(aX==='invalid-tag'){
+throw s(173,aW);
+}
+return aX;
+}
+function initializeLocaleList(ae){
+var aY=[];
+if((ae===(void 0))){
+aY=[];
+}else{
+if(typeof ae==='string'){
+%_Call(e,aY,canonicalizeLanguageTag(ae));
+return freezeArray(aY);
+}
+var aZ=(%_ToObject(ae));
+var ba=((aZ.length)>>>0);
+for(var bb=0;bb<ba;bb++){
+if(bb in aZ){
+var at=aZ[bb];
+var aX=canonicalizeLanguageTag(at);
+if(%_Call(c,aY,aX)===-1){
+%_Call(e,aY,aX);
+}
+}
+}
+}
+return freezeArray(aY);
+}
+function isValidLanguageTag(al){
+if((n(GetLanguageTagRE(),al)===null)){
+return false;
+}
+if(%_Call(B,al,'x-')===0){
+return true;
+}
+al=%_Call(D,al,'-x-')[0];
+var bc=[];
+var bd=[];
+var aN=%_Call(D,al,'-');
+for(var ak=1;ak<aN.length;ak++){
+var at=aN[ak];
+if(!(n(GetLanguageVariantRE(),at)===null)&&
+bd.length===0){
+if(%_Call(c,bc,at)===-1){
+%_Call(e,bc,at);
+}else{
+return false;
+}
+}
+if(!(n(GetLanguageSingletonRE(),at)===null)){
+if(%_Call(c,bd,at)===-1){
+%_Call(e,bd,at);
+}else{
+return false;
+}
+}
+}
+return true;
+}
+function BuildLanguageTagREs(){
+var be='[a-zA-Z]';
+var bf='[0-9]';
+var bg='('+be+'|'+bf+')';
+var bh='(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|'+
+'zh-min|zh-min-nan|zh-xiang)';
+var bi='(en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|'+
+'i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|'+
+'i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)';
+var bj='('+bi+'|'+bh+')';
+var bk='(x(-'+bg+'{1,8})+)';
+var bl='('+bf+'|[A-WY-Za-wy-z])';
+aa=new i('^'+bl+'$','i');
+var aw='('+bl+'(-'+bg+'{2,8})+)';
+var bm='('+bg+'{5,8}|('+bf+bg+'{3}))';
+Z=new i('^'+bm+'$','i');
+var bn='('+be+'{2}|'+bf+'{3})';
+var bo='('+be+'{4})';
+var bp='('+be+'{3}(-'+be+'{3}){0,2})';
+var bq='('+be+'{2,3}(-'+bp+')?|'+be+'{4}|'+
+be+'{5,8})';
+var br=bq+'(-'+bo+')?(-'+bn+')?(-'+
+bm+')*(-'+aw+')*(-'+bk+')?';
+var bs=
+'^('+br+'|'+bk+'|'+bj+')$';
+Y=new i(bs,'i');
+}
+var bt={
+get(){
+%IncrementUseCounter(16);
+return this[z];
+},
+set(at){
+this[z]=at;
+}
+};
+function initializeCollator(bu,ae,af){
+if(%IsInitializedIntlObject(bu)){
+throw t(135,"Collator");
+}
+if((af===(void 0))){
+af={};
+}
+var ao=getGetOption(af,'collator');
+var bv={};
+defineWEProperty(bv,'usage',ao(
+'usage','string',['sort','search'],'sort'));
+var bw=ao('sensitivity','string',
+['base','accent','case','variant']);
+if((bw===(void 0))&&bv.usage==='sort'){
+bw='variant';
+}
+defineWEProperty(bv,'sensitivity',bw);
+defineWEProperty(bv,'ignorePunctuation',ao(
+'ignorePunctuation','boolean',(void 0),false));
+var al=resolveLocale('collator',ae,af);
+var ay=parseExtension(al.extension);
+var bx={
+'kn':{'property':'numeric','type':'boolean'},
+'kf':{'property':'caseFirst','type':'string',
+'values':['false','lower','upper']}
+};
+setOptions(
+af,ay,bx,ao,bv);
+var by='default';
+var aw='';
+if((%_Call(w,ay,'co'))&&bv.usage==='sort'){
+var bz=[
+'big5han','dict','direct','ducet','gb2312','phonebk','phonetic',
+'pinyin','reformed','searchjl','stroke','trad','unihan','zhuyin'
+];
+if(%_Call(c,bz,ay.co)!==-1){
+aw='-u-co-'+ay.co;
+by=ay.co;
+}
+}else if(bv.usage==='search'){
+aw='-u-co-search';
+}
+defineWEProperty(bv,'collation',by);
+var bA=al.locale+aw;
+var au=u({},{
+caseFirst:{writable:true},
+collation:{value:bv.collation,writable:true},
+ignorePunctuation:{writable:true},
+locale:{writable:true},
+numeric:{writable:true},
+requestedLocale:{value:bA,writable:true},
+sensitivity:{writable:true},
+strength:{writable:true},
+usage:{value:bv.usage,writable:true}
+});
+var bB=%CreateCollator(bA,
+bv,
+au);
+%MarkAsInitializedIntlObjectOfType(bu,'collator',bB);
+bu[z]=au;
+v(bu,'resolved',bt);
+return bu;
+}
+InstallConstructor(R,'Collator',function(){
+var ae=arguments[0];
+var af=arguments[1];
+if(!this||this===R){
+return new R.Collator(ae,af);
+}
+return initializeCollator((%_ToObject(this)),ae,af);
+}
+);
+InstallFunction(R.Collator.prototype,'resolvedOptions',function(){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+if(!%IsInitializedIntlObjectOfType(this,'collator')){
+throw t(136,"Collator");
+}
+var bC=this;
+var al=getOptimalLanguageTag(bC[z].requestedLocale,
+bC[z].locale);
+return{
+locale:al,
+usage:bC[z].usage,
+sensitivity:bC[z].sensitivity,
+ignorePunctuation:bC[z].ignorePunctuation,
+numeric:bC[z].numeric,
+caseFirst:bC[z].caseFirst,
+collation:bC[z].collation
+};
+}
+);
+InstallFunction(R.Collator,'supportedLocalesOf',function(ae){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+return supportedLocalesOf('collator',ae,arguments[1]);
+}
+);
+function compare(bu,bD,bE){
+return %InternalCompare(%GetImplFromInitializedIntlObject(bu),
+j(bD),j(bE));
+};
+AddBoundMethod(R.Collator,'compare',compare,2);
+function isWellFormedCurrencyCode(bF){
+return typeof bF=="string"&&bF.length==3&&
+(n(/[^A-Za-z]/,bF)===null);
+}
+function getNumberOption(af,ap,bG,bH,bI){
+var at=af[ap];
+if(!(at===(void 0))){
+at=h(at);
+if(q(at)||at<bG||at>bH){
+throw s(185,ap);
+}
+return %math_floor(at);
+}
+return bI;
+}
+var bJ={
+get(){
+%IncrementUseCounter(15);
+return this[y];
+},
+set(at){
+this[y]=at;
+}
+};
+function initializeNumberFormat(bK,ae,af){
+if(%IsInitializedIntlObject(bK)){
+throw t(135,"NumberFormat");
+}
+if((af===(void 0))){
+af={};
+}
+var ao=getGetOption(af,'numberformat');
+var al=resolveLocale('numberformat',ae,af);
+var bv={};
+defineWEProperty(bv,'style',ao(
+'style','string',['decimal','percent','currency'],'decimal'));
+var bF=ao('currency','string');
+if(!(bF===(void 0))&&!isWellFormedCurrencyCode(bF)){
+throw s(168,bF);
+}
+if(bv.style==='currency'&&(bF===(void 0))){
+throw t(30);
+}
+var bL=ao(
+'currencyDisplay','string',['code','symbol','name'],'symbol');
+if(bv.style==='currency'){
+defineWEProperty(bv,'currency',%StringToUpperCase(bF));
+defineWEProperty(bv,'currencyDisplay',bL);
+}
+var bM=getNumberOption(af,'minimumIntegerDigits',1,21,1);
+defineWEProperty(bv,'minimumIntegerDigits',bM);
+var bN=af['minimumFractionDigits'];
+var bO=af['maximumFractionDigits'];
+if(!(bN===(void 0))||bv.style!=='currency'){
+bN=getNumberOption(af,'minimumFractionDigits',0,20,0);
+defineWEProperty(bv,'minimumFractionDigits',bN);
+}
+if(!(bO===(void 0))||bv.style!=='currency'){
+var bP=bv.style==='percent'?0:3;
+bN=(bN===(void 0))?0:bN;
+var bQ=(bN>bP)?bN:bP;
+bO=getNumberOption(af,'maximumFractionDigits',bN,20,bQ);
+defineWEProperty(bv,'maximumFractionDigits',bO);
+}
+var bR=af['minimumSignificantDigits'];
+var bS=af['maximumSignificantDigits'];
+if(!(bR===(void 0))||!(bS===(void 0))){
+bR=getNumberOption(af,'minimumSignificantDigits',1,21,0);
+defineWEProperty(bv,'minimumSignificantDigits',bR);
+bS=getNumberOption(af,'maximumSignificantDigits',bR,21,21);
+defineWEProperty(bv,'maximumSignificantDigits',bS);
+}
+defineWEProperty(bv,'useGrouping',ao(
+'useGrouping','boolean',(void 0),true));
+var ay=parseExtension(al.extension);
+var bT={
+'nu':{'property':(void 0),'type':'string'}
+};
+var aw=setOptions(af,ay,bT,
+ao,bv);
+var bA=al.locale+aw;
+var au=u({},{
+currency:{writable:true},
+currencyDisplay:{writable:true},
+locale:{writable:true},
+maximumFractionDigits:{writable:true},
+minimumFractionDigits:{writable:true},
+minimumIntegerDigits:{writable:true},
+numberingSystem:{writable:true},
+pattern:bJ,
+requestedLocale:{value:bA,writable:true},
+style:{value:bv.style,writable:true},
+useGrouping:{writable:true}
+});
+if((%_Call(w,bv,'minimumSignificantDigits'))){
+defineWEProperty(au,'minimumSignificantDigits',(void 0));
+}
+if((%_Call(w,bv,'maximumSignificantDigits'))){
+defineWEProperty(au,'maximumSignificantDigits',(void 0));
+}
+var bU=%CreateNumberFormat(bA,
+bv,
+au);
+if(bv.style==='currency'){
+v(au,'currencyDisplay',{value:bL,
+writable:true});
+}
+%MarkAsInitializedIntlObjectOfType(bK,'numberformat',bU);
+bK[z]=au;
+v(bK,'resolved',bt);
+return bK;
+}
+InstallConstructor(R,'NumberFormat',function(){
+var ae=arguments[0];
+var af=arguments[1];
+if(!this||this===R){
+return new R.NumberFormat(ae,af);
+}
+return initializeNumberFormat((%_ToObject(this)),ae,af);
+}
+);
+InstallFunction(R.NumberFormat.prototype,'resolvedOptions',function(){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+if(!%IsInitializedIntlObjectOfType(this,'numberformat')){
+throw t(136,"NumberFormat");
+}
+var bV=this;
+var al=getOptimalLanguageTag(bV[z].requestedLocale,
+bV[z].locale);
+var aR={
+locale:al,
+numberingSystem:bV[z].numberingSystem,
+style:bV[z].style,
+useGrouping:bV[z].useGrouping,
+minimumIntegerDigits:bV[z].minimumIntegerDigits,
+minimumFractionDigits:bV[z].minimumFractionDigits,
+maximumFractionDigits:bV[z].maximumFractionDigits,
+};
+if(aR.style==='currency'){
+defineWECProperty(aR,'currency',bV[z].currency);
+defineWECProperty(aR,'currencyDisplay',
+bV[z].currencyDisplay);
+}
+if((%_Call(w,bV[z],'minimumSignificantDigits'))){
+defineWECProperty(aR,'minimumSignificantDigits',
+bV[z].minimumSignificantDigits);
+}
+if((%_Call(w,bV[z],'maximumSignificantDigits'))){
+defineWECProperty(aR,'maximumSignificantDigits',
+bV[z].maximumSignificantDigits);
+}
+return aR;
+}
+);
+InstallFunction(R.NumberFormat,'supportedLocalesOf',function(ae){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+return supportedLocalesOf('numberformat',ae,arguments[1]);
+}
+);
+function formatNumber(bU,at){
+var bW=(%_ToNumber(at))+0;
+return %InternalNumberFormat(%GetImplFromInitializedIntlObject(bU),
+bW);
+}
+function parseNumber(bU,at){
+return %InternalNumberParse(%GetImplFromInitializedIntlObject(bU),
+j(at));
+}
+AddBoundMethod(R.NumberFormat,'format',formatNumber,1);
+AddBoundMethod(R.NumberFormat,'v8Parse',parseNumber,1);
+function toLDMLString(af){
+var ao=getGetOption(af,'dateformat');
+var bX='';
+var bY=ao('weekday','string',['narrow','short','long']);
+bX+=appendToLDMLString(
+bY,{narrow:'EEEEE',short:'EEE',long:'EEEE'});
+bY=ao('era','string',['narrow','short','long']);
+bX+=appendToLDMLString(
+bY,{narrow:'GGGGG',short:'GGG',long:'GGGG'});
+bY=ao('year','string',['2-digit','numeric']);
+bX+=appendToLDMLString(bY,{'2-digit':'yy','numeric':'y'});
+bY=ao('month','string',
+['2-digit','numeric','narrow','short','long']);
+bX+=appendToLDMLString(bY,{'2-digit':'MM','numeric':'M',
+'narrow':'MMMMM','short':'MMM','long':'MMMM'});
+bY=ao('day','string',['2-digit','numeric']);
+bX+=appendToLDMLString(
+bY,{'2-digit':'dd','numeric':'d'});
+var bZ=ao('hour12','boolean');
+bY=ao('hour','string',['2-digit','numeric']);
+if((bZ===(void 0))){
+bX+=appendToLDMLString(bY,{'2-digit':'jj','numeric':'j'});
+}else if(bZ===true){
+bX+=appendToLDMLString(bY,{'2-digit':'hh','numeric':'h'});
+}else{
+bX+=appendToLDMLString(bY,{'2-digit':'HH','numeric':'H'});
+}
+bY=ao('minute','string',['2-digit','numeric']);
+bX+=appendToLDMLString(bY,{'2-digit':'mm','numeric':'m'});
+bY=ao('second','string',['2-digit','numeric']);
+bX+=appendToLDMLString(bY,{'2-digit':'ss','numeric':'s'});
+bY=ao('timeZoneName','string',['short','long']);
+bX+=appendToLDMLString(bY,{short:'z',long:'zzzz'});
+return bX;
+}
+function appendToLDMLString(bY,ca){
+if(!(bY===(void 0))){
+return ca[bY];
+}else{
+return'';
+}
+}
+function fromLDMLString(bX){
+bX=o(GetQuotedStringRE(),bX,'');
+var af={};
+var aQ=n(/E{3,5}/,bX);
+af=appendToDateTimeObject(
+af,'weekday',aQ,{EEEEE:'narrow',EEE:'short',EEEE:'long'});
+aQ=n(/G{3,5}/,bX);
+af=appendToDateTimeObject(
+af,'era',aQ,{GGGGG:'narrow',GGG:'short',GGGG:'long'});
+aQ=n(/y{1,2}/,bX);
+af=appendToDateTimeObject(
+af,'year',aQ,{y:'numeric',yy:'2-digit'});
+aQ=n(/M{1,5}/,bX);
+af=appendToDateTimeObject(af,'month',aQ,{MM:'2-digit',
+M:'numeric',MMMMM:'narrow',MMM:'short',MMMM:'long'});
+aQ=n(/L{1,5}/,bX);
+af=appendToDateTimeObject(af,'month',aQ,{LL:'2-digit',
+L:'numeric',LLLLL:'narrow',LLL:'short',LLLL:'long'});
+aQ=n(/d{1,2}/,bX);
+af=appendToDateTimeObject(
+af,'day',aQ,{d:'numeric',dd:'2-digit'});
+aQ=n(/h{1,2}/,bX);
+if(aQ!==null){
+af['hour12']=true;
+}
+af=appendToDateTimeObject(
+af,'hour',aQ,{h:'numeric',hh:'2-digit'});
+aQ=n(/H{1,2}/,bX);
+if(aQ!==null){
+af['hour12']=false;
+}
+af=appendToDateTimeObject(
+af,'hour',aQ,{H:'numeric',HH:'2-digit'});
+aQ=n(/m{1,2}/,bX);
+af=appendToDateTimeObject(
+af,'minute',aQ,{m:'numeric',mm:'2-digit'});
+aQ=n(/s{1,2}/,bX);
+af=appendToDateTimeObject(
+af,'second',aQ,{s:'numeric',ss:'2-digit'});
+aQ=n(/z|zzzz/,bX);
+af=appendToDateTimeObject(
+af,'timeZoneName',aQ,{z:'short',zzzz:'long'});
+return af;
+}
+function appendToDateTimeObject(af,bY,aQ,ca){
+if((aQ===null)){
+if(!(%_Call(w,af,bY))){
+defineWEProperty(af,bY,(void 0));
+}
+return af;
+}
+var ap=aQ[0];
+defineWEProperty(af,bY,ca[ap]);
+return af;
+}
+function toDateTimeOptions(af,cb,cc){
+if((af===(void 0))){
+af={};
+}else{
+af=(%_ToObject(af));
+}
+var cd=true;
+if((cb==='date'||cb==='any')&&
+(!(af.weekday===(void 0))||!(af.year===(void 0))||
+!(af.month===(void 0))||!(af.day===(void 0)))){
+cd=false;
+}
+if((cb==='time'||cb==='any')&&
+(!(af.hour===(void 0))||!(af.minute===(void 0))||
+!(af.second===(void 0)))){
+cd=false;
+}
+if(cd&&(cc==='date'||cc==='all')){
+v(af,'year',{value:'numeric',
+writable:true,
+enumerable:true,
+configurable:true});
+v(af,'month',{value:'numeric',
+writable:true,
+enumerable:true,
+configurable:true});
+v(af,'day',{value:'numeric',
+writable:true,
+enumerable:true,
+configurable:true});
+}
+if(cd&&(cc==='time'||cc==='all')){
+v(af,'hour',{value:'numeric',
+writable:true,
+enumerable:true,
+configurable:true});
+v(af,'minute',{value:'numeric',
+writable:true,
+enumerable:true,
+configurable:true});
+v(af,'second',{value:'numeric',
+writable:true,
+enumerable:true,
+configurable:true});
+}
+return af;
+}
+function initializeDateTimeFormat(ce,ae,af){
+if(%IsInitializedIntlObject(ce)){
+throw t(135,"DateTimeFormat");
+}
+if((af===(void 0))){
+af={};
+}
+var al=resolveLocale('dateformat',ae,af);
+af=toDateTimeOptions(af,'any','date');
+var ao=getGetOption(af,'dateformat');
+var ag=ao('formatMatcher','string',
+['basic','best fit'],'best fit');
+var bX=toLDMLString(af);
+var cf=canonicalizeTimeZoneID(af.timeZone);
+var bv={};
+var ay=parseExtension(al.extension);
+var cg={
+'ca':{'property':(void 0),'type':'string'},
+'nu':{'property':(void 0),'type':'string'}
+};
+var aw=setOptions(af,ay,cg,
+ao,bv);
+var bA=al.locale+aw;
+var au=u({},{
+calendar:{writable:true},
+day:{writable:true},
+era:{writable:true},
+hour12:{writable:true},
+hour:{writable:true},
+locale:{writable:true},
+minute:{writable:true},
+month:{writable:true},
+numberingSystem:{writable:true},
+[y]:{writable:true},
+pattern:bJ,
+requestedLocale:{value:bA,writable:true},
+second:{writable:true},
+timeZone:{writable:true},
+timeZoneName:{writable:true},
+tz:{value:cf,writable:true},
+weekday:{writable:true},
+year:{writable:true}
+});
+var bU=%CreateDateTimeFormat(
+bA,{skeleton:bX,timeZone:cf},au);
+if(au.timeZone==="Etc/Unknown"){
+throw s(191,cf);
+}
+%MarkAsInitializedIntlObjectOfType(ce,'dateformat',bU);
+ce[z]=au;
+v(ce,'resolved',bt);
+return ce;
+}
+InstallConstructor(R,'DateTimeFormat',function(){
+var ae=arguments[0];
+var af=arguments[1];
+if(!this||this===R){
+return new R.DateTimeFormat(ae,af);
+}
+return initializeDateTimeFormat((%_ToObject(this)),ae,af);
+}
+);
+InstallFunction(R.DateTimeFormat.prototype,'resolvedOptions',function(){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+if(!%IsInitializedIntlObjectOfType(this,'dateformat')){
+throw t(136,"DateTimeFormat");
+}
+var ch={
+'gregorian':'gregory',
+'japanese':'japanese',
+'buddhist':'buddhist',
+'roc':'roc',
+'persian':'persian',
+'islamic-civil':'islamicc',
+'islamic':'islamic',
+'hebrew':'hebrew',
+'chinese':'chinese',
+'indian':'indian',
+'coptic':'coptic',
+'ethiopic':'ethiopic',
+'ethiopic-amete-alem':'ethioaa'
+};
+var bV=this;
+var ci=fromLDMLString(bV[z][y]);
+var cj=ch[bV[z].calendar];
+if((cj===(void 0))){
+cj=bV[z].calendar;
+}
+var al=getOptimalLanguageTag(bV[z].requestedLocale,
+bV[z].locale);
+var aR={
+locale:al,
+numberingSystem:bV[z].numberingSystem,
+calendar:cj,
+timeZone:bV[z].timeZone
+};
+addWECPropertyIfDefined(aR,'timeZoneName',ci.timeZoneName);
+addWECPropertyIfDefined(aR,'era',ci.era);
+addWECPropertyIfDefined(aR,'year',ci.year);
+addWECPropertyIfDefined(aR,'month',ci.month);
+addWECPropertyIfDefined(aR,'day',ci.day);
+addWECPropertyIfDefined(aR,'weekday',ci.weekday);
+addWECPropertyIfDefined(aR,'hour12',ci.hour12);
+addWECPropertyIfDefined(aR,'hour',ci.hour);
+addWECPropertyIfDefined(aR,'minute',ci.minute);
+addWECPropertyIfDefined(aR,'second',ci.second);
+return aR;
+}
+);
+InstallFunction(R.DateTimeFormat,'supportedLocalesOf',function(ae){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+return supportedLocalesOf('dateformat',ae,arguments[1]);
+}
+);
+function formatDate(bU,ck){
+var cl;
+if((ck===(void 0))){
+cl=%DateCurrentTime();
+}else{
+cl=(%_ToNumber(ck));
+}
+if(!p(cl))throw s(159);
+return %InternalDateFormat(%GetImplFromInitializedIntlObject(bU),
+new g(cl));
+}
+function parseDate(bU,at){
+return %InternalDateParse(%GetImplFromInitializedIntlObject(bU),
+j(at));
+}
+AddBoundMethod(R.DateTimeFormat,'format',formatDate,0);
+AddBoundMethod(R.DateTimeFormat,'v8Parse',parseDate,1);
+function canonicalizeTimeZoneID(cm){
+if((cm===(void 0))){
+return cm;
+}
+var cn=%StringToUpperCase(cm);
+if(cn==='UTC'||cn==='GMT'||
+cn==='ETC/UTC'||cn==='ETC/GMT'){
+return'UTC';
+}
+var aQ=n(GetTimezoneNameCheckRE(),cm);
+if((aQ===null))throw s(160,cm);
+var aR=toTitleCaseTimezoneLocation(aQ[1])+'/'+
+toTitleCaseTimezoneLocation(aQ[2]);
+if(!(aQ[3]===(void 0))&&3<aQ.length){
+var co=%_Call(D,aQ[3],'/');
+for(var ak=1;ak<co.length;ak++){
+aR=aR+'/'+toTitleCaseTimezoneLocation(co[ak]);
+}
+}
+return aR;
+}
+function initializeBreakIterator(cp,ae,af){
+if(%IsInitializedIntlObject(cp)){
+throw t(135,"v8BreakIterator");
+}
+if((af===(void 0))){
+af={};
+}
+var ao=getGetOption(af,'breakiterator');
+var bv={};
+defineWEProperty(bv,'type',ao(
+'type','string',['character','word','sentence','line'],'word'));
+var al=resolveLocale('breakiterator',ae,af);
+var au=u({},{
+requestedLocale:{value:al.locale,writable:true},
+type:{value:bv.type,writable:true},
+locale:{writable:true}
+});
+var cq=%CreateBreakIterator(al.locale,
+bv,
+au);
+%MarkAsInitializedIntlObjectOfType(cp,'breakiterator',
+cq);
+cp[z]=au;
+v(cp,'resolved',bt);
+return cp;
+}
+InstallConstructor(R,'v8BreakIterator',function(){
+var ae=arguments[0];
+var af=arguments[1];
+if(!this||this===R){
+return new R.v8BreakIterator(ae,af);
+}
+return initializeBreakIterator((%_ToObject(this)),ae,af);
+}
+);
+InstallFunction(R.v8BreakIterator.prototype,'resolvedOptions',
+function(){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+if(!%IsInitializedIntlObjectOfType(this,'breakiterator')){
+throw t(136,"v8BreakIterator");
+}
+var cr=this;
+var al=
+getOptimalLanguageTag(cr[z].requestedLocale,
+cr[z].locale);
+return{
+locale:al,
+type:cr[z].type
+};
+}
+);
+InstallFunction(R.v8BreakIterator,'supportedLocalesOf',
+function(ae){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+return supportedLocalesOf('breakiterator',ae,arguments[1]);
+}
+);
+function adoptText(cp,cs){
+%BreakIteratorAdoptText(%GetImplFromInitializedIntlObject(cp),
+j(cs));
+}
+function first(cp){
+return %BreakIteratorFirst(%GetImplFromInitializedIntlObject(cp));
+}
+function next(cp){
+return %BreakIteratorNext(%GetImplFromInitializedIntlObject(cp));
+}
+function current(cp){
+return %BreakIteratorCurrent(%GetImplFromInitializedIntlObject(cp));
+}
+function breakType(cp){
+return %BreakIteratorBreakType(%GetImplFromInitializedIntlObject(cp));
+}
+AddBoundMethod(R.v8BreakIterator,'adoptText',adoptText,1);
+AddBoundMethod(R.v8BreakIterator,'first',first,0);
+AddBoundMethod(R.v8BreakIterator,'next',next,0);
+AddBoundMethod(R.v8BreakIterator,'current',current,0);
+AddBoundMethod(R.v8BreakIterator,'breakType',breakType,0);
+var ct={
+'collator':R.Collator,
+'numberformat':R.NumberFormat,
+'dateformatall':R.DateTimeFormat,
+'dateformatdate':R.DateTimeFormat,
+'dateformattime':R.DateTimeFormat
+};
+var cu={
+'collator':(void 0),
+'numberformat':(void 0),
+'dateformatall':(void 0),
+'dateformatdate':(void 0),
+'dateformattime':(void 0),
+};
+function cachedOrNewService(ad,ae,af,cc){
+var cv=((cc===(void 0)))?af:cc;
+if((ae===(void 0))&&(af===(void 0))){
+if((cu[ad]===(void 0))){
+cu[ad]=new ct[ad](ae,cv);
+}
+return cu[ad];
+}
+return new ct[ad](ae,cv);
+}
+x(j.prototype,'localeCompare',function(cw){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+if((this==null)){
+throw t(55);
+}
+var ae=arguments[1];
+var af=arguments[2];
+var bu=cachedOrNewService('collator',ae,af);
+return compare(bu,this,cw);
+}
+);
+x(j.prototype,'normalize',function(){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+if((%IS_VAR(this)===null)||(this===(void 0)))throw t(18,"String.prototype.normalize");
+var cx=(%_ToString(this));
+var cy=arguments[0];
+var cz=(cy===(void 0))?'NFC':(%_ToString(cy));
+var cA=['NFC','NFD','NFKC','NFKD'];
+var cB=%_Call(c,cA,cz);
+if(cB===-1){
+throw s(183,
+%_Call(d,cA,', '));
+}
+return %StringNormalize(cx,cB);
+}
+);
+x(h.prototype,'toLocaleString',function(){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+if(!(this instanceof h)&&typeof(this)!=='number'){
+throw t(56,"Number");
+}
+var ae=arguments[0];
+var af=arguments[1];
+var bK=cachedOrNewService('numberformat',ae,af);
+return formatNumber(bK,this);
+}
+);
+function toLocaleDateTime(cC,ae,af,cb,cc,ad){
+if(!(cC instanceof g)){
+throw t(56,"Date");
+}
+if(q(cC))return'Invalid Date';
+var bv=toDateTimeOptions(af,cb,cc);
+var ce=
+cachedOrNewService(ad,ae,af,bv);
+return formatDate(ce,cC);
+}
+x(g.prototype,'toLocaleString',function(){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+var ae=arguments[0];
+var af=arguments[1];
+return toLocaleDateTime(
+this,ae,af,'any','all','dateformatall');
+}
+);
+x(g.prototype,'toLocaleDateString',function(){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+var ae=arguments[0];
+var af=arguments[1];
+return toLocaleDateTime(
+this,ae,af,'date','date','dateformatdate');
+}
+);
+x(g.prototype,'toLocaleTimeString',function(){
+if(!(new.target===(void 0))){
+throw t(91);
+}
+var ae=arguments[0];
+var af=arguments[1];
+return toLocaleDateTime(
+this,ae,af,'time','time','dateformattime');
+}
+);
+})
+

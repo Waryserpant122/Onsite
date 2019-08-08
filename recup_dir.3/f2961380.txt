@@ -1,0 +1,4 @@
+d relative to host I/O operations during a sequential background copy operation. Values are: 
+1 - 'Low': copy engine I/O lower priority than host I/O. 
+2 - 'Same': copy engine I/O has the same priority as host I/O. 
+3 - 'High': copy engine I/O has higher priority than host I/O.

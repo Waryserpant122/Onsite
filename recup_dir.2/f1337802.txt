@@ -1,0 +1,2 @@
+" EnableSwitch="DoorOpen" DisableSwitch="XBtn|MapOpenFlag" Point_X="0.692969" Point_Y="0.683333" TexturePosition="DoorOpen"/>
+<SwitchOperation Description="

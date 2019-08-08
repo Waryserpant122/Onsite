@@ -1,0 +1,2 @@
+ 'Log': This indicates that the replica object is being maintained as a log of changes to the source. 
+0 - 'Not Specified': The method of maintaining the copy is not specified.

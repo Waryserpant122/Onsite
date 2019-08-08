@@ -1,0 +1,7 @@
+e used. Authentication levels include:
+None - no authentication is performed.
+Connect - authentication is performed only when the client establishes a relationship with the application.
+Call - authentication is performed only at the beginning of each call when the application receives the request.
+Packet - authentication is performed on all data received from the client.
+PacketIntegrity - all the data transferred between client and application is authenticated and verified.
+PacketPrivacy - The properties of the other authentication levels are used, and all data is encrypted.

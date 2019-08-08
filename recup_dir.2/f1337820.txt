@@ -1,0 +1,3 @@
+ EnableSwitch="CancelFall" DisableSwitch="XBtn|MapOpenFlag|InSetUp" Point_X="0.942969" Point_Y="0.900000"/>
+</KeyMapping>
+<KeyMapping ItemName="F4" Point_X="0.768750" Point_Y="0.030556" Description="

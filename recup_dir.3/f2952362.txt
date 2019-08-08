@@ -1,0 +1,2 @@
+rty is valid only with devices that work with pixels (this excludes devices such as printers).  
+This property has been deprecated in favor of a corresponding property(s) contained in the Win32_VideoController, Win32_DesktopMonitor and//or CIM_VideoControllerResolution

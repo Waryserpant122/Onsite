@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0" copyright="Copyright (c) Microsoft Corporation. All Rights Reserved." xmlns:cmiv2="urn:schemas-microsoft-com:asm.v3" cmiv2:copyright="Copyright (c) Microsoft Corporation. All Rights Reserved.">
+  <noInheritable />
+  <assemblyIdentity name="Microsoft.Windows.Common-Controls" version="5.82.17134.765" processorArchitecture="x86" publicKeyToken="6595b64144ccf1df" type="win32" />
+  <file name="comctl32.dll" cmiv2:importPath="$(build.nttree)\" cmiv2:sourceName="">
+    <windowClass versioned="no">ToolbarWindow32</windowClass>
+    <windowClass versioned="no">ComboBoxEx32</windowClass>
+    <windowClass versioned="no">msctls_trackbar32</windowClass>
+    <windowClass versioned="no">msctls_updown32</windowClass>
+    <windowClass versioned="no">msctls_progress32</windowClass>
+    <windowClass versioned="no">msctls_hotkey32</windowClass>
+    <windowClass versioned="no">

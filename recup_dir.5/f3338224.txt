@@ -1,0 +1,74 @@
+inType="win:GUID"></data>
+            <data name="Version" inType="win:GUID"></data>
+            <data name="Hresult" inType="win:UInt32" outType="win:HexInt32"></data>
+          </template>
+          <template tid="TEMPLATE_GROUP_AND_VERSION">
+            <data name="ConnectionGroup" inType="win:GUID"></data>
+            <data name="Version" inType="win:GUID"></data>
+          </template>
+          <template tid="TEMPLATE_GROUP_AND_VERSION_AND_RC_AND_SID">
+            <data name="ConnectionGroup" inType="win:GUID"></data>
+            <data name="Version" inType="win:GUID"></data>
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32"></data>
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32"></data>
+            <data name="Sid" inType="win:UnicodeString"></data>
+          </template>
+          <template tid="TEMPLATE_PACKAGE_VERSION_ACTIVITY">
+            <data name="Package" inType="win:GUID"></data>
+            <data name="Version" inType="win:GUID"></data>
+            <data name="ActivityID" inType="win:UInt64"></data>
+          </template>
+          <template tid="TEMPLATE_GROUP_VERSION_ACTIVITY">
+            <data name="ConnectionGroup" inType="win:GUID"></data>
+            <data name="Version" inType="win:GUID"></data>
+            <data name="ActivityID" inType="win:UInt64"></data>
+          </template>
+          <template tid="TEMPLATE_GUID_GUID">
+            <data name="Package" inType="win:GUID"></data>
+            <data name="Version" inType="win:GUID"></data>
+          </template>
+          <template tid="TEMPLATE_GUID_GUID_RC">
+            <data name="Package" inType="win:GUID"></data>
+            <data name="Version" inType="win:GUID"></data>
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32"></data>
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32"></data>
+          </template>
+          <template tid="TEMPLATE_GROUP_AND_VERSION_PACKAGE_AND_VERSION">
+            <data name="ConnectionGroup" inType="win:GUID"></data>
+            <data name="GroupVersion" inType="win:GUID"></data>
+            <data name="Package" inType="win:GUID"></data>
+            <data name="PackageVersion" inType="win:GUID"></data>
+          </template>
+          <template tid="TEMPLATE_STRING_BOOLEAN">
+            <data name="String" inType="win:UnicodeString"></data>
+            <data name="Flag" inType="win:Boolean"></data>
+          </template>
+          <template tid="TEMPLATE_UINT">
+            <data name="Value" inType="win:UInt32"></data>
+          </template>
+          <template tid="TEMPLATE_UINT_UINT">
+            <data name="Value1" inType="win:UInt32"></data>
+            <data name="Value2" inType="win:UInt32"></data>
+          </template>
+          <template tid="TEMPLATE_UINT_STRING">
+            <data name="Value" inType="win:UInt32"></data>
+            <data name="String" inType="win:UnicodeString"></data>
+          </template>
+          <template tid="TEMPLATE_UINT_APPVRC">
+            <data name="Value" inType="win:UInt32"></data>
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32"></data>
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32"></data>
+          </template>
+          <template tid="TEMPLATE_GUID_GUID_GUID">
+            <data name="Guid1" inType="win:GUID"></data>
+            <data name="Guid2" inType="win:GUID"></data>
+            <data name="Guid3" inType="win:GUID"></data>
+          </template>
+          <template tid="TEMPLATE_STRING_BOOLEAN_RC">
+            <data name="String" inType="win:UnicodeString"></data>
+            <data name="Flag" inType="win:Boolean"></data>
+            <data name="ErrorHigh" inType="win:UInt32" outType="win:HexInt32"></data>
+            <data name="ErrorLow" inType="win:UInt32" outType="win:HexInt32"></data>
+          </template>
+          <template tid="TEMPLATE_STRING_BOOLEAN_BOOLEAN_RC">
+            <data name="String" inType="win:UnicodeString"><

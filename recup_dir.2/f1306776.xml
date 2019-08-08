@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>Mandar</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>4D616E646172</hex>
+			<name>Mandar</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>manual</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB010000001C0F5E7C1E2484489FF4149979F29EAF00000000020000000000106600000001000020000000F5022BF93245A321394D81CA935E0EFF5FBE4D010214A0723A6EADA7E902E6AA000000000E80000000020000200000006F51D1B4DFA43CBA9DE998BACA1CDD94F6AB439B00DFDE91A67A321D8BCD157F10000000E0C010D9403EF5E90B651236EEBEB74C400000004E7AC8EB6B3AF5EBABAF108B43E2574741E775204B68E90C03112EE9D13B1798898BB0583CD65D2308D9BF86C0129F827587A5B3872F8FF0C69799B326955708</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>3583688634</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

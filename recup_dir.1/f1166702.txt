@@ -1,0 +1,13 @@
+:59:31 GMT
+Location: https://snippets.cdn.mozilla.net/us-west/bundles/bundle_585ffa450a2615f11da9678dcadb97e2ded23d99.json
+Access-Control-Allow-Origin: *
+Access-Control-Max-Age: 1800
+Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+Cache-Control: public, max-age=1800
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+X-Backend-Server: snippets-prod-web-66c5949f9f-ml2s2.snippets-prod.frankfurt.moz.works
+Age: 953
+X-Cache: Hit from cloudfront
+Via: 1.1 dfc2295e15bca02f73bb8dcf9185ebc4.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: vq4s8bR8Jy2o3HUjgT758LiEBQhv8VfAbwQ5xVy8tiiaJpgfdKOTVA==

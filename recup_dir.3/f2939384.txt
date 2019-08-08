@@ -1,0 +1,5 @@
+ method can return the following values:
+0 - Success.
+5 - Access denied.
+1801 - Invalid printer name.
+Other - For integer values other than those listed above, refer to the documentation on the Win32 error codes.

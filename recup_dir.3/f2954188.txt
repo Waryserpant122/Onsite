@@ -1,0 +1,8 @@
+ for the disk being offline. 
+1 - 'Policy': The user requested the disk to be offline. 
+2 - 'Redundant Path': The disk is used for multi-path I/O. 
+3 - 'Snapshot': The disk is a snapshot disk. 
+4 - 'Collision': There was a signature or identifier collision with another disk. 
+5 - 'Resource Exhaustion': There were insufficient resources to bring the disk online. 
+6 - 'Critical Write Failures': There were critical write failures on the disk. 
+7 - 'Data Integrity Scan Required': A data integrity scan is required.

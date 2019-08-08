@@ -1,0 +1,2 @@
+described by the (required) association, HostedCollection. 
+An example of a SystemSpecificCollection is a Fibre Channel zone that collects network ports, port groupings and aliases (as required by a customer) in the context of an AdminDomain. The Collection is not a part of the domain, but merely an arbitrary grouping of the devices and other Collections in the domain. In other words, the context of the Collection is restricted to the domain, and its members are also limited by the domain.

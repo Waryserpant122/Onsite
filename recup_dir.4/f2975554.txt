@@ -1,0 +1,7 @@
+nderlying ManagedElement. CommunicationStatus consists of one of the following values: Unknown, None, Communication OK, Lost Communication, or No Contact. 
+A Null return indicates the implementation (provider) does not implement this property. 
+"Unknown" indicates the implementation is in general capable of returning this property, but is unable to do so at this time. 
+"Not Available" indicates that the implementation (provider) is capable of returning a value for this property, but not ever for this particular piece of hardware/software or the property is intentionally not used because it adds no meaningful information (as in the case of a property that is intended to add additional info to another property). 
+"Communication OK " indicates communication is established with the element, but does not convey any quality of service. 
+"No Contact" indicates that the monitoring system has knowledge of this element, but has never been able to establish communications with it. 
+"Lost Communication" indicates that the Managed Element is known to exist and has been contacted successfully in the past, but is currently unreachable.

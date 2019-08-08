@@ -1,0 +1,2 @@
+mojiPressed" DisableSwitch="MapOpenFlag|InSetUp" Point_X="0.498437" Point_Y="0.258333"/>
+<SwitchOperation Description="

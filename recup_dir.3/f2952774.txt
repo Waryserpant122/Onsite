@@ -1,0 +1,4 @@
+UF_NORMAL_ACCOUNT - default account type that representing a typical user. 
+UF_INTERDOMAIN_TRUST_ACCOUNT - account is for a system domain that trusts other domains.
+UF_WORKSTATION_TRUST_ACCOUNT - This is a computer account for a Windows NT/Windows 2000 machine that is a member of this domain.
+UF_SERVER_TRUST_ACCOUNT - account is for a system backup domain controller that is a member of this domain. 

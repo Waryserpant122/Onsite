@@ -1,0 +1,16 @@
+:30:33 GMT
+x-haystack-needlechecksum: 3629503604
+x-needle-checksum: 192532798
+content-type: image/jpeg
+content-length: 1242
+x-fb-config-version-olb-prod: 512
+timing-allow-origin: *
+access-control-allow-origin: *
+cache-control: max-age=1209600, no-transform
+x-enc-origin-req-handler: AcLWboTLm8N1DZjV2NbD78UKEw1lnOdkS41D5uDidaMt7rKiEOoMLWYLb_2NmAlNnBJ4_N0YuK1Bt2vH
+x-fb-trip-id: 2112188456
+x-fb-config-version-elb-prod: 512
+date: Mon, 24 Jun 2019 08:30:19 GMT
+x-fb-edge-debug: RqeaHRbJmcbIm5sKwTAYK68uzvE2qTJT-USXM2IapPqy1NXXckwRnTpnK2XTJzRtz8BAXdEj4nW5ZhIJq91z0Q
+access-control-expose-headers: X-FB-CEC-Video-Limit
+X-Firefox-Spdy: h2

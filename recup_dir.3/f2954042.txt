@@ -1,0 +1,9 @@
+idTypeUser - Indicates a user SID.
+SidTypeGroup - Indicates a group SID.
+SidTypeDomain - Indicates a domain SID.
+SidTypeAlias - Indicates an alias SID.
+SidTypeWellKnownGroup - Indicates a SID for a well-known group.
+SidTypeDeletedAccount - Indicates a SID for a deleted account.
+SidTypeInvalid - Indicates an invalid SID.
+SidTypeUnknown - Indicates an unknown SID type.
+SidTypeComputer - Indicates a SID for a computer.

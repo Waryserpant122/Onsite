@@ -1,0 +1,3 @@
+ - 'Offline Shared': All newly discovered disks that do not reside on a shared bus are brought online and made read-write.
+3 - 'Offline All': All newly discovered disks remain offline and read-only.
+4 - 'Offline Internal': All newly discovered disks that do not reside on a shared bus remain offline and read-only.

@@ -1,0 +1,2 @@
+icates the Media Access Control (MAC) address of the network adapter. A MAC address is assigned by the manufacturer to uniquely identify the network adapter.
+Example: 00:80:C7:8F:6C:96

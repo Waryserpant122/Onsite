@@ -1,0 +1,2 @@
+sableSwitch="XBtn|MapOpenFlag|InSetUp|Moto|Moto2" Point_X="0.062500" Point_Y="0.527778"/>
+<SwitchOperation Description="

@@ -1,0 +1,2 @@
+StandardDay when the transition from daylight savings time to standard time occurs on this operating system.
+Example: 59

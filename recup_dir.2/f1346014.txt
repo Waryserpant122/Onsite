@@ -1,0 +1,98 @@
+rive	6713
+*|this pc	*|open my computer	8148
+*|this pc	*|this computer	6752
+*|this pc	*|recent places	8122
+*|this pc	*|my downloads	8072
+*|this pc	*|open this pc	9238
+*|this pc	*|my computor	8657
+*|this pc	*|my computer	2595
+*|this pc	*|my conputer	9337
+*|this pc	*|my compuer	8366
+*|this pc	*|my desktop	8720
+*|this pc	*|my compter	8150
+*|this pc	*|local disk	8600
+*|this pc	*|my coputer	8294
+*|this pc	*|my comuter	8455
+*|this pc	*|y computer	9248
+*|this pc	*|mycomputer	5991
+*|this pc	*|my computr	8415
+*|this pc	*|compuiter	8863
+*|this pc	*|compouter	9301
+*|this pc	*|compputer	9122
+*|this pc	*|computeer	8966
+*|this pc	*|commputer	9244
+*|this pc	*|computere	9329
+*|this pc	*|computerr	9268
+*|this pc	*|computers	8742
+*|this pc	*|computert	9161
+*|this pc	*|this pic	7712
+*|this pc	*|this poc	9019
+*|this pc	*|computor	8082
+*|this pc	*|computre	9320
+*|this pc	*|computrt	9307
+*|this pc	*|com[uter	9103
+*|this pc	*|comouter	9082
+*|this pc	*|conputer	9061
+*|this pc	*|copmuter	8985
+*|this pc	*|compiter	8723
+*|this pc	*|cumputer	9188
+*|this pc	*|comptuer	8632
+*|this pc	*|comuter	7641
+*|this pc	*|cmputer	8481
+*|this pc	*|compter	7119
+*|this pc	*|compuer	7485
+*|this pc	*|compuet	9125
+*|this pc	*|thic pc	9094
+*|this pc	*|omputer	8170
+*|this pc	*|coputer	7524
+*|this pc	*|this ps	9104
+*|this pc	*|this pv	8980
+*|this pc	*|cdrive	8160
+*|this pc	*|this o	8583
+*|this pc	*|compur	8997
+*|this pc	*|thi pc	8713
+*|this pc	*|my cou	9248
+*|this pc	*|thispc	6048
+*|this pc	*|my cp	8245
+*|this pc	*|my pc	3319
+*|this pc	*|my pv	8657
+*|this pc	*|compy	9250
+*|this pc	*|my cm	8613
+*|this pc	*|my ci	8335
+*|this pc	*|my o	8271
+*|this pc	*|thia	7273
+*|this pc	*|thid	7078
+*|this pc	*|mypc	5626
+*|this pc	*|c dr	8903
+*|this pc	*|my v	8897
+*|this pc	*|thsi	7918
+*|this pc	*|thus	8312
+*|this pc	*|thh	8268
+*|this pc	*|tho	7893
+*|this pc	*|thí	8304
+*|this pc	*|tis	8882
+*|this pc	*|myy	7288
+*|tienda	*|store	337
+*|timer	*|set timer	4907
+*|timer	*|timeer	5484
+*|timer	*|timmer	5304
+*|to-dos	*|to do	585
+*|tomtom home 2	*|tom tom	2608
+*|tonesync for windows	*|zedge	861
+*|toolbox 4.9	*|mf	1270
+*|tools command prompt	*|cmd	1
+*|total video converter	*|tvc	2217
+*|touchpad options(touchpad)	*|dell	1537
+*|track-it! technician client	*|trackit	2256
+*|trader workstation	*|tws	1
+*|translator	*|translate	3188
+*|true image	*|acronis	1085
+*|twitter	*|open twitter	6522
+*|twitter	*|twiiter	6353
+*|twitter	*|twiter	5581
+*|universal media server	*|ums	2409
+*|uplay	*|ubisoft	6409
+*|uplay	*|u[	6774
+*|user's guide	*|users guide	2774
+*|user's guide	*|user guide	2918
+*|uzak masaüstü ba

@@ -1,0 +1,7 @@
+latform. It returns one of the following        integer values:
+0 - x86 
+1 - MIPS 
+2 - Alpha 
+3 - PowerPC 
+6 - ia64 
+9 - x64 

@@ -1,0 +1,5 @@
+ instalado programas de Office de 32 bits:
+
+%s
+
+Si necesita Office de 64 bits, desinstale primero los programas que se indican anteriormente. De lo contrario, le recomendamos que instale la versi

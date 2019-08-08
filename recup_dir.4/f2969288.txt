@@ -1,0 +1,2 @@
+e computer system when establishing a network connection.
+Values: TRUE or FALSE. If TRUE, DHCP is enabled.

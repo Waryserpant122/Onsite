@@ -1,0 +1,3 @@
+eSwitch="CancelRun" DisableSwitch="XBtn|MapOpenFlag|InSetUp" TexturePosition="CancelRun"/>
+</KeyMapping>
+<KeyMapping ItemName="-" Point_X="0.378906" Point_Y="0.380556" Description="

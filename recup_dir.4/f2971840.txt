@@ -1,0 +1,5 @@
+systems, this indicates that the object is online.
+0xD011 - 'Not Ready': In Windows-based storage subsystems, this indicates that the object is not ready.
+0xD012 - 'No Media': In Windows-based storage subsystems, this indicates that the object has no media present.
+0xD013 - 'Offline': In Windows-based storage subsystems, this indicates that the object is offline.
+0xD014 - 'Failed': In Windows-based storage subsystems, this indicates that the object is in a failed state.

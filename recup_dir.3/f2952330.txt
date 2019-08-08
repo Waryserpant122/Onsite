@@ -1,0 +1,2 @@
+ automatically detected by the operating system or by other means (such as being manually added through the Control Panel).
+Values: TRUE or FALSE. A value of TRUE indicates the parallel port was automatically discovered by the operating system.

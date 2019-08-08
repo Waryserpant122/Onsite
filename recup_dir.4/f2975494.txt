@@ -1,0 +1,4 @@
+is in a test state. 
+Deferred (8) indicates that the element might be completing commands, but will queue any new requests. 
+Quiesce (9) indicates that the element is enabled but in a restricted mode.
+Starting (10) indicates that the element is in the process of going to an Enabled state. New requests are queued.

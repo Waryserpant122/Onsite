@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>has</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	
+</head>
+<body>
+	  
+	  <p>This is text 1</p>
+	  <br><br>
+      <p id="p"><h3>This is the text 2</h3></p>
+      <br>
+      <button id="button" type="submit" onclick="capture();">Capture</button>
+      <input type="hidden" name="in" id="a" value="">
+      
+      <ul id="myUL"></ul>
+      
+      <script type="text/javascript">
+    var i=0;
+jQuery(document).on('click', 'form > button', function(){
+   jQuery('input[hidden]').val(jQuery(this).attr('id'));
+   });
+
+function capture()
+{   
+	
+    i++;
+    var body =document.getElementsByTagName('body');
+    var b=body[0]
+    var bodyc=[];
+    bodyc[i]=b.innerHTML;
+    console.log(bodyc[i])
+   
+    var li = document.createElement("li");
+    var d= new Date();
+    var t1 = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    var t= i+" " + t1;
+    $.ajax({
+            type: "get",
+            url: "http://localhost:3000/submit",
+            data: { timestamp: `${t1}` },
+            
+        });
+
+    li.innerHTML= t;
+    //console.log(image);
+    document.getElementById("myUL").appendChild(li);
+    var href=document.createElement("a")
+    var btn = document.createElement("BUTTON");
+    var btnarr = [];
+    var o="/view"+i;
+    href.setAttribute("href",o);
+    href.setAttribute("target","_blank")
+    btn.innerHTML="View"
+    btn.setAttribute("type","submit");
+    //btn.setAttribute("formaction",o);
+    btn.setAttribute("value",i);
+    btn.setAttribute("id",i);
+    //btn.setAttribute("formmethod","post")
+
+    
+    li.appendChild(href);
+    href.appendChild(btn);
+}
+</script>
+</body>
+</html>

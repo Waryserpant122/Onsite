@@ -1,0 +1,2 @@
+witch="Moto" DisableSwitch="XBtn|MapOpenFlag|InSetUp" Point_X="0.807031" Point_Y="0.515278"/>
+<SwitchOperation Description="

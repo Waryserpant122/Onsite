@@ -1,0 +1,8 @@
+ip": "6799", "zipex": "6799"},
+  "data/CD": {"id": "data/CD", "key": "CD", "name": "CONGO (DEM. REP.)"},
+  "data/CF": {"id": "data/CF", "key": "CF", "name": "CENTRAL AFRICAN REPUBLIC"},
+  "data/CG": {"id": "data/CG", "key": "CG", "name": "CONGO (REP.)"},
+  "data/CH": {"fmt": "%O%n%N%n%A%nCH-%Z %C", "id": "data/CH", "key": "CH", "name": "SWITZERLAND", "postprefix": "CH-", "posturl": "http://www.post.ch/db/owa/pv_plz_pack/pr_main", "require": "ACZ", "upper": "", "zip": "\\d{4}", "zipex": "2544,1211,1556,3030"},
+  "data/CI": {"fmt": "%N%n%O%n%X %A %C %X", "id": "data/CI", "key": "CI", "name": "COTE D'IVOIRE"},
+  "data/CK": {"id": "data/CK", "key": "CK", "name": "COOK ISLANDS"},
+  "data/CL": {"fmt": "%N%n%O%n%A%n%Z %C%n%S", "id": "data/CL", "key": "CL", "lang": "es", "languages": "es", "name": "CHILE", "posturl": "http://www.correos.cl/SitePages/home.aspx", "sub_isoids": "AN~AR~AP~AT~AI~BI~CO~LI~LL~LR~MA~ML~RM~TA~VS", "sub_keys": "Antofagasta~Araucanía~Arica y Parinacota~Atacama~Aysén~Biobío~Coquimbo~O'Higgins~Los Lagos~Los Ríos~Magallanes~Maule~Regi

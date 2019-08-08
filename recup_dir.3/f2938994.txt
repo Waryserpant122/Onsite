@@ -1,0 +1,11 @@
+value is not specified, joins the computer to a workgroup. 0 bit - Join Domain - If not present, a workgroup is joined. 
+1 bit - Acct Create - Creates the account on the domain. 
+2 bit - Acct Delete - Delete the account when a domain is left. 
+4 bit - Win9X Upgrade - The join operation is occurring as part of an upgrade of Windows 95/98 to Windows NT/Windows 2000.  
+5 bit - Domain Join If Joined - Allows a join to a new domain even if the computer is already joined to a domain. 
+6 bit - Join Unsecure -  Performs an unsecured join.
+7 bit - Machine Password Passed - Indicates that the machine (not user) password is passed. This option is only valid for unsecure joins 
+8 bit - Deferred SPN Set - Specifies that writing SPN and DnsHostName attributes on the computer object should be deferred until the rename that will follow the join. 
+18 bit - Install Invocation - The APIs were invoked during install. 
+
+The method returns a 0 if no options are involved.

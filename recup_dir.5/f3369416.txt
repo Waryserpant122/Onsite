@@ -1,0 +1,7 @@
+ype": "district", "name": "SYRIA"},
+  "data/SZ": {"fmt": "%N%n%O%n%A%n%C%n%Z", "id": "data/SZ", "key": "SZ", "name": "SWAZILAND", "posturl": "http://www.sptc.co.sz/swazipost/codes/index.php", "upper": "ACZ", "zip": "[HLMS]\\d{3}", "zipex": "H100"},
+  "data/TC": {"fmt": "%N%n%O%n%A%n%C%n%Z", "id": "data/TC", "key": "TC", "name": "TURKS AND CAICOS ISLANDS", "require": "ACZ", "upper": "CZ", "zip": "TKCA 1ZZ", "zipex": "TKCA 1ZZ"},
+  "data/TD": {"id": "data/TD", "key": "TD", "name": "CHAD"},
+  "data/TF": {"id": "data/TF", "key": "TF", "name": "FRENCH SOUTHERN TERRITORIES"},
+  "data/TG": {"id": "data/TG", "key": "TG", "name": "TOGO"},
+  "data/TH": {"fmt": "%N%n%O%n%A%n%D %C%n%S %Z", "id": "data/TH", "key": "TH", "lang": "th", "languages": "th", "lfmt": "%N%n%O%n%A%n%D, %C%n%S %Z", "name": "THAILAND", "sub_isoids": "81~10~71~46~62~40~38~22~24~20~18~36~86~57~50~92~23~63~26~73~48~30~80~60~12~96~55~31~13~77~25~94~14~56~82~93~66~65~76~67~54~83~44~49~58~35~95~45~85~21~70~16~52~51~42~33~47~90~91~11~75~74~27~19~17~64~72~84~32~43~39~15~37~41~53~61~34", "sub_keys": "

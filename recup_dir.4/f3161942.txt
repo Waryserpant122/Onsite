@@ -1,0 +1,15 @@
+application/javascript
+cache-control: max-age=8640000
+cache-control: public
+cf-bgj: minify
+etag: W/"5cd8f6be-3421"
+expires: Wed, 21 Aug 2019 04:49:12 GMT
+last-modified: Mon, 13 May 2019 04:46:54 GMT
+pragma: public
+cf-cache-status: HIT
+expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+vary: Accept-Encoding
+server: cloudflare
+cf-ray: 4defd9e75e4a3da5-MXP
+content-encoding: br
+X-Firefox-Spdy: h2

@@ -1,0 +1,3 @@
+/ address. 
+For Fibre Channel networks, this field should be the World-Wide Name (WWN) for the port, formatted as a hexadecimal string (16 characters long), with the most significant byte first. For example, a WWN address of 01:23:45:67:89:AB:CD:EF should be represented as 0123456789ABCDEF. 
+For iSCSI networks, this field should be the IQN.

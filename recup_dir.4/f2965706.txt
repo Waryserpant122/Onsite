@@ -1,0 +1,3 @@
+0A - 'Not Available': The element is present but has problems. 
+0xD00B - 'No Access Allowed': No access is allowed to the element. 
+0xD00C - 'Not Reported' 

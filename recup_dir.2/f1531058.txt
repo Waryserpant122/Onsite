@@ -1,0 +1,28 @@
+g OfflineWinDirPath = []
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing MergedSandboxPath = []
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing Callback Factory Guid = [f1851d8e-504f-48a9-acf7-a8c7ff709abe]
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing SessionData = []
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing UpdateId = [{EDB939AF-F7A4-4904-9681-8BA93208B7DD}]
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing FlightId = []
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing FlightMetadata = []
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing Country Code = []
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing CorrelationVector = []
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing RelatedCV = []
+2019-07-18 20:17:25, Info                         CDeploymentSession: Initializing WorkingDir = [C:\WINDOWS\SoftwareDistribution\Download\cd6c624b6a0b8c4fb3666d7002ded5af]
+2019-07-18 20:17:25, Info                         DlpMgrInit: WorkingPath = [C:\WINDOWS\SoftwareDistribution\Download\cd6c624b6a0b8c4fb3666d7002ded5af], Disposition = [Open], Flags = [0x0], Diagnostics = [Yes], StockRegistrar = [No], UserRegistrar = [No]
+2019-07-18 20:17:28, Info                         Found existing session state. Checking its state.
+2019-07-18 20:17:28, Info                         Found State = [6].
+2019-07-18 20:17:28, Info                         Resume is supported from this state.
+2019-07-18 20:17:28, Info                         Loading existing session state.
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize SessionId = [7efd67fa-7b47-4c7c-8b7e-389c1d705fac]
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize SessionData = []
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize UpdateState = [6]
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize Scenario = [4]
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize RebootRequired = [TRUE]
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize PreDownloadChecksComplete = [FALSE]
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize ExpansionRequired = [TRUE]
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize ExpansionComplete = [FALSE]
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize ContainsExpressPackage = [TRUE]
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize CompDBsExpanded = [TRUE]
+2019-07-18 20:17:28, Info                         CDeploymentSession: Deserialize RecreatePackageFileList = [FALSE]
+2019-07-18 20:17:28, Info                         CDep

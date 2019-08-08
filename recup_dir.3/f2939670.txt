@@ -1,0 +1,2 @@
+rinter and may be truncated because of the limitations of the string from which it is derived.
+Example PCL/HP LaserJet

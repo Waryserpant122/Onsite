@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<wap-provisioningdoc>
+  <characteristic type="MCSF">
+    <characteristic type="Cellular">
+      <characteristic type="PerSimSettings">
+        <characteristic type="$(__ICCID)">
+          <parm name="BrandingIconPath" value="%SYSTEMDRIVE%\programdata\Microsoft\Provisioning\AssetCache\CellularUx\hp_common.ico" datatype="string" />
+        </characteristic>
+      </characteristic>
+    </characteristic>
+  </characteristic>
+</wap-provisioningdoc>

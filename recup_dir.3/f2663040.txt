@@ -1,0 +1,9 @@
+005B0}<NvcHost>          Container is suspending
+#4(I)[2019-07-18 11:47:13,215]{000005B0}<NvcPluginManager> Initiate transition to Suspending state for NvXDCore
+#5(I)[2019-07-18 11:47:13,215]{000005B0}<NvcPluginManager> Transition to Suspended state for NvXDCore completed
+#6(I)[2019-07-18 11:47:13,215]{000005B0}<NvcPluginManager> Transition to Suspended state for NvPluginWatchdog completed
+#7(I)[2019-07-18 11:47:13,215]{000005B0}<NvcHost>          Container is suspended. State: normal
+#8(I)[2019-07-18 11:47:13,215]{000005B0}<NvcHost>          Host: event from plugin NvPluginWatchdog
+#9(I)[2019-07-18 11:47:13,215]{000005B0}<NvcServiceHost>   Service host: event from plugin NvPluginWatchdog
+#0(I)[2019-07-18 11:47:13,215]{000005B0}<NvcHost>          Host: event from plugin NvXDCore
+#1(I)[2019-07-18 11:47:13,215]{000005B0}<NvcServiceHost>   Service host: event from plugin NvXDCore

@@ -1,0 +1,3 @@
+age pool.
+2 - 'Sequential': repair will process one allocation slab at a time. This will result in longer repair times, but small impact on the I/O load.
+3 - 'Parallel': repair will process as many allocation slabs as it can in parallel. This will result in the shortest repair time, but will have significant impact on I/O load.

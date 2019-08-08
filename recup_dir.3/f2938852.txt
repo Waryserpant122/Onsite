@@ -1,0 +1,2 @@
+r the auto reboot feature is available with this machine. This capability is available on Windows NT but not on Windows 95.
+Values: TRUE or FALSE. If TRUE, the automatic reset is enabled.

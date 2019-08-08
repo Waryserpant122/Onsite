@@ -1,0 +1,4 @@
+it machines. 
+Constraints: Must have a value.
+
+Note:  The SE_SYSTEM_ENVIRONMENT privilege is required on IA64bit machines. This privilege is not required for other systems.

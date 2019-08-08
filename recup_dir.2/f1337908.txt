@@ -1,0 +1,2 @@
+apOpenFlag|InSetUp|YouGood" NotifyController="2" TexturePosition="Medicine4"/>
+<SwitchOperation Description="

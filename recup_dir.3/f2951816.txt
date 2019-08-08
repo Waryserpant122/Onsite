@@ -1,0 +1,19 @@
+CE_DEMAND_START 
+ 0x00000003 
+ A service start when the service control manager calls the StartService function.
+
+SERVICE_DISABLED 
+ 0x00000004 
+ Specifies a service that can no longer be started.
+
+The following types of service starts are valid only for driver services.
+ Type of driver service start
+ ValueDescription 
+
+SERVICE_BOOT_START 
+ 0x00000000 
+ A device driver started by the operating system loader.
+
+SERVICE_SYSTEM_START 
+ 0x00000001 
+ A device driver started by calling the IoInitSystem function. Use this in the ServiceControl Table, with the StartServices action put after the InstallServices action, to start a driver service during an install.

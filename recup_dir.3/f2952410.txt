@@ -1,0 +1,2 @@
+ supported on this serial port.
+Values: TRUE or FALSE. A value of TRUE indicates 16-bit mode is supported.

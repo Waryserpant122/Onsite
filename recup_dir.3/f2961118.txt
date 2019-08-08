@@ -1,0 +1,7 @@
+ror of this type are principally associated with a software or processing fault. 
+5 - Hardware Error. Errors of this type are principally associated with an equipment or hardware failure. 
+6 - Environmental Error. Errors of this type are principally associated with a failure condition relating the to facility, or other environmental considerations. 
+7 - Security Error. Errors of this type are associated with security violations, detection of viruses, and similar issues. 
+8 - Oversubscription Error. Errors of this type are principally associated with the failure to allocate sufficient resources to complete the operation. 
+9 - Unavailable Resource Error. Errors of this type are principally associated with the failure to access a required resource. 
+10 -Unsupported Operation Error. Errors of this type are principally associated with requests that are not supported.

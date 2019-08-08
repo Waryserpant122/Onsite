@@ -1,0 +1,10 @@
+erational status of each controller of the enclosure. 
+0 - 'Unknown' 
+2 - 'OK': The element is present and working with no issues detected. 
+3 - 'Degraded': The element detected one or more non-critical issues. 
+6 - 'Error': The element detected one or more critical issues. 
+7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. 
+0xD009 - 'Not Installed': The element is not present. 
+0xD00A - 'Off': The element has not been turned on. 
+0xD00B - 'No Access Allowed': No access is allowed to the element. 
+0xD00C - 'Not Reported' 

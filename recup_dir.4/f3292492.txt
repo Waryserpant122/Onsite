@@ -1,0 +1,22 @@
+content-type: application/json; charset=utf-8
+server: nginx/1.15.8
+status: 200 OK
+x-hiring: Inspecting HTTP headers! Know some code, do you? Want to work for one of the best startups around? https://www.hackerrank.com/careers
+vary: Accept-Encoding
+content-encoding: gzip
+etag: W/"19fd9c1da328aaf5d623ccf684281285"
+cache-control: max-age=0, private, must-revalidate
+x-request-id: 641f930c-8bd4-4877-a2a5-846c22450f1e
+x-runtime: 0.011124
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+x-download-options: noopen
+x-permitted-cross-domain-policies: none
+referrer-policy: strict-origin-when-cross-origin
+content-security-policy-report-only: default-src * data: blob: 'unsafe-inline' 'unsafe-eval'; base-uri 'self' *.hackerrank.com; connect-src * data: blob: 'unsafe-inline' 'unsafe-eval'; frame-src 'unsafe-inline' *; img-src * data: blob: 'unsafe-inline'; script-src 'self' data: 'unsafe-inline' 'unsafe-eval' *.chatlio.com *.ads.linkedin.com *.demandbase.com *.firebaseio.com *.hackerrank.com *.hackerrank.io *.linkedin.com *.twitter.com *.wsp.hackerrank.com *.wss.hackerrank.com *.zopim.com api.filepicker.io api.olark.com app-sji.marketo.com bam.nr-data.net cdn.amplitude.com cdn.auryc.com cdn.bizible.com cdn.heapanalytics.com cdn.mxpnl.com cdn.optimizely.com cdn.raygun.io cdn.userty.com cdn.walkme.com cdnjs.cloudflare.com connect.facebook.net d3keuzeb2crhkn.cloudfront.net ds-aksb-a.akamaihd.net googleads.g.doubleclick.net www.gstatic.com hrcdn.net js-agent.newrelic.com js.stripe.com munchkin.marketo.net script.hotjar.com snap.licdn.com ssl.google-analytics.com static.ads-twitter.com static.hotjar.com static.olark.com static.zdassets.com stats.pusher.com use.typekit.net www.google-analytics.com www.google.com www.googleadservices.com www.googletagmanager.com s3.amazonaws.com; style-src * data: blob: 'unsafe-inline'; worker-src 'self' data: blob:; report-uri https://hackerrank.report-uri.com/r/d/csp/reportOnly
+x-newrelic-app-data: PxQFVVJUCgYTVVNbBQQCXkYdFHANCBcQXw5UB0oXRldAERYCWQBfDgFYUAQ5EVlHWQoGERhYWQIBSRQfUkhTTgBMCFMKCAYGC1IAVQRUBlRSAgdXSk4JHxJdWAAEVVNXVwcGAQAAAVFWQGU=
+content-length: 39
+date: Mon, 24 Jun 2019 09:51:27 GMT
+strict-transport-security: max-age=15768000 ; preload
+X-Firefox-Spdy: h2

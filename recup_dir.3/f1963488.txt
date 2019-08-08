@@ -1,0 +1,212 @@
+ValueOf(u);
+var x=HexValueOf(v);
+if(w==-1||x==-1)throw e();
+return(w<<4)|x;
+}
+function URIDecodeOctets(m,k,l){
+var y;
+var z=m[0];
+if(z<0x80){
+y=z;
+}else if(z<0xc2){
+throw e();
+}else{
+var A=m[1];
+if(z<0xe0){
+var B=z&0x1f;
+if((A<0x80)||(A>0xbf))throw e();
+var C=A&0x3f;
+y=(B<<6)+C;
+if(y<0x80||y>0x7ff)throw e();
+}else{
+var D=m[2];
+if(z<0xf0){
+var B=z&0x0f;
+if((A<0x80)||(A>0xbf))throw e();
+var C=A&0x3f;
+if((D<0x80)||(D>0xbf))throw e();
+var E=D&0x3f;
+y=(B<<12)+(C<<6)+E;
+if((y<0x800)||(y>0xffff))throw e();
+}else{
+var F=m[3];
+if(z<0xf8){
+var B=(z&0x07);
+if((A<0x80)||(A>0xbf))throw e();
+var C=(A&0x3f);
+if((D<0x80)||(D>0xbf)){
+throw e();
+}
+var E=(D&0x3f);
+if((F<0x80)||(F>0xbf))throw e();
+var G=(F&0x3f);
+y=(B<<18)+(C<<12)+(E<<6)+G;
+if((y<0x10000)||(y>0x10ffff))throw e();
+}else{
+throw e();
+}
+}
+}
+}
+if(0xD800<=y&&y<=0xDFFF)throw e();
+if(y<0x10000){
+%_TwoByteSeqStringSetChar(l++,y,k);
+}else{
+%_TwoByteSeqStringSetChar(l++,(y>>10)+0xd7c0,k);
+%_TwoByteSeqStringSetChar(l++,(y&0x3ff)+0xdc00,k);
+}
+return l;
+}
+function Encode(H,I){
+H=(%_ToString(H));
+var J=H.length;
+var K=new d(J);
+var l=0;
+for(var L=0;L<J;L++){
+var q=%_StringCharCodeAt(H,L);
+if(I(q)){
+K[l++]=q;
+}else{
+if(q>=0xDC00&&q<=0xDFFF)throw e();
+if(q<0xD800||q>0xDBFF){
+l=URIEncodeSingle(q,K,l);
+}else{
+L++;
+if(L==J)throw e();
+var r=%_StringCharCodeAt(H,L);
+if(r<0xDC00||r>0xDFFF)throw e();
+l=URIEncodePair(q,r,K,l);
+}
+}
+}
+var k=%NewString(K.length,true);
+for(var M=0;M<K.length;M++){
+%_OneByteSeqStringSetChar(M,K[M],k);
+}
+return k;
+}
+function Decode(H,N){
+H=(%_ToString(H));
+var J=H.length;
+var O=%NewString(J,true);
+var l=0;
+var L=0;
+for(;L<J;L++){
+var g=%_StringCharCodeAt(H,L);
+if(g==37){
+if(L+2>=J)throw e();
+var h=URIHexCharsToCharCode(%_StringCharCodeAt(H,L+1),
+%_StringCharCodeAt(H,L+2));
+if(h>>7)break;
+if(N(h)){
+%_OneByteSeqStringSetChar(l++,37,O);
+%_OneByteSeqStringSetChar(l++,%_StringCharCodeAt(H,L+1),
+O);
+%_OneByteSeqStringSetChar(l++,%_StringCharCodeAt(H,L+2),
+O);
+}else{
+%_OneByteSeqStringSetChar(l++,h,O);
+}
+L+=2;
+}else{
+if(g>0x7f)break;
+%_OneByteSeqStringSetChar(l++,g,O);
+}
+}
+O=%TruncateString(O,l);
+if(L==J)return O;
+var P=%NewString(J-L,false);
+l=0;
+for(;L<J;L++){
+var g=%_StringCharCodeAt(H,L);
+if(g==37){
+if(L+2>=J)throw e();
+var h=URIHexCharsToCharCode(%_StringCharCodeAt(H,++L),
+%_StringCharCodeAt(H,++L));
+if(h>>7){
+var Q=0;
+while(((h<<++Q)&0x80)!=0){}
+if(Q==1||Q>4)throw e();
+var m=new d(Q);
+m[0]=h;
+if(L+3*(Q-1)>=J)throw e();
+for(var M=1;M<Q;M++){
+if(H[++L]!='%')throw e();
+m[M]=URIHexCharsToCharCode(%_StringCharCodeAt(H,++L),
+%_StringCharCodeAt(H,++L));
+}
+l=URIDecodeOctets(m,P,l);
+}else if(N(h)){
+%_TwoByteSeqStringSetChar(l++,37,P);
+%_TwoByteSeqStringSetChar(l++,%_StringCharCodeAt(H,L-1),
+P);
+%_TwoByteSeqStringSetChar(l++,%_StringCharCodeAt(H,L),
+P);
+}else{
+%_TwoByteSeqStringSetChar(l++,h,P);
+}
+}else{
+%_TwoByteSeqStringSetChar(l++,g,P);
+}
+}
+P=%TruncateString(P,l);
+return O+P;
+}
+function URIEscapeJS(R){
+return %URIEscape(R);
+}
+function URIUnescapeJS(R){
+return %URIUnescape(R);
+}
+function URIDecode(H){
+var S=function(h){
+if(35<=h&&h<=36)return true;
+if(h==38)return true;
+if(43<=h&&h<=44)return true;
+if(h==47)return true;
+if(58<=h&&h<=59)return true;
+if(h==61)return true;
+if(63<=h&&h<=64)return true;
+return false;
+};
+return Decode(H,S);
+}
+function URIDecodeComponent(T){
+var S=function(h){return false;};
+return Decode(T,S);
+}
+function URIEncode(H){
+var U=function(h){
+if(isAlphaNumeric(h))return true;
+if(h==33)return true;
+if(35<=h&&h<=36)return true;
+if(38<=h&&h<=47)return true;
+if(58<=h&&h<=59)return true;
+if(h==61)return true;
+if(63<=h&&h<=64)return true;
+if(h==95)return true;
+if(h==126)return true;
+return false;
+};
+return Encode(H,U);
+}
+function URIEncodeComponent(T){
+var U=function(h){
+if(isAlphaNumeric(h))return true;
+if(h==33)return true;
+if(39<=h&&h<=42)return true;
+if(45<=h&&h<=46)return true;
+if(h==95)return true;
+if(h==126)return true;
+return false;
+};
+return Encode(T,U);
+}
+b.InstallFunctions(a,2,[
+"escape",URIEscapeJS,
+"unescape",URIUnescapeJS,
+"decodeURI",URIDecode,
+"decodeURIComponent",URIDecodeComponent,
+"encodeURI",URIEncode,
+"encodeURIComponent",URIEncodeComponent
+])

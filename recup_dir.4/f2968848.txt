@@ -1,0 +1,2 @@
+ay qualifier. 
+Note that this method\'s function overlaps with the RequestedState property. RequestedState was added to the model to maintain a record (i.e., a persisted value) of the last state request. Invoking the OnlineDevice method should set the RequestedState property appropriately.

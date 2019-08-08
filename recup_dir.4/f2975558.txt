@@ -1,0 +1,6 @@
+ property is intentionally not used because it adds no meaningful information (as in the case of a property that is intended to add additional info to another property). 
+"No Additional Information" indicates that the element is functioning normally as indicated by PrimaryStatus = "OK". 
+"Stressed" indicates that the element is functioning, but needs attention. Examples of "Stressed" states are overload, overheated, and so on. 
+"Predictive Failure" indicates that an element is functioning normally but a failure is predicted in the near future. 
+"Non-Recoverable Error " indicates that this element is in an error condition that requires human intervention. 
+"Supporting Entity in Error" indicates that this element might be "OK" but that another element, on which it is dependent, is in error. An example is a network service or endpoint that cannot function due to lower-layer networking problems.

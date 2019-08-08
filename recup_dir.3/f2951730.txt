@@ -1,0 +1,4 @@
+ uninstall the associated instance of Win32_Product. The method can return the following values:
+0 - Success.
+2147549445 - RPC Server Fault Error. 
+Other - For integer values other than those listed above, refer to the documentation on error codes returned by the Windows Installer API and the Win32 error codes.

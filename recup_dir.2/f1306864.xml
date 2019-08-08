@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>OPPO A37f</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>4F50504F2041333766</hex>
+			<name>OPPO A37f</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPA2PSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB010000008D7E37EB882D784B8BAC0962E874FD37000000000200000000001066000000010000200000002F8784AC8B79EFD2486E5E772B89F035A0DE8365137CA383163C34817CB70D1B000000000E8000000002000020000000E27E0A6E37D958F2D175449916132B97816F6C3467AF16B6FB7976EC97C89FDF2000000005C5EBA11A0F73869228B6A72498082CF1BCE2445344B765635331EE796261C240000000996E2DE0D4687C98FEDCF5D6690F733A3B8FD27FB5E522074C1701E6CCA25FC1A734F7985AE13AE4C7F530CE4978131F5378BF9412A40A5D6B8CC6D268BFE5C1</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+		<randomizationSeed>3292873546</randomizationSeed>
+	</MacRandomization>
+</WLANProfile>

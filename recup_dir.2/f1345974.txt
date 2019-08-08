@@ -1,0 +1,57 @@
+aint	*|open paint	6978
+*|paint	*|paintbrush	9259
+*|paint	*|paintpaint	9407
+*|paint	*|paint app	10319
+*|paint	*|paint.exe	9512
+*|paint	*|paintaint	8145
+*|paint	*|ms paint	6333
+*|paint	*|paintint	9627
+*|paint	*|painting	8451
+*|paint	*|mspaing	10331
+*|paint	*|mspaint	3791
+*|paint	*|paiaint	9644
+*|paint	*|drawing	7580
+*|paint	*|paintnt	9354
+*|paint	*|msapint	9657
+*|paint	*|mapaint	10108
+*|paint	*|painbt	9384
+*|paint	*|paingt	9774
+*|paint	*|painjt	10202
+*|paint	*|painmt	8694
+*|paint	*|painnt	8628
+*|paint	*|[paint	9811
+*|paint	*|painrt	9159
+*|paint	*|paints	7907
+*|paint	*|paint'	8152
+*|paint	*|paint4	9892
+*|paint	*|paint]	9309
+*|paint	*|opaint	10355
+*|paint	*|painte	8929
+*|paint	*|paintg	9819
+*|paint	*|paintr	8495
+*|paint	*|paintt	7986
+*|paint	*|mspait	10349
+*|paint	*|painty	7934
+*|paint	*|mspint	10369
+*|paint	*|painyt	8837
+*|paint	*|paiont	8507
+*|paint	*|paiunt	9305
+*|paint	*|panint	10124
+*|paint	*|paoint	9344
+*|paint	*|pasint	10235
+*|paint	*|p[aint	9667
+*|paint	*|pauint	10204
+*|paint	*|pbrush	6843
+*|paint	*|piaint	10221
+*|paint	*|paaint	7900
+*|paint	*|pai nt	10111
+*|paint	*|poaint	9966
+*|paint	*|ppaint	8240
+*|paint	*|spaint	10228
+*|paint	*|paiant	9856
+*|paint	*|paibnt	9886
+*|paint	*|paiint	8211
+*|paint	*|paijnt	10050
+*|paint	*|paimnt	9447
+*|paint	*|pain t	8921
+*|paint	*|

@@ -1,0 +1,4 @@
+ resulting from the gethostbyname call.  This property reports the status of the resolution of the address value (ie value of the address property) given in the query. It is not related to any other resolution performed. 
+The property can take the following values:  
+0 - Success. 
+Other - For integer values other than those listed above, refer to WinSock error code documentation.

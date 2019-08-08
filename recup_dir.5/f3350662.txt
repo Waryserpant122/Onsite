@@ -1,0 +1,3 @@
+C06ZgEOakKJYv4AtlQ.0
+
+<connect-response><ver>1</ver><session><id>Mtp1.307/33954059.8d659c9f-09ce-33c1-c3ce-7909686175ed</id><timeout>2000</timeout></session><qostest>false</qostest></co

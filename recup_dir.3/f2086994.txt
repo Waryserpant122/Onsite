@@ -1,0 +1,6 @@
+mSun
+FileLength:18214472
+NameArray:25,Win,1,NSimSun
+NameArray:0,Mac,4,NSimSun
+NameArray:0,Win,1,NSimSun
+NameArray:25,Win,1,

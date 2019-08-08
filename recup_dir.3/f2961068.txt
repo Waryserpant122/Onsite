@@ -1,0 +1,7 @@
+eterminate. 
+2 - 'Information': The event is for informative purposes. 
+3 - 'Degraded/Warning': Action may be required by the user. 
+4 - 'Minor': Action is needed, but the situation is not serious at this time. 
+5 - 'Major': Immediate action is needed. 
+6 - 'Critical': Immediate action is needed and the scope of the issue is broad. 
+7 - 'Fatal/NonRecoverable': An error has occurred, but it is too late to take remedial action. 

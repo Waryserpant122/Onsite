@@ -1,0 +1,10 @@
+ed/disabled states of an element. It can also indicate the transitions between these requested states. For example, shutting down (value = 4) and starting (value=10) are transient states between enabled and disabled. The following text briefly summarizes the various enabled/disabled states: 
+Enabled (2) indicates that the element is/could be executing commands, will process any queued commands, and queues new requests. 
+Disabled (3) indicates that the element will not execute commands and will drop any new requests. 
+Shutting Down (4) indicates that the element is in the process of going to a Disabled state. 
+Not Applicable (5) indicates the element doesn't support being enabled/disabled. 
+Enabled but Offline (6) indicates that the element may be completing commands, and will drop any new requests. 
+Test (7) indicates that the element is in a test state. 
+Deferred (8) indicates that the element may be completing commands, but will queue any new requests. 
+Quiesce (9) indicates that the element is enabled but in a restricted mode. The element's behavior is similar to the Enabled state, but it only processes a restricted set of commands. All other requests are queued. 
+Starting (10) indicates that the element is in the process of going to an Enabled state. New requests are queued.
