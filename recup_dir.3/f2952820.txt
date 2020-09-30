@@ -1,8 +1,0 @@
-property are: 
-WhenNeeded - This corresponds to OverWriteOutdated = 0.
-OutDated - This corresponds to OverWriteOutdated of 1 to 365.
-Never - This corresponds to OverWriteOutdated = 4294967295. 
-There is an interdependence between the OverWriteOutDated property (which is writable) value and the OverWritePolicy property (which is not writable) value.
-If one changes the OverWriteOutDated property value to 0, the OverWritePolicy property value will be 'henNeeded' 
-If one changes the OverWriteOutDated property value to 1-365, the OverWritePolicy property value will be 'outDated' 
-If one changes the OverWriteOutDated property value to 4294967295, the OverWritePolicy property value will be 'Never'.

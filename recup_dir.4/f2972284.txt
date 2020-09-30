@@ -1,3 +1,0 @@
- NTFS formatted partitions and RAW partitions.
-If the specified size is smaller than the original size, this method will move files so that they are as close as possible to the beginning of the partition, in order to consolidate free space at the end of the partition. It then truncates the file system volume, reducing its size, and then truncates the partition.
-In almost all cases, there will be some files that are immovable. For example, file system and storage driver metadata files are likely to be immovable. For this reason, the amount by which a partition can be shrunk is usually less than the total amount of free space on the partition.

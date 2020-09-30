@@ -1,3 +1,0 @@
-OutCar" DisableSwitch="MapOpenFlag|InSetUp" Point_X="0.453906" Point_Y="0.933333" HideTips="1"/>
-</KeyMapping>
-<KeyMapping ItemName="2" Point_X="0.544531" Point_Y="0.933333" Description="

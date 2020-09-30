@@ -1,7 +1,0 @@
-Describes the recovery action to be taken for an unsuccessfully run Job. The possible values are: 
-0 = "Unknown", meaning it is unknown as to what recovery action to take 
-1 = "Other", indicating that the recovery action will be specified in the OtherRecoveryAction property 
-2 = "Do Not Continue", meaning stop the execution of the job and appropriately update its status 
-3 = "Continue With Next Job", meaning continue with the next job in the queue 
-4 = "Re-run Job", indicating that the job should be re-run 
-5 = "Run Recovery Job", meaning run the Job associated using the RecoveryJob relationship. Note that the recovery Job must already be in the queue from which it will run.

@@ -1,9 +1,0 @@
-hat define the functionality supported by the HBA
-//
-#define ISCSI_HBA_PRESHARED_KEY_CACHE              0x00000001
-#define ISCSI_HBA_ISCSI_AUTHENTICATION_CACHE       0x00000002
-#define ISCSI_HBA_IPSEC_TUNNEL_MODE                0x00000004
-#define ISCSI_HBA_CHAP_VIA_RADIUS                  0x00000008
-#define ISCSI_HBA_ISNS_DISCOVERY                   0x00000010
-#define ISCSI_HBA_SLP_DISCOVERY                    0x00000020
-

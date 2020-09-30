@@ -1,2 +1,0 @@
-tch="GetOutCar" DisableSwitch="XBtn|MapOpenFlag|InSetUp" Point_X="0.935937" Point_Y="0.544444" HideTips="1" TexturePosition="GetOutCar"/>
-<SwitchOperation Description="

@@ -1,2 +1,0 @@
-eduledOperation state="5" status="1223"/><BackupLaunch state="0" status="0"/><BackupComplete state="0" status="0"/><BackupResult status="0"/><MachineGuid id="{00000000-0000-0000-0000-000000000000}"/><UserGuid id="{00000000-0000-0000-0000-000000000000}"/><OptIn state="0"/>
-</WindowsRE>

@@ -1,4 +1,0 @@
-|colonia|adicional" + // es
-      "|addresssuppl|complementnom|appartement" + // fr-FR
-      "|indirizzo3" + // it-IT
-      "|

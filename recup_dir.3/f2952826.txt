@@ -1,5 +1,0 @@
-l completion.
-8 - The user does not have adequate privileges.
-21 - Invalid parameter.
-183 - Archive file name already exists. Cannot create file. 
-Other - For integer values other than those listed above, refer to Win32 error code documentation.

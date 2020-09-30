@@ -1,5 +1,0 @@
-
-Logs the error, displays a message box and continues the startup operation.
-
-0x00000003 
-Logs the error if it is possible and the system is restarted with the last configuration known to be good. If the last-known-good configuration is being started, the startup operation fails.

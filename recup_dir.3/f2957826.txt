@@ -1,3 +1,0 @@
-s such as files, processes, and threads 
-- device components such as disk drives, controllers, processors, and printers 
-- physical components such as chips and cards.

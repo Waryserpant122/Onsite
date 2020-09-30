@@ -1,8 +1,0 @@
-|647~52~6[0-2]|520~5[3-9]|618|630~6[5-7]|563~63|64[78]~64|519~68~69|68[45]~7[01]~7[23]~7[45]~77~76~79~78~8[0-3]|871~84~85|81[17]|848~86~87|839~88~89~90", "upper": "S", "zip": "\\d{3}-?\\d{4}", "zipex": "154-0023,350-1106,951-8073,112-0001,208-0032,231-0012"},
-  "data/KE": {"fmt": "%N%n%O%n%A%n%C%n%Z", "id": "data/KE", "key": "KE", "name": "KENYA", "zip": "\\d{5}", "zipex": "20100,00100"},
-  "data/KG": {"fmt": "%N%n%O%n%A%n%Z %C", "id": "data/KG", "key": "KG", "name": "KYRGYZSTAN", "zip": "\\d{6}", "zipex": "720001"},
-  "data/KH": {"fmt": "%N%n%O%n%A%n%C %Z", "id": "data/KH", "key": "KH", "name": "CAMBODIA", "zip": "\\d{5}", "zipex": "12203,14206,12000"},
-  "data/KI": {"fmt": "%N%n%O%n%A%n%S%n%C", "id": "data/KI", "key": "KI", "name": "KIRIBATI", "state_name_type": "island", "upper": "ACNOS"},
-  "data/KM": {"id": "data/KM", "key": "KM", "name": "COMOROS", "upper": "AC"},
-  "data/KN": {"fmt": "%N%n%O%n%A%n%C, %S", "id": "data/KN", "key": "KN", "lang": "en", "languages": "en", "name": "SAINT KITTS AND NEVIS", "require": "ACS", "state_name_type": "island", "sub_isoids": "N~K", "sub_keys": "Nevis~St. Kitts"},
-  "data/KP": {"fmt": "%Z%n%S%n%C%n%A%n%O%n%N", "id": "data/KP", "key": "KP", "lang": "ko", "languages": "ko", "lfmt": "%N%n%O%n%A%n%C%n%S, %Z", "name": "NORTH KOREA", "sub_isoids": "07~13~10~04~02~03~01~08~09~05~06", "sub_keys": "

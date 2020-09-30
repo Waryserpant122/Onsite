@@ -1,4 +1,0 @@
-Pragma: public
-Cache-Control: max-age=604800, public
-Access-Control-Allow-Origin: *
-Accept-Ranges: bytes

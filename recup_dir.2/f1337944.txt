@@ -1,3 +1,0 @@
-ch="XBtn|MapOpenFlag|InSetUp" Point_X="0.965625" Point_Y="0.918889"/>
-</KeyMapping>
-<KeyMapping ItemName="E" Point_X="0.166406" Point_Y="0.529167" Description="

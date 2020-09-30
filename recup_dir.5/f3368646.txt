@@ -1,5 +1,0 @@
-ame|your.?name|customer.?name|bill.?name|ship.?name" +
-      "|name.*first.*last|firstandlastname" +
-      "|nombre.*y.*apellidos" + // es
-      "|^nom" + // fr-FR
-      "|

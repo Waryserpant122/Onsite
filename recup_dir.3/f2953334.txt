@@ -1,3 +1,0 @@
- Win32Shutdown method.The method returns an integer value that can be interpretted as follows: 
-0 - Successful completion.
-Other - For integer values other than those listed above, refer to Win32 error code documentation.

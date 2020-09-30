@@ -1,8 +1,0 @@
-s intended for users who will be interactively using the machine, such as a user being logged on by a terminal server, remote shell, or similar process. 
-Network - This logon type is intended for high performance servers to authenticate clear text passwords. LogonUser does not cache credentials for this logon type. 
-Batch - This logon type is intended for batch servers, where processes may be executing on behalf of a user without their direct intervention; or for higher performance servers that process many clear-text authentication attempts at a time, such as mail or web servers. LogonUser does not cache credentials for this logon type.
-Service - Indicates a service-type logon. The account provided must have the service privilege enabled.
-Proxy - Proxy logon. This logon type is not supported.
-Unlock - This logon type is intended for GINA DLLs logging on users who will be interactively using the machine. This logon type allows a unique audit record to be generated that shows when the workstation was unlocked. 
-Network Cleartext - Windows 2000: This logon type preserves the name and password in the authentication packages, allowing the server to make connections to other network servers while impersonating the client. This allows a server to accept clear text credentials from a client, call LogonUser, verify that the user can access the system across the network, and still communicate with other servers. 
-New Credentials - Windows 2000: This logon type allows the caller to clone its current token and specify new credentials for outbound connections. The new logon session has the same local identify, but uses different credentials for other network connections. 

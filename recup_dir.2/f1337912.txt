@@ -1,5 +1,0 @@
-chOperation Description="Grenade1" EnableSwitch="Grenade1" EnablePositionSwitch="Grenade1:0.606250,0.202847,0.695312,1.000000" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" NotifyController="1" TexturePosition="Grenade1"/>
-<SwitchOperation Description="GrenadeArrowUp" EnableSwitch="GrenadeArrowUp" EnablePositionSwitch="GrenadeArrowUp:0.606250,0.884750,0.695312,0.916667" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" HideTips="1" TexturePosition="GrenadeArrowUp"/>
-<SwitchOperation Description="GrenadeArrowUp" EnableSwitch="GrenadeArrowUp" EnablePositionSwitch="GrenadeArrowUp:0.606250,0.202847,0.695312,0.884750" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" HideTips="1" NotifyController="1" TexturePosition="GrenadeArrowUp"/>
-</KeyMappingEx>
-<KeyMappingEx ItemName="6" Point_X="0.636719" Point_Y="0.768056" Description="

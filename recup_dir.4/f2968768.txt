@@ -1,8 +1,0 @@
-ith Error (failed), or Completed with Degraded (the operation finished, but it did not complete OK or did not report an error). 
-"Migrating" element is being moved between host elements. 
-"Immigrating" element is being moved to new host element. 
-"Emigrating" element is being moved away from host element. 
-"Shutting Down" describes an element being brought to an abrupt stop. 
-"In Test" element is performing test functions. 
-"Transitioning" describes an element that is between states, that is, it is not fully available in either its previous state or its next state. This value should be used if other values indicating a transition to a specific state are not applicable.
-"In Service" describes an element that is in service and operational.

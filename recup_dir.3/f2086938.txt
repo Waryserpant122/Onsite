@@ -1,4 +1,0 @@
-:3,Win,1,Malgun Gothic
-NameArray:0,Mac,4,Malgun Gothic
-NameArray:0,Win,1,Malgun Gothic
-NameArray:3,Win,1,

@@ -1,2 +1,0 @@
- subkeys specified in the path that do not exist. For example, if MyKey and MySubKey do not exist in the following path, CreateKey creates both keys: 
-HKEY_LOCAL_MACHINE\SOFTWARE\MyKey\MySubKey 

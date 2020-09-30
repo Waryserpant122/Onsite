@@ -1,2 +1,0 @@
-nableTips="1">
-<KeyMapping ItemName="Right Click" Point_X="0.971094" Point_Y="0.647222" Description="

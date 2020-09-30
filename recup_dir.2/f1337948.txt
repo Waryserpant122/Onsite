@@ -1,2 +1,0 @@
-neBlock" DisableSwitch="MapOpenFlag" Point_X="0.607812" Point_Y="0.676389"/>
-<SwitchOperation Description="

@@ -1,4 +1,0 @@
-this field indicates the status of hardware, software, and infrastructure issues related to this virtual disk, and can contain multiple values. Various operational statuses are defined. 
-11 - 'In Service': describes a virtual disk being configured, maintained, or otherwise administered. 
-0xD002 - 'Detached': This value is reserved for Windows. This value indicates a virtual disk that is visible to the host system but does not have a disk device object. 
-0xD003 - 'Incomplete': describes a virtual disk which does not have enough redundancy remaining to successfully repair or regenerate its data.

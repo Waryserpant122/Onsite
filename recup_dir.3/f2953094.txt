@@ -1,2 +1,0 @@
-n until after a socket is bound. Applications should use getsockopt to retrieve the value of SO_MAX_MSG_SIZE after the socket has been bound to a local address.
- 0xFFFFFFFF - There is no specified maximum message size defined.

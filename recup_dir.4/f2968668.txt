@@ -1,4 +1,0 @@
-ile suspended. (This is job-specific.) 
-Terminate (4) stops the job cleanly, saving data, preserving the state, and shutting down all underlying processes in an orderly manner. 
-Kill (5) terminates the job immediately with no requirement to save data or preserve the state. 
-Service (6) puts the job into a vendor-specific service state. It might be possible to restart the job.

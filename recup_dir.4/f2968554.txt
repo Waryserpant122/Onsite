@@ -1,4 +1,0 @@
- the element is not working to the best of its abilities. For example, the element might not be operating at optimal performance or it might be reporting recoverable errors. 
-"OK" (5) - The element is fully functional and is operating within normal operational parameters and without error. 
-"Unknown" (0) - The implementation cannot report on HealthState at this time. 
-DMTF has reserved the unused portion of the continuum for additional HealthStates in the future.

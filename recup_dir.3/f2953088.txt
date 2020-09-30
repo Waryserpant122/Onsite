@@ -1,2 +1,0 @@
-means subsets of data get higher priority or guaranteed service when traversing a network. 
-Values:TRUE or FALSE. A value of TRUE indicates the protocol supports QOS.

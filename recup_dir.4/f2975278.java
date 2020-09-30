@@ -1,2 +1,0 @@
-that indicates that the referenced setting is used when the system is running in AC. 
-For a given ManagedElement and all instances of a SettingData subclass, there shall be at most one instance of ElementSettingData which references the ManagedElement and an instance of the SettingData sub-class where there is a specified non-null, non-key property of the SettingData sub-class, and the IsACSetting property on the referencing ElementSettingData instance has a value of "Is AC Setting".

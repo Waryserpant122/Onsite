@@ -1,2 +1,0 @@
-e majority of replicas are healthy, but one or more may be not fully synchronized. 
-2 - 'Unhealthy': The majority of replicas are unhealthy or in a failed state.

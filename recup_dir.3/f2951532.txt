@@ -1,2 +1,0 @@
-rty indicates the manufacturer's identifying name of the Win32 CD ROM drive.
-Example: PLEXTOR CD-ROM PX-12CS 1.01

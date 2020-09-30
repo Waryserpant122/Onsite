@@ -1,2 +1,0 @@
-s optional. Otherwise it is mandatory.
-This property is only valid if the parameter is displayed in user interface.

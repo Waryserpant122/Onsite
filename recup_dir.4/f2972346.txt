@@ -1,8 +1,0 @@
-. 
-14 - 'Aborting': abort-in-progress. 
-15 - 'Mixed': Applies to groups with element pairs with different statuses. Generally, the individual statuses need to be examined. 
-16 - 'Suspending': The copy operation is in the process of being suspended. 
-17 - 'Requires fracture': The requested operation has completed, however, the synchronization relationship needs to be fractured before further copy operations can be issued. 
-18 - 'Requires resync': The requested operation has completed, however, the synchronization relationship needs to be resynced before further copy operations can be issued. 
-19 - 'Requires activate': The requested operation has completed, however, the synchronization relationship needs to be activated before further copy operations can be issued. 
-20 - 'Pending': The flow of data has stopped momentarily due to limited bandwidth or busy system.

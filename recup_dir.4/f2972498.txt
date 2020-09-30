@@ -1,8 +1,0 @@
-wing methods are not supported asynchronously, hence the gap between 11 and 19: 
-	 - CreateGroup 
-	 - DeleteGroup 
-	 - AddMembers 
-	 - RemoveMembers 
-	 - AddReplicationEntity 
-	 - AddServiceAccessPoint 
-	 - AddSharedSecret.
