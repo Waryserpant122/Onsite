@@ -1,5 +1,0 @@
- value to change, without reusing earlier values for a sufficiently long time.
-When retrying the delivery of an indication, this property shall have the same value as in the original delivery.
-To guarantee this uniqueness, the property value should be constructed using the following format (defined in ABNF): sequence-context = indication-service-name "#" cim-service-start-id "#" listener-destination-creation-time
-Where: indication-service-name is the value of the Name property of the CIM_IndicationService instance responsible for delivering the indication. cim-service-start-id is an identifier that uniquely identifies the CIM service start, for example via a timestamp of the start time, or via a counter that increases for each start or restart. listener-destination-creation-time is a timestamp of the creation time of the CIM_ListenerDestination instance representing the listener destination.
-Since this format is only a recommendation, CIM clients shall treat the value as an opaque identifier for the sequence context and shall not rely on this format.

@@ -1,2 +1,0 @@
-since 00:00:00, January 1, 1970, and is set in this format: yyyymmddhhmmss.mmmmmm sutc.
-Example: 20521201000230.000000 000

@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0" copyright="Copyright (c) Microsoft Corporation. All Rights Reserved." xmlns:cmiv2="urn:schemas-microsoft-com:asm.v3" cmiv2:copyright="Copyright (c) Microsoft Corporation. All Rights Reserved.">
-  <noInheritable />
-  <assemblyIdentity name="Microsoft.Windows.Common-Controls.Resources" version="5.82.17134.765" processorArchitecture="amd64" language="en-us" publicKeyToken="6595b64144ccf1df" type="win32" />
-  <file name="comctl32.dll.mui" xmlns:cmiv2="urn:schemas-microsoft-com:asm.v3" cmiv2:importPath="$(build.nttree)\multi\en-us\" cmiv2:sourceName="">
-    <asmv2:hash xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>

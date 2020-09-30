@@ -1,8 +1,0 @@
-csp-response
-Date: Mon, 24 Jun 2019 09:05:09 GMT
-Etag: "5d0f62d3-1d7"
-Expires: Tue, 25 Jun 2019 13:32:42 GMT
-Last-Modified: Sun, 23 Jun 2019 11:30:27 GMT
-Server: ECS (nag/9998)
-X-Cache: HIT
-Content-Length: 471

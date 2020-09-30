@@ -1,4 +1,0 @@
-\d[ABD-HJLN-UW-Z]{2}", "zipex": "JE1 1AA,JE2 2BT"},
-  "data/JM": {"fmt": "%N%n%O%n%A%n%C%n%S %X", "id": "data/JM", "key": "JM", "lang": "en", "languages": "en", "name": "JAMAICA", "require": "ACS", "state_name_type": "parish", "sub_isoids": "13~09~01~12~04~02~06~14~11~08~05~03~07~10", "sub_keys": "Clarendon~Hanover~Kingston~Manchester~Portland~St. Andrew~St. Ann~St. Catherine~St. Elizabeth~St. James~St. Mary~St. Thomas~Trelawny~Westmoreland"},
-  "data/JO": {"fmt": "%N%n%O%n%A%n%C %Z", "id": "data/JO", "key": "JO", "name": "JORDAN", "zip": "\\d{5}", "zipex": "11937,11190"},
-  "data/JP": {"fmt": "

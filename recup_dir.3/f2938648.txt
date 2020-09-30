@@ -1,2 +1,0 @@
-rty indicates the physical attributes of the connector used by this slot.
-Example: 2 25 (Male RS-232)

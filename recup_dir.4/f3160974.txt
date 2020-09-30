@@ -1,7 +1,0 @@
-0455cee4-9504-45a9-aea7-52674e827d0e
-X-Download-Options: noopen
-X-Permitted-Cross-Domain-Policies: none
-X-XSS-Protection: 1; mode=block
-Expires: Sat, 29 Jun 2019 09:58:41 GMT
-Cache-Control: max-age=2592000
-X-Content-Type-Options: nosniff, nosniff

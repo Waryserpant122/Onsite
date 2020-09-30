@@ -1,5 +1,0 @@
-raise an alignment fault error even if the flag is not set.  The default state for ErrorMode is to set all flags to 0.  Defined values for this flag are are:
-Fail_Critical_Errors - If this flag is set, the operating system does not display the critical-error-handler message box when such an error occurs. Instead, the operating system sends the error to the calling process.
-No_Alignment_Fault_Except - (RISC only) If this flag is set, the operating system automatically fixes memory alignment faults and makes them invisible to the application. It does this for the calling process and any descendant processes.  This flag has no effect on x86 processors.
-No_GP_Fault_Error_Box - If this flag is set, the operating system does not display the general-protection-fault message box when such an error occurs. This flag should only be set by debugging applications that handle general protection (GP) faults themselves via an appropriate exception handler.
-No_Open_File_Error_Box - If this flag is set, the operating system does not display a message box when it fails to find a file.  Instead, the error is returned to the calling process.  Note, this flag is currently ignored.

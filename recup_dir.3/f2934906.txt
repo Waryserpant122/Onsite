@@ -1,6 +1,0 @@
-ould be used when its appropriate to let the user decide if action is needed. 
-4 - Minor should be used to indicate action is needed, but the situation is not serious at this time. 
-5 - Major should be used to indicate action is needed NOW. 
-6 - Critical should be used to indicate action is needed NOW and the scope is broad (perhaps an imminent outage to a critical resource will result). 
-7 - Fatal/NonRecoverable should be used to indicate an error occurred, but it's too late to take remedial action. 
-2 and 0 - Information and Unknown (respectively) follow common usage. Literally, the Indication is purely informational or its severity is simply unknown.

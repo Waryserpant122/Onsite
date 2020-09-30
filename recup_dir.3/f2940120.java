@@ -1,2 +1,0 @@
-l records in the Log. The latter approach provides a great deal more semantic definition and management control over the individual entries in a MessageLog, than do the record manipulation methods of the Log class. It is recommended that the data in individual Log entries be modeled using subclasses of LogRecord, to avoid the creation of LogRecords with one property (such as RecordData) without semantics. 
-Definitional formats for LogRecords could be specified by establishing a naming convention for the RecordID and Message Timestamp key properties.

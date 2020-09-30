@@ -1,2 +1,0 @@
-present defined code pages. If the operating system does not use an ANSI code page, this member will be set to 0. The CodeSet string can use up to six characters to define the code page value.
-Example: 1255.

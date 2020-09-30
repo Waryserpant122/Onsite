@@ -1,4 +1,0 @@
-t-Modified, Etag, Content-Type
-vary: If-None-Match, If-Modified-Since
-access-control-allow-origin: https://www.hackerrank.com
-X-Firefox-Spdy: h2

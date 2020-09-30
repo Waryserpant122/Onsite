@@ -1,5 +1,0 @@
-ow-origin: *
-accept-ranges: bytes
-date: Mon, 24 Jun 2019 09:57:26 GMT
-strict-transport-security: max-age=15768000 ; preload
-X-Firefox-Spdy: h2

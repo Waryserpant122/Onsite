@@ -1,2 +1,0 @@
-ther hardware data compression is enabled or disabled.
-Values: 1 (true) or 0 (false). If true, hardware data compression is enabled.

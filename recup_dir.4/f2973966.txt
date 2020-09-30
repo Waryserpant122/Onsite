@@ -1,3 +1,0 @@
-administered. 
-0xD002 - 'Detached': This value is reserved for Windows. This value indicates a virtual disk that is visible to the host system but does not have a disk device object. 
-0xD003 - 'Incomplete': describes a virtual disk which does not have enough redundancy remaining to successfully repair or regenerate its data.

@@ -1,4 +1,0 @@
--Select': This physical disk should only be used for data storage. 
-2 - 'Manual-Select': This physical disk should only be used if manually selected by an administrator at the time of virtual disk creation. A manual-select disk is selected using the PhysicalDisksToUse parameter to CreateVirtualDisk. 
-3 - 'Hot Spare': This physical disk should be used as a hot spare. 
-4 - 'Retired': This physical disk should be retired from use. At a minimum, no new allocations should go to this disk. If the virtual disks that reside on this disk are repaired, the data should be moved to another active physical disk.

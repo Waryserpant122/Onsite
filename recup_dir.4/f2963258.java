@@ -1,2 +1,0 @@
-ows each instance to define a user-friendly name IN ADDITION TO its key properties/identity data, and description information. 
-Note that ManagedSystemElement's Name property is also defined as a user-friendly name. But, it is often subclassed to be a Key. It is not reasonable that the same property can convey both identity and a user friendly name, without inconsistencies. Where Name exists and is not a Key (such as for instances of LogicalDevice), the same information MAY be present in both the Name and ElementName properties.

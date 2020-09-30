@@ -1,3 +1,0 @@
-70c8dd
-
-<wns><ver>1</ver><client><name>WPN</name><ver>1.0</ver></client><options><pwrmode mode="0"></pwrmode></options><lastMsgId>0</lastMsgId></wns>

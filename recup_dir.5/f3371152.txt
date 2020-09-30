@@ -1,7 +1,0 @@
-type: image/gif
-x-content-type-options: nosniff
-server: cafe
-content-length: 42
-x-xss-protection: 0
-alt-svc: quic=":443"; ma=2592000; v="46,44,43,39"
-X-Firefox-Spdy: h2

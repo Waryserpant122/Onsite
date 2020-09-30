@@ -1,8 +1,0 @@
-9:05:08 GMT
-cache-control: private, max-age=86400
-content-encoding: br
-server: ESF
-x-xss-protection: 0
-x-frame-options: SAMEORIGIN
-alt-svc: quic=":443"; ma=2592000; v="46,44,43,39"
-X-Firefox-Spdy: h2

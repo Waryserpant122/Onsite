@@ -1,2 +1,0 @@
-ype property indicates the characteristics of the memory resource on the Win32 system.
-Example: ReadWrite.

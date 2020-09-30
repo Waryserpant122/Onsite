@@ -1,6 +1,0 @@
-microsoft edge	*|edege	8824
-*|microsoft edge	*|egde	6733
-*|microsoft edge	*|e'd	8762
-*|microsoft edge	*|ege	8308
-*|microsoft edge	*|ie	5452
-*|microsoft excel 2010	*|

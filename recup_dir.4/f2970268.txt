@@ -1,2 +1,0 @@
-ber. The receiver can then verify the validity of the data by counting the bits that are set. Odd parity, sets the parity bit so that the count of bits set is an odd number. Mark parity always leaves the parity bit set to 1, while space parity always leaves the parity bit set to 0.
-Example: Even

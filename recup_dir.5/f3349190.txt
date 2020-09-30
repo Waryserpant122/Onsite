@@ -1,3 +1,0 @@
-jA2NG76s5w.0
-
-<wns-response><ver>1</ver><nonce>3008816011694227748401055705</nonce></wns-response>

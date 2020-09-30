@@ -1,6 +1,0 @@
-**********************
-
-#define HBA_REGISTRY_BINDING_VERSION        (1)
-#define HBA_REGISTRY_BINDING_RELATIVE_PATH  L"System\\CurrentControlSet\\Control\\Storage\\FC"
-#define HBA_REGISTRY_BINDING_KEY            L"Bindings"
-

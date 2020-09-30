@@ -1,3 +1,0 @@
- a mandatory profile.
-0x00000008 - Indicate the profile is a corrupted profile, and not in use, user or administrator must fix 
-             the corruption in order to use this profile again.

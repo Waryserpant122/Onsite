@@ -1,4 +1,0 @@
-persisted states of pagefiles. The Win32_PageFile represents the file used for handling virtual memory file swapping on a Win32 system.
-Example: C:\PAGEFILE.SYS 
-
-Note:  The SE_CREATE_PAGEFILE privilege is required for Windows XP

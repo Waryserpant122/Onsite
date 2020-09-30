@@ -1,2 +1,0 @@
-n=com_content&view=article&id=3&Itemid=16", "zip": "VC\\d{4}", "zipex": "VC0100,VC0110,VC0400"},
-  "data/VE": {"fmt": "%N%n%O%n%A%n%C %Z, %S", "id": "data/VE", "key": "VE", "lang": "es", "languages": "es", "name": "VENEZUELA", "posturl": "http://www.ipostel.gob.ve/index.php/oficinas-postales", "require": "ACS", "state_name_type": "state", "sub_isoids": "Z~B~C~D~E~F~G~H~Y~W~A~I~J~K~L~M~N~O~P~R~S~T~X~U~V", "sub_keys": "Amazonas~Anzoátegui~Apure~Aragua~Barinas~Bolívar~Carabobo~Cojedes~Delta Amacuro~Dependencias Federales~Distrito Federal~Falc

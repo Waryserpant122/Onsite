@@ -1,2 +1,0 @@
-sion buffer is more than three-quarters full, and RTS is turned on when the buffer is less than one-half full.
-Toggle - RTS is turned on if there is any data buffered for transmission.
