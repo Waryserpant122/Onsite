@@ -1,2 +1,0 @@
-ted for use with this page file. This value corresponds to the range established in Win32_PageFileSetting under the InitialSize and MaximumSize properties, set at system startup.
-Example: 178MB

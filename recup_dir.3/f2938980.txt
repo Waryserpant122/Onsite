@@ -1,6 +1,0 @@
-rinted.
-DoCompleteFirst - Start jobs that are finished spooling first.
-WorkOffline - Queue print jobs when printer is not available.
-EnableBIDI - Enable bi-directional printing.
-RawOnly - Allow only raw data type jobs to be spooled.
-Published - Indicates whether the printer is published in the network directory service.

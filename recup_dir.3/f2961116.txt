@@ -1,2 +1,0 @@
- or not meaningfully interpretable by a CIM client application. 
-1 - Other. The format is defined by the value of the OtherErrorSourceFormat property.2 - CIMObjectPath. A CIM Object Path as defined in the CIM Infrastructure specification. Note: CIM 2.5 and earlier used the term object names.

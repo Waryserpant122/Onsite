@@ -1,4 +1,0 @@
-01960,06101"},
-  "data/TT": {"id": "data/TT", "key": "TT", "name": "TRINIDAD AND TOBAGO"},
-  "data/TV": {"fmt": "%N%n%O%n%A%n%C%n%S", "id": "data/TV", "key": "TV", "lang": "tyv", "languages": "tyv", "name": "TUVALU", "state_name_type": "island", "sub_isoids": "FUN~NMG~NMA~~NIT~NUI~NKF~NKL~VAI", "sub_keys": "Funafuti~Nanumanga~Nanumea~Niulakita~Niutao~Nui~Nukufetau~Nukulaelae~Vaitupu", "upper": "ACS"},
-  "data/TW": {"fmt": "%Z%n%S%C%n%A%n%O%n%N", "id": "data/TW", "key": "TW", "lang": "zh-Hant", "languages": "zh-Hant", "lfmt": "%N%n%O%n%A%n%C, %S %Z", "name": "TAIWAN", "posturl": "http://www.post.gov.tw/post/internet/f_searchzone/index.jsp?ID=190102", "require": "ACSZ", "state_name_type": "county", "sub_isoids": "TXG~TPE~TTT~TNN~ILA~HUA~~NAN~PIF~MIA~TAO~KHH~KEE~~YUN~NWT~HSZ~HSQ~CYI~CYQ~CHA~PEN", "sub_keys": "

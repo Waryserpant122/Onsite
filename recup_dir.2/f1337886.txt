@@ -1,2 +1,0 @@
-bleSwitch="MapOpenFlag|InSetUp" Point_X="0.721094" Point_Y="0.340278"/>
-<SwitchOperation Description="

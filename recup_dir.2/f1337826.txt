@@ -1,5 +1,0 @@
-le="1">
-<SwitchOperation Description="Free view" EnableSwitch="Eye" DisableSwitch="XBtn|MapOpenFlag|InSetUp"/>
-<SwitchOperation Description="Free view" EnableSwitch="OpenEye" DisableSwitch="XBtn|MapOpenFlag|InSetUp"/>
-</KeyMappingEx>
-<KeyMappingEx ItemName="Slide with Scroll Wheel" Point_X="0.644531" Point_Y="0.495000" Description="

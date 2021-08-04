@@ -1,2 +1,0 @@
-put device used to point to and select  regions on the display of a Win32 computer system. Any device used to manipulate a pointer, or point to the display on a Win32 computer system is a member of this class.
-Example: A mouse, touch pad, or stylus/tablet.

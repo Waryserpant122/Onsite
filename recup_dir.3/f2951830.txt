@@ -1,2 +1,0 @@
-ns the name of the source files to be moved or copied.
- This property may be left blank. See the description of the SourceFolder property. This field may contain wildcard characters (* and ?).

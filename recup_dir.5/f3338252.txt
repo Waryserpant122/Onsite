@@ -1,3 +1,0 @@
-EDxQsgvRF5N7tyuSSCyH0b8dIXYWbkoCL0tqQ
-access-control-expose-headers: X-FB-CEC-Video-Limit
-X-Firefox-Spdy: h2

@@ -1,3 +1,0 @@
-jzSEek79xOxaV1tA.1
-
-<connect-response><ver>1</ver><session><timeout>4000</timeout></session></connect-response>

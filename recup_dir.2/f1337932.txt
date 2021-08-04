@@ -1,2 +1,0 @@
-" DisableSwitch="MapOpenFlag" Point_X="0.502344" Point_Y="0.441667" TexturePosition="Pickup"/>
-<SwitchOperation Description="

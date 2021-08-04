@@ -1,6 +1,0 @@
-     ),
-      "address-line3": new RegExp(
-        "address[_-]?line(3|three)|address3|addr3" +
-        "|addrline3|address_3" + // Extra rules by Firefox
-        "|indirizzo3" + // it-IT
-        "|

@@ -1,3 +1,0 @@
-vilege is a subclass defining static renderings of authorization policy rules. The association of Roles and Identities to AuthorizedPrivilege is accomplished using the AuthorizedSubject relationship. The entities that are protected are defined using the AuthorizedTarget relationship. 
-
-Note that this class and its AuthorizedSubject/Target associations provide a short-hand, static mechanism to represent authorization policies.

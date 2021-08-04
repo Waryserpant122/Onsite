@@ -1,3 +1,0 @@
-="1" NotifyController="1" TexturePosition="GrenadeArrowUp"/>
-</KeyMappingEx>
-<KeyMappingEx ItemName="X" Point_X="0.686719" Point_Y="0.883333" Description="

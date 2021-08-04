@@ -1,2 +1,0 @@
-, "zip": "\\d{4,5}", "zipex": "6090,34413"},
-  "data/UA": {"fmt": "%N%n%O%n%A%n%C%n%S%n%Z", "id": "data/UA", "key": "UA", "lang": "uk", "languages": "uk", "lfmt": "%N%n%O%n%A%n%C%n%S%n%Z", "name": "UKRAINE", "posturl": "http://services.ukrposhta.com/postindex_new/", "require": "ACSZ", "state_name_type": "oblast", "sub_isoids": "43~05~07~12~14~18~21~23~26~30~32~35~09~46~48~51~53~56~40~59~61~63~65~68~71~77~74", "sub_keys": "

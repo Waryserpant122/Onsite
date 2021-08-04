@@ -1,8 +1,0 @@
-": "10000"},
-  "data/YE": {"id": "data/YE", "key": "YE", "name": "YEMEN"},
-  "data/YT": {"fmt": "%O%n%N%n%A%n%Z %C %X", "id": "data/YT", "key": "YT", "name": "MAYOTTE", "require": "ACZ", "upper": "ACX", "zip": "976\\d{2}", "zipex": "97600"},
-  "data/ZA": {"fmt": "%N%n%O%n%A%n%D%n%C%n%Z", "id": "data/ZA", "key": "ZA", "name": "SOUTH AFRICA", "posturl": "https://www.postoffice.co.za/Questions/postalcode.html", "require": "ACZ", "zip": "\\d{4}", "zipex": "0083,1451,0001"},
-  "data/ZM": {"fmt": "%N%n%O%n%A%n%Z %C", "id": "data/ZM", "key": "ZM", "name": "ZAMBIA", "zip": "\\d{5}", "zipex": "50100,50101"},
-  "data/ZW": {"id": "data/ZW", "key": "ZW", "name": "ZIMBABWE"},
-};
-PK

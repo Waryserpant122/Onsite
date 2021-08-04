@@ -1,2 +1,0 @@
-p|XBtn" DisableSwitch="MapOpenFlag" Point_X="0.467187" Point_Y="0.268056"/>
-<SwitchOperation Description="

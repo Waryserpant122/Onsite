@@ -1,2 +1,0 @@
-a password is required on the Win32 user account.
-Values: TRUE or FALSE. If TRUE, a password is required.

@@ -1,4 +1,0 @@
-OM NAV INT STA NID OUR IND NOI"
-Pragma: no-cache
-Cache-Control: no-cache
-X-Server-Name: dt08.303net.pvt

@@ -1,4 +1,0 @@
-
-x-fb-edge-debug: kBk-gJVlrDtT_9v38Ms9h7TPjOQTZLH37Irk_VTJgUyiEJDnKqcxx2ja-Sz7Y31uHKHeJbi8SeNZMSFWzIZb5w
-access-control-expose-headers: X-FB-CEC-Video-Limit
-X-Firefox-Spdy: h2

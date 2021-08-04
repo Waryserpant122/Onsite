@@ -1,2 +1,0 @@
-led but in a restricted mode. The element's behavior is similar to the Enabled state, but it only processes a restricted set of commands. All other requests are queued. 
-Starting (10) indicates that the element is in the process of going to an Enabled state. New requests are queued.

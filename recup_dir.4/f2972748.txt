@@ -1,4 +1,0 @@
-d': The element is not present. 
-0xD00A - 'Off': The element has not been turned on. 
-0xD00B - 'No Access Allowed': No access is allowed to the element. 
-0xD00C - 'Not Reported' 

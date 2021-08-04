@@ -1,6 +1,0 @@
- x-goog-meta-frames, Content-Length, Range, X-Requested-With
-cdn-requestid: 57aea6769a206eedc14ebad89d455520
-cdn-cache: HIT
-content-encoding: br
-server: BunnyCDN-LA1-508
-X-Firefox-Spdy: h2

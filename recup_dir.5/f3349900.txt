@@ -1,3 +1,0 @@
-
-
-<challenge><appId>PROD0120PW!CCV9@</appId><response>a33b7d75246a405b309d1b0eac8ab2f7</response></challenge>

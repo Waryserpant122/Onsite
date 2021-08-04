@@ -1,2 +1,0 @@
-ame for a network resource. For a current or persistent connection, RemoteName contains the network name associated with the name of the value in the LocalName property. The name in RemoteName must follow the network provider's naming conventions. 
-Example: \\NTRELEASE.

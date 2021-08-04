@@ -1,1 +1,0 @@
- physical memory usage of the operating system by periodically combining pages in physical memory that have identical content.  

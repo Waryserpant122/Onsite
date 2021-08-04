@@ -1,4 +1,0 @@
-tion Description="GrenadeArrowUp" EnablePositionSwitch="GrenadeArrowUp:0.337500,0.884750,0.384375,0.916667" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" HideTips="1" TexturePosition="GrenadeArrowUp"/>
-<SwitchOperation Description="GrenadeArrowUp" EnablePositionSwitch="GrenadeArrowUp:0.337500,0.202847,0.384375,0.884750" DisableSwitch="XBtn|MapOpenFlag|InSetUp|YouGood" HideTips="1" NotifyController="1" TexturePosition="GrenadeArrowUp"/>
-</KeyMappingEx>
-<KeyMappingEx ItemName="X" Point_X="0.634375" Point_Y="0.887500" Description="

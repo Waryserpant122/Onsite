@@ -1,3 +1,0 @@
-ed NOW and the scope is broad (perhaps an imminent outage to a critical resource will result). 
-7 - Fatal/NonRecoverable should be used to indicate an error occurred, but it's too late to take remedial action. 
-2 and 0 - Information and Unknown (respectively) follow common usage. Literally, the Error is purely informational or its severity is simply unknown.

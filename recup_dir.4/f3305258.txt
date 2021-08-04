@@ -1,8 +1,0 @@
-ccess-Control-Allow-Credentials: true
-Timing-Allow-Origin: *
-Access-Control-Expose-Headers: Date
-Accept-Ranges: bytes
-Vary: Accept-Encoding
-Cache-Control: max-age=2592000
-Date: Mon, 17 Jun 2019 12:03:49 GMT
-Connection: keep-alive

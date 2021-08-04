@@ -1,4 +1,0 @@
-rrently unreachable. 
-10 - 'Stopped' and 14 - 'Aborted' are similar, although the former implies a clean and orderly stop, while the latter implies an abrupt stop where the state and configuration of the subsystem might need to be updated. 
-15 - 'Dormant': indicates that the subsystem is inactive. 
-16 - 'Supporting Entity in Error': indicates that this subsystem might be OK, but that another element, on which it is dependent, is in error. 

@@ -1,3 +1,0 @@
-his parameter controls the asynchronous behavior the method will follow.
-If TRUE, this method will make use of the CreatedStorageJob out parameter when the request is taking a long time to service. If a storage job has been created to track the operation, this method will return 4096 - 'Method Parameters Checked - Job Started'. Note, even if RunAsJob is TRUE, the method can still return a result if it has finished in sufficient time. 
-If FALSE or NULL, this method will follow default WMI asynchronous behavior as determined by the client's method for invocation (i.e. synchronous unless requested otherwise).

@@ -1,5 +1,0 @@
-ficially designated as \'role combinations\', multiple roles may be specified using the form: 
-<RoleName>[&&<RoleName>]* 
-where the individual role names appear in alphabetical order (according to the collating sequence for UCS-2). Implementations may treat PolicyRoles values that are specified as \'role combinations\' as simple strings. 
-
-This property is deprecated in lieu of the use of an association, CIM_PolicySetInRoleCollection. The latter is a more explicit and less error-prone approach to modeling that a PolicySet has one or more PolicyRoles.

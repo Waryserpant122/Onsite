@@ -1,2 +1,0 @@
-or kernel or system-level drivers, StartName contains the driver object name (that is, \FileSystem\Rdr or \Driver\Xns) that the input and output (I/O) system uses to load the device driver. If NULL is specified, the driver runs with a default object name created by the I/O system based on the service name.
-Example: DWDOM\Admin.

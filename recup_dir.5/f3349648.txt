@@ -1,3 +1,0 @@
--CV: XypwTElKWUuA/Idb7oFArA.0
-
-<connect-response><ver>1</ver><session><id>Mtp1.535/827328.7f253864-17df-7747-784a-399e186a853c</id><timeout>2000</timeout></session><qostest>false</qostest></connect-response>

@@ -1,8 +1,0 @@
-d with this flag will replace 
-             the existing profile. If the new owner already has a profile, calling this method 
-             without this flag will fail and return HRESULT_FROM_WIN32(ERROR_ALREADY_EXISTS). 
-0x00000002 - If the new owner already has a profile, and ReplaceNewOwnerProfile is specified, then 
-             specify this flag will delete the replaced profile. Without this flag, the replaced 
-             profile is left alone, no user will use that profile automatically, it will not be 
-             enumerated either. If ReplaceNewOwnerProfile is not specified, this flag will have 
-             no effect.

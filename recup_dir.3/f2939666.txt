@@ -1,3 +1,0 @@
-device Win32 printer.  This member is used by display drivers and not by printer drivers.
-Example: 8.  
- This property has been deprecated because it is not applicable to printers.  There is no replacement value.
